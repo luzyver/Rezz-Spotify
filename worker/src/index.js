@@ -336,31 +336,31 @@ async function updateMultipleGitHubFiles(repo, files, message, token) {
 // Helper function to generate varied commit messages
 function getRandomCommitMessage(newTracks, liveCount) {
 	const messages = [
-		`🎵 Update Spotify data`,
-		`🎧 Sync music activity`,
-		`✨ Fresh Spotify update`,
-		`📊 Update listening data`,
-		`🎶 Sync tracks and live status`,
-		`💿 Spotify sync complete`,
-		`🔄 Music data refresh`,
-		`📻 Update play history and status`,
-		`🎼 Sync Spotify activity`,
-		`💫 Latest music update`
+		`🎵 Update Spotify data [skip ci]`,
+		`🎧 Sync music activity [skip ci]`,
+		`✨ Fresh Spotify update [skip ci]`,
+		`📊 Update listening data [skip ci]`,
+		`🎶 Sync tracks and live status [skip ci]`,
+		`💿 Spotify sync complete [skip ci]`,
+		`🔄 Music data refresh [skip ci]`,
+		`📻 Update play history and status [skip ci]`,
+		`🎼 Sync Spotify activity [skip ci]`,
+		`💫 Latest music update [skip ci]`
 	];
 
 	// Add dynamic messages based on activity
 	if (newTracks > 0) {
 		messages.push(
-			`🎵 Add ${newTracks} new track${newTracks !== 1 ? 's' : ''}`,
-			`📝 ${newTracks} track${newTracks !== 1 ? 's' : ''} added to history`,
-			`🎧 Logged ${newTracks} new track${newTracks !== 1 ? 's' : ''}`
+			`🎵 Add ${newTracks} new track${newTracks !== 1 ? 's' : ''} [skip ci]`,
+			`📝 ${newTracks} track${newTracks !== 1 ? 's' : ''} added to history [skip ci]`,
+			`🎧 Logged ${newTracks} new track${newTracks !== 1 ? 's' : ''} [skip ci]`
 		);
 	}
 
 	if (liveCount > 0) {
 		messages.push(
-			`🔴 ${liveCount} user${liveCount !== 1 ? 's' : ''} listening now`,
-			`▶️ Live: ${liveCount} active listener${liveCount !== 1 ? 's' : ''}`
+			`🔴 ${liveCount} user${liveCount !== 1 ? 's' : ''} listening now [skip ci]`,
+			`▶️ Live: ${liveCount} active listener${liveCount !== 1 ? 's' : ''} [skip ci]`
 		);
 	}
 
