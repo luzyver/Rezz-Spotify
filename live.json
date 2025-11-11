@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762896656684,
+      "timestamp": 1762897256905,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:1hwX5UMu9aUV44INM8GdPv",
-        "name": "retire (final)",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731b278d8f47d499341d552719",
+        "uri": "spotify:track:7H0ya83CMmgFcOhw0UB6ow",
+        "name": "Space Song",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739b7190e673e46271b2754aab",
         "album": {
-          "uri": "spotify:album:3fCTiizAiiH3S9cBn5Gad6",
-          "name": "hurry up mixtape"
+          "uri": "spotify:album:194CqC2Zi0kUFEPWedb3qr",
+          "name": "Depression Cherry"
         },
         "artist": {
-          "uri": "spotify:artist:6nFwmnSA3mMtoePROXi5LT",
-          "name": "Alvedon"
+          "uri": "spotify:artist:56ZTgzPBDge0OvCGgMO3OY",
+          "name": "Beach House"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
