@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762889457249,
+      "timestamp": 1762890057058,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:7DcJ6fEBb7BaKuYKTwiDxK",
-        "name": "Homage",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27396bc7d5bd0b6488de76598ab",
+        "uri": "spotify:track:2uIX8YMNjGMD7441kqyyNU",
+        "name": "ocean eyes",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2732cafcdd985630d72594ecc49",
         "album": {
-          "uri": "spotify:album:6O9YDn12I4WQxUBQE9tpnN",
-          "name": "Skiptracing"
+          "uri": "spotify:album:2msN7XBgV3JCjQ7Tq3t7i9",
+          "name": "Ocean Eyes"
         },
         "artist": {
-          "uri": "spotify:artist:5J81VungUjSVHxlPpTI9KG",
-          "name": "Mild High Club"
+          "uri": "spotify:artist:6qqNVTkY8uBg9cP3Jd7DAH",
+          "name": "Billie Eilish"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
