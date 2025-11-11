@@ -496,6 +496,38 @@ function processCurrentlyPlaying(nowPlaying, userProfile) {
 // MAIN HANDLER
 // ============================================================================
 
+async function handleClearHistory(env) {
+	console.log('🗑️  Clearing history (scheduled)...');
+
+	try {
+		// Validate environment variables
+		if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
+		if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
+
+		const githubToken = env.GITHUB_TOKEN;
+		const githubRepo = env.GITHUB_REPO;
+
+		// Clear history by setting it to empty array
+		const emptyHistory = [];
+		const commitMsg = '🗑️ Clear history (daily reset) [skip ci]';
+
+		await updateMultipleGitHubFiles(
+			githubRepo,
+			[
+				{ path: 'history.json', content: emptyHistory }
+			],
+			commitMsg,
+			githubToken
+		);
+
+		console.log(`✅ History cleared successfully!`);
+		return new Response('Success: History cleared', { status: 200 });
+	} catch (error) {
+		console.error('❌ Error clearing history:', error);
+		return new Response(`Error: ${error.message}`, { status: 500 });
+	}
+}
+
 async function handleScheduled(env) {
 	console.log('🎵 Fetching Spotify data...');
 
@@ -641,7 +673,19 @@ async function handleScheduled(env) {
 export default {
 	// Scheduled event (cron trigger)
 	async scheduled(event, env, ctx) {
-		ctx.waitUntil(handleScheduled(env));
+		// Get current time in UTC
+		const now = new Date();
+		const hours = now.getUTCHours();
+		const minutes = now.getUTCMinutes();
+
+		// Check if this is the clear history cron (16:59 UTC = 23:59 GMT+7)
+		if (hours === 16 && minutes === 59) {
+			console.log('🗑️  Detected clear history cron trigger');
+			ctx.waitUntil(handleClearHistory(env));
+		} else {
+			console.log('🎵 Detected sync cron trigger');
+			ctx.waitUntil(handleScheduled(env));
+		}
 	},
 
 	// HTTP request (for manual trigger)
@@ -652,7 +696,7 @@ export default {
 		// CORS headers for all responses
 		const corsHeaders = {
 			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Methods': 'GET, OPTIONS',
+			'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
 			'Access-Control-Allow-Headers': 'Content-Type',
 		};
 
@@ -664,6 +708,58 @@ export default {
 		// Manual trigger endpoint
 		if (request.method === 'GET' && pathname === '/trigger') {
 			return handleScheduled(env);
+		}
+
+		// Clear history endpoint
+		if ((request.method === 'GET' || request.method === 'POST') && pathname === '/clear-history') {
+			try {
+				console.log('🗑️  Clearing history...');
+
+				// Validate environment variables
+				if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
+				if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
+
+				const githubToken = env.GITHUB_TOKEN;
+				const githubRepo = env.GITHUB_REPO;
+
+				// Clear history by setting it to empty array
+				const emptyHistory = [];
+				const commitMsg = '🗑️ Clear history (daily reset) [skip ci]';
+
+				await updateMultipleGitHubFiles(
+					githubRepo,
+					[
+						{ path: 'history.json', content: emptyHistory }
+					],
+					commitMsg,
+					githubToken
+				);
+
+				console.log(`✅ History cleared successfully!`);
+				return new Response(JSON.stringify({
+					success: true,
+					message: 'History cleared successfully',
+					timestamp: new Date().toISOString()
+				}), {
+					status: 200,
+					headers: {
+						'Content-Type': 'application/json',
+						...corsHeaders
+					}
+				});
+			} catch (error) {
+				console.error('❌ Error clearing history:', error);
+				return new Response(JSON.stringify({
+					success: false,
+					error: error.message
+				}), {
+					status: 500,
+					headers: {
+						'Content-Type': 'application/json',
+						...corsHeaders
+					}
+				});
+			}
 		}
 
 		// API endpoint to get live.json with no caching
@@ -724,7 +820,7 @@ export default {
 			}
 		}
 
-		return new Response('Spotify Activity Worker\n\nEndpoints:\n- GET /trigger - Manual trigger\n- GET /api/live - Get live activity\n- GET /api/history - Get listening history', {
+		return new Response('Spotify Activity Worker\n\nEndpoints:\n- GET /trigger - Manual trigger\n- GET /clear-history - Clear history data\n- GET /api/live - Get live activity\n- GET /api/history - Get listening history', {
 			headers: { 'Content-Type': 'text/plain' },
 		});
 	},
