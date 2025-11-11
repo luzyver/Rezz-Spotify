@@ -276,7 +276,11 @@ const DataLoader = {
 	async loadNowPlaying() {
 		try {
 			// Fetch directly from GitHub Raw (no build delay!)
-			const response = await fetch("https://raw.githubusercontent.com/luzyver/Rezz-Spotify/refs/heads/main/live.json");
+			const url = "https://raw.githubusercontent.com/luzyver/Rezz-Spotify/refs/heads/main/live.json";
+			const response = await fetch(url, {
+				cache: 'no-cache',
+				mode: 'cors'
+			});
 			const data = await response.json();
 			const container = document.getElementById("couple");
 
@@ -310,7 +314,11 @@ const DataLoader = {
 	async loadHistory() {
 		try {
 			// Fetch directly from GitHub Raw (no build delay!)
-			const response = await fetch("https://raw.githubusercontent.com/luzyver/Rezz-Spotify/refs/heads/main/history.json");
+			const url = "https://raw.githubusercontent.com/luzyver/Rezz-Spotify/refs/heads/main/history.json";
+			const response = await fetch(url, {
+				cache: 'no-cache',
+				mode: 'cors'
+			});
 			const history = await response.json();
 
 			// Update stats
