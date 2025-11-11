@@ -11,7 +11,8 @@ const AppState = {
 	avatarImages: {},
 	currentPage: 1,
 	totalPages: 0,
-	sortedHistory: []
+	sortedHistory: [],
+	isInitialLoad: true
 };
 
 // ============================================================================
@@ -360,9 +361,12 @@ const Pagination = {
 			container.appendChild(UI.createHistoryCard(item, index));
 		});
 
-		// Update page info and scroll
+		// Update page info and scroll only if not initial load
 		UI.updatePageInfo(AppState.currentPage, AppState.totalPages);
-		Utils.scrollToElement("history");
+		if (!AppState.isInitialLoad) {
+			Utils.scrollToElement("history");
+		}
+		AppState.isInitialLoad = false;
 	},
 
 	/**
@@ -401,7 +405,7 @@ const Pagination = {
 	 */
 	_renderPageNumbers(container) {
 		const { currentPage, totalPages } = AppState;
-		const maxVisiblePages = 5;
+		const maxVisiblePages = 3;
 
 		let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
 		let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
