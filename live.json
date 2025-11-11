@@ -1,3 +1,30 @@
 {
-  "friends": []
+  "friends": [
+    {
+      "timestamp": 1762867257198,
+      "user": {
+        "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+        "name": "Rezz",
+        "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
+      },
+      "track": {
+        "uri": "spotify:track:1oAoTGQxMu5lrvpEKlczSg",
+        "name": "Wish You",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ca23c9153ff7f3b5d563dff3",
+        "album": {
+          "uri": "spotify:album:5jhaywps3SnnIIixJQsPHN",
+          "name": "Pertaruhan Cinta"
+        },
+        "artist": {
+          "uri": "spotify:artist:2l8I5pWUnfF7bMK1z6EJRk",
+          "name": "JKT48"
+        },
+        "context": {
+          "uri": "spotify:album:5jhaywps3SnnIIixJQsPHN",
+          "name": "album",
+          "index": 0
+        }
+      }
+    }
+  ]
 }
