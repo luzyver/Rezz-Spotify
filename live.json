@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762900856785,
+      "timestamp": 1762901456620,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4hm33jVolpa22nzhlY72jD",
-        "name": "Intermission",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736ad1cdd4785d829027fa61ba",
+        "uri": "spotify:track:6cx5CvFhqN19efStehJqoW",
+        "name": "Valentine",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27348341e864d4b4881f56f01b4",
         "album": {
-          "uri": "spotify:album:2ljZoj8pjImMAznXAkeJne",
-          "name": "Taking My Time to Be"
+          "uri": "spotify:album:0Ydm84ftyiWRGOIFkdl30L",
+          "name": "Everything I Know About Love"
         },
         "artist": {
-          "uri": "spotify:artist:1AbJ2cmwK400LSvdvBL5Jc",
-          "name": "Strawberry Guy"
+          "uri": "spotify:artist:7gW0r5CkdEUMm42w9XpyZO",
+          "name": "Laufey"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
