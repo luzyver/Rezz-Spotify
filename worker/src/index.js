@@ -625,11 +625,85 @@ export default {
 
 	// HTTP request (for manual trigger)
 	async fetch(request, env, ctx) {
-		if (request.method === 'GET' && new URL(request.url).pathname === '/trigger') {
+		const url = new URL(request.url);
+		const pathname = url.pathname;
+
+		// CORS headers for all responses
+		const corsHeaders = {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET, OPTIONS',
+			'Access-Control-Allow-Headers': 'Content-Type',
+		};
+
+		// Handle OPTIONS for CORS preflight
+		if (request.method === 'OPTIONS') {
+			return new Response(null, { headers: corsHeaders });
+		}
+
+		// Manual trigger endpoint
+		if (request.method === 'GET' && pathname === '/trigger') {
 			return handleScheduled(env);
 		}
 
-		return new Response('Spotify Activity Worker\n\nEndpoints:\n- GET /trigger - Manual trigger', {
+		// API endpoint to get live.json with no caching
+		if (request.method === 'GET' && pathname === '/api/live') {
+			try {
+				const { content } = await getGitHubFile(
+					env.GITHUB_REPO,
+					'live.json',
+					env.GITHUB_TOKEN
+				);
+
+				return new Response(JSON.stringify(content || { friends: [] }), {
+					headers: {
+						'Content-Type': 'application/json',
+						'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+						'Pragma': 'no-cache',
+						'Expires': '0',
+						...corsHeaders
+					}
+				});
+			} catch (error) {
+				return new Response(JSON.stringify({ friends: [], error: error.message }), {
+					status: 500,
+					headers: {
+						'Content-Type': 'application/json',
+						...corsHeaders
+					}
+				});
+			}
+		}
+
+		// API endpoint to get history.json with no caching
+		if (request.method === 'GET' && pathname === '/api/history') {
+			try {
+				const { content } = await getGitHubFile(
+					env.GITHUB_REPO,
+					'history.json',
+					env.GITHUB_TOKEN
+				);
+
+				return new Response(JSON.stringify(content || []), {
+					headers: {
+						'Content-Type': 'application/json',
+						'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+						'Pragma': 'no-cache',
+						'Expires': '0',
+						...corsHeaders
+					}
+				});
+			} catch (error) {
+				return new Response(JSON.stringify({ error: error.message }), {
+					status: 500,
+					headers: {
+						'Content-Type': 'application/json',
+						...corsHeaders
+					}
+				});
+			}
+		}
+
+		return new Response('Spotify Activity Worker\n\nEndpoints:\n- GET /trigger - Manual trigger\n- GET /api/live - Get live activity\n- GET /api/history - Get listening history', {
 			headers: { 'Content-Type': 'text/plain' },
 		});
 	},

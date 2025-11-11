@@ -275,9 +275,8 @@ const DataLoader = {
 	 */
 	async loadNowPlaying() {
 		try {
-			// Fetch with cache busting to ensure fresh data
-			const timestamp = new Date().getTime();
-			const url = `https://cdn.jsdelivr.net/gh/luzyver/Rezz-Spotify@main/live.json?t=${timestamp}`;
+			// Fetch from Worker API for real-time data
+			const url = 'https://worker-spotify.luzyver.workers.dev/api/live';
 			const response = await fetch(url, {
 				cache: 'no-cache',
 				mode: 'cors'
@@ -314,9 +313,8 @@ const DataLoader = {
 	 */
 	async loadHistory() {
 		try {
-			// Fetch with cache busting to ensure fresh data
-			const timestamp = new Date().getTime();
-			const url = `https://cdn.jsdelivr.net/gh/luzyver/Rezz-Spotify@main/history.json?t=${timestamp}`;
+			// Fetch from Worker API for real-time data
+			const url = 'https://worker-spotify.luzyver.workers.dev/api/history';
 			const response = await fetch(url, {
 				cache: 'no-cache',
 				mode: 'cors'
