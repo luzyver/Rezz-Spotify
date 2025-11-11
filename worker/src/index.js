@@ -202,9 +202,232 @@ async function updateGitHubFile(repo, path, content, message, sha, token) {
 	return await response.json();
 }
 
+async function updateMultipleGitHubFiles(repo, files, message, token) {
+	// Get the latest commit SHA
+	const branchResponse = await fetch(
+		`https://api.github.com/repos/${repo}/git/refs/heads/main`,
+		{
+			headers: {
+				Authorization: `Bearer ${token}`,
+				Accept: 'application/vnd.github.v3+json',
+				'User-Agent': 'Rezz-Spotify-Worker/1.0',
+			},
+		}
+	);
+
+	if (!branchResponse.ok) {
+		throw new Error(`Failed to get branch: ${branchResponse.statusText}`);
+	}
+
+	const branchData = await branchResponse.json();
+	const latestCommitSha = branchData.object.sha;
+
+	// Create blobs for each file
+	const blobs = await Promise.all(
+		files.map(async (file) => {
+			const blobResponse = await fetch(
+				`https://api.github.com/repos/${repo}/git/blobs`,
+				{
+					method: 'POST',
+					headers: {
+						Authorization: `Bearer ${token}`,
+						Accept: 'application/vnd.github.v3+json',
+						'Content-Type': 'application/json',
+						'User-Agent': 'Rezz-Spotify-Worker/1.0',
+					},
+					body: JSON.stringify({
+						content: utf8ToBase64(JSON.stringify(file.content, null, 2)),
+						encoding: 'base64',
+					}),
+				}
+			);
+
+			if (!blobResponse.ok) {
+				throw new Error(`Failed to create blob: ${blobResponse.statusText}`);
+			}
+
+			const blobData = await blobResponse.json();
+			return {
+				path: file.path,
+				mode: '100644',
+				type: 'blob',
+				sha: blobData.sha,
+			};
+		})
+	);
+
+	// Create a tree
+	const treeResponse = await fetch(
+		`https://api.github.com/repos/${repo}/git/trees`,
+		{
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+				Accept: 'application/vnd.github.v3+json',
+				'Content-Type': 'application/json',
+				'User-Agent': 'Rezz-Spotify-Worker/1.0',
+			},
+			body: JSON.stringify({
+				base_tree: latestCommitSha,
+				tree: blobs,
+			}),
+		}
+	);
+
+	if (!treeResponse.ok) {
+		throw new Error(`Failed to create tree: ${treeResponse.statusText}`);
+	}
+
+	const treeData = await treeResponse.json();
+
+	// Create a commit
+	const commitResponse = await fetch(
+		`https://api.github.com/repos/${repo}/git/commits`,
+		{
+			method: 'POST',
+			headers: {
+				Authorization: `Bearer ${token}`,
+				Accept: 'application/vnd.github.v3+json',
+				'Content-Type': 'application/json',
+				'User-Agent': 'Rezz-Spotify-Worker/1.0',
+			},
+			body: JSON.stringify({
+				message,
+				tree: treeData.sha,
+				parents: [latestCommitSha],
+			}),
+		}
+	);
+
+	if (!commitResponse.ok) {
+		throw new Error(`Failed to create commit: ${commitResponse.statusText}`);
+	}
+
+	const commitData = await commitResponse.json();
+
+	// Update the reference
+	const updateRefResponse = await fetch(
+		`https://api.github.com/repos/${repo}/git/refs/heads/main`,
+		{
+			method: 'PATCH',
+			headers: {
+				Authorization: `Bearer ${token}`,
+				Accept: 'application/vnd.github.v3+json',
+				'Content-Type': 'application/json',
+				'User-Agent': 'Rezz-Spotify-Worker/1.0',
+			},
+			body: JSON.stringify({
+				sha: commitData.sha,
+			}),
+		}
+	);
+
+	if (!updateRefResponse.ok) {
+		throw new Error(`Failed to update ref: ${updateRefResponse.statusText}`);
+	}
+
+	return await updateRefResponse.json();
+}
+
 // ============================================================================
 // DATA PROCESSING
 // ============================================================================
+
+// Helper function to generate varied commit messages
+function getRandomCommitMessage(newTracks, liveCount) {
+	const messages = [
+		`🎵 Update Spotify data`,
+		`🎧 Sync music activity`,
+		`✨ Fresh Spotify update`,
+		`📊 Update listening data`,
+		`🎶 Sync tracks and live status`,
+		`💿 Spotify sync complete`,
+		`🔄 Music data refresh`,
+		`📻 Update play history and status`,
+		`🎼 Sync Spotify activity`,
+		`💫 Latest music update`
+	];
+
+	// Add dynamic messages based on activity
+	if (newTracks > 0) {
+		messages.push(
+			`🎵 Add ${newTracks} new track${newTracks !== 1 ? 's' : ''}`,
+			`📝 ${newTracks} track${newTracks !== 1 ? 's' : ''} added to history`,
+			`🎧 Logged ${newTracks} new track${newTracks !== 1 ? 's' : ''}`
+		);
+	}
+
+	if (liveCount > 0) {
+		messages.push(
+			`🔴 ${liveCount} user${liveCount !== 1 ? 's' : ''} listening now`,
+			`▶️ Live: ${liveCount} active listener${liveCount !== 1 ? 's' : ''}`
+		);
+	}
+
+	const randomIndex = Math.floor(Math.random() * messages.length);
+	return messages[randomIndex];
+}
+
+// Helper function to fix double-encoded UTF-8 (mojibake)
+function fixDoubleEncoding(str) {
+	if (!str) return str;
+
+	try {
+		// Strategy: Try to decode as Latin-1 bytes -> UTF-8
+		// If result is "better" (more valid UTF-8), use it
+		const decoder = new TextDecoder('utf-8');
+
+		// Convert string treating each character as Latin-1 byte
+		const bytes = [];
+		for (let i = 0; i < str.length; i++) {
+			bytes.push(str.charCodeAt(i) & 0xFF);
+		}
+
+		// Try to decode as UTF-8
+		const fixed = decoder.decode(new Uint8Array(bytes));
+
+		// Check if fixed version is "better" than original
+		// Criteria:
+		// 1. No replacement characters (�)
+		// 2. Different from original
+		// 3. Has fewer high-ASCII characters (0x80-0xFF range)
+		//    because proper UTF-8 uses multi-byte sequences for these
+
+		if (fixed === str) return str; // No change
+
+		// Count high-ASCII characters (potential mojibake indicators)
+		const countHighAscii = (s) => {
+			let count = 0;
+			for (let i = 0; i < s.length; i++) {
+				const code = s.charCodeAt(i);
+				if (code >= 0x80 && code <= 0xFF) count++;
+			}
+			return count;
+		};
+
+		const originalHighAscii = countHighAscii(str);
+		const fixedHighAscii = countHighAscii(fixed);
+
+		// If fixed version has no replacement chars and fewer high-ASCII chars, it's likely correct
+		if (!fixed.includes('\uFFFD') && fixedHighAscii < originalHighAscii) {
+			return fixed;
+		}
+	} catch (e) {
+		console.error('Error fixing encoding:', e.message);
+	}
+
+	return str;
+}
+
+// Clean existing history from double-encoding issues
+function cleanHistory(history) {
+	return history.map(entry => ({
+		...entry,
+		track: fixDoubleEncoding(entry.track),
+		artist: fixDoubleEncoding(entry.artist),
+		user: fixDoubleEncoding(entry.user)
+	}));
+}
 
 function processRecentTracks(recentTracks, userProfile, history) {
 	let addedCount = 0;
@@ -295,13 +518,18 @@ async function handleScheduled(env) {
 		console.log(`GitHub Token: ${githubToken.substring(0, 10)}...`);
 
 		// Load existing data from GitHub
-		const { content: history = [], sha: historySha } = await getGitHubFile(
+		const { content: rawHistory = [], sha: historySha } = await getGitHubFile(
 			githubRepo,
 			'history.json',
 			githubToken
 		);
 
+		// Clean history from any double-encoding issues
+		const history = cleanHistory(rawHistory);
+		console.log(`Loaded ${history.length} history entries`);
+
 		const liveFriends = [];
+		let totalNewTracks = 0;
 
 		// Process each user
 		for (const [userId, tokenData] of Object.entries(tokens)) {
@@ -329,6 +557,7 @@ async function handleScheduled(env) {
 					userProfile,
 					history
 				);
+				totalNewTracks += addedCount;
 				console.log(
 					`Recent: ${recentTracks.length} fetched, ${addedCount} new`
 				);
@@ -347,35 +576,36 @@ async function handleScheduled(env) {
 			}
 		}
 
+		// Remove duplicates (might be created after encoding fix)
+		const uniqueHistory = [];
+		const seen = new Set();
+
+		for (const entry of history) {
+			const key = `${entry.userId}|${entry.uri}|${entry.timestamp}`;
+			if (!seen.has(key)) {
+				seen.add(key);
+				uniqueHistory.push(entry);
+			}
+		}
+
+		console.log(`Removed ${history.length - uniqueHistory.length} duplicate entries`);
+
 		// Sort history
-		history.sort((a, b) => b.timestamp - a.timestamp);
+		uniqueHistory.sort((a, b) => b.timestamp - a.timestamp);
 
-		// Update GitHub files
-		await updateGitHubFile(
+		// Update both files in a single commit with varied message
+		const commitMsg = getRandomCommitMessage(totalNewTracks, liveFriends.length);
+		await updateMultipleGitHubFiles(
 			githubRepo,
-			'history.json',
-			history,
-			'Update Spotify history [skip ci]',
-			historySha,
+			[
+				{ path: 'history.json', content: uniqueHistory },
+				{ path: 'live.json', content: { friends: liveFriends } }
+			],
+			commitMsg,
 			githubToken
 		);
 
-		const { sha: liveSha } = await getGitHubFile(
-			githubRepo,
-			'live.json',
-			githubToken
-		);
-
-		await updateGitHubFile(
-			githubRepo,
-			'live.json',
-			{ friends: liveFriends },
-			'Update Spotify live data [skip ci]',
-			liveSha,
-			githubToken
-		);
-
-		console.log('✅ Update complete!');
+		console.log(`✅ Update complete! Commit: ${commitMsg}`);
 		return new Response('Success', { status: 200 });
 	} catch (error) {
 		console.error('❌ Error:', error);
