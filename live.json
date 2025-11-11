@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762852220366,
+      "timestamp": 1762852819774,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5gRDE98aV8p7lbeSPp5F6T",
-        "name": "Cukup Dewasa",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273696ff33f4f0e7eedcf0f404b",
+        "uri": "spotify:track:6ACqXjnh3C5pXTEFN5vPBE",
+        "name": "jatuh cinta lagi",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27325001f594384ffb7fb952347",
         "album": {
-          "uri": "spotify:album:2qZcpDYlJa0rwb7OVlIb1w",
-          "name": "Cukup Dewasa"
+          "uri": "spotify:album:19zDJ0Nd8Xfv7ctcQrlT5k",
+          "name": "Nadhif"
         },
         "artist": {
-          "uri": "spotify:artist:1ZaYY3Ad5D5KYahXT594BX",
-          "name": "Wijaya 80"
+          "uri": "spotify:artist:6UgERnTHmjk3qXM9x5vzyO",
+          "name": "Nadhif Basalamah"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
