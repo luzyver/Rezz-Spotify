@@ -1,3 +1,30 @@
 {
-  "friends": []
+  "friends": [
+    {
+      "timestamp": 1762863446074,
+      "user": {
+        "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+        "name": "Rezz",
+        "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
+      },
+      "track": {
+        "uri": "spotify:track:2AWbMJ1zHlXiSIzT93VeZ4",
+        "name": "Salahi Aku (Ku Jatuh Cinta Lagi)",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273beae4b70409fe021997aae00",
+        "album": {
+          "uri": "spotify:album:6m3iOCDJ6F2jRM0suelfQZ",
+          "name": "Salahi Aku (Ku Jatuh Cinta Lagi)"
+        },
+        "artist": {
+          "uri": "spotify:artist:7Ln5yumFjHCkeZ8bAzHUcp",
+          "name": "Yovie Widianto, Andi Rianto, Rony Parulian"
+        },
+        "context": {
+          "uri": "spotify:playlist:37i9dQZF1DWWhB4HOWKFQc",
+          "name": "playlist",
+          "index": 0
+        }
+      }
+    }
+  ]
 }
