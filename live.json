@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762871458173,
+      "timestamp": 1762872057197,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4XHijJfABTtUCW3Bp6KFvr",
-        "name": "Tarot",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c800b90e2092a5328f699117",
+        "uri": "spotify:track:4APF1RDRTO7OsT4wla0KZA",
+        "name": "Green Flash",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f6ce264866ac7fa1664b4db4",
         "album": {
-          "uri": "spotify:album:0y9i2KHDYh2gKfbpUNiM86",
-          "name": "Membangun & Menghancurkan"
+          "uri": "spotify:album:7MpAqxM7Mew0Vb1clDl6pJ",
+          "name": "Mahagita Vol. 2"
         },
         "artist": {
-          "uri": "spotify:artist:7Gy1PxqrgsiqWF6JNYPHeB",
-          "name": ".Feast"
+          "uri": "spotify:artist:2l8I5pWUnfF7bMK1z6EJRk",
+          "name": "JKT48"
         },
         "context": {
           "uri": "spotify:album:5jhaywps3SnnIIixJQsPHN",
