@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762847420162,
+      "timestamp": 1762848020300,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3KcfLN50nMGR4uH1T0QVxL",
-        "name": "Berakhir di Aku - Original Soundtrack From \"Home Sweet Loan\"",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734ae1c2813cfa6d10c73f4661",
+        "uri": "spotify:track:654ZF6YNWjQS2NhwR3QnX7",
+        "name": "Komang",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f662eb349994166696d578af",
         "album": {
-          "uri": "spotify:album:3idg3o6wvAgPRwg0atEsbd",
-          "name": "Berakhir di Aku (Original Soundtrack From \"Home Sweet Loan\")"
+          "uri": "spotify:album:7F3BUHlrZdaKrtSQ0LEpLm",
+          "name": "Komang"
         },
         "artist": {
-          "uri": "spotify:artist:7pFWMC2E7h8eL3SZyHRsRq",
-          "name": "Idgitaf"
+          "uri": "spotify:artist:5LcNPa8f8bRmZqELgoRFkN",
+          "name": "Raim Laode"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
