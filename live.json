@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762900257279,
+      "timestamp": 1762900856785,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:7qH9Z4dJEN0l9bidizW7fq",
-        "name": "Anchor",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273277620423172f5a151f452e3",
+        "uri": "spotify:track:4hm33jVolpa22nzhlY72jD",
+        "name": "Intermission",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736ad1cdd4785d829027fa61ba",
         "album": {
-          "uri": "spotify:album:4vGuMdwnxc6X8izbVS6MTN",
-          "name": "Bathing Beach"
+          "uri": "spotify:album:2ljZoj8pjImMAznXAkeJne",
+          "name": "Taking My Time to Be"
         },
         "artist": {
-          "uri": "spotify:artist:0rZp7G3gIH6WkyeXbrZnGi",
-          "name": "Novo Amor"
+          "uri": "spotify:artist:1AbJ2cmwK400LSvdvBL5Jc",
+          "name": "Strawberry Guy"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
