@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762896056778,
+      "timestamp": 1762896656684,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0dNCLogvNVqkVH6yaNR2ok",
-        "name": "Not Possible",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273096306a0b5bd207b08f1fb6d",
+        "uri": "spotify:track:1hwX5UMu9aUV44INM8GdPv",
+        "name": "retire (final)",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731b278d8f47d499341d552719",
         "album": {
-          "uri": "spotify:album:1sYloCL8V9CyYMLh9znPOq",
-          "name": "Not Possible"
+          "uri": "spotify:album:3fCTiizAiiH3S9cBn5Gad6",
+          "name": "hurry up mixtape"
         },
         "artist": {
-          "uri": "spotify:artist:3hTHBCmJKr6UIooe5a5o7m",
-          "name": "Ana Shine"
+          "uri": "spotify:artist:6nFwmnSA3mMtoePROXi5LT",
+          "name": "Alvedon"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
