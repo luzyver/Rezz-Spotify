@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762849820022,
+      "timestamp": 1762850419853,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5eBk8ZXcd0pb0AO4a5PpOg",
-        "name": "Gala bunga matahari",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273686acaaa87bfc6ebb42b3bd2",
+        "uri": "spotify:track:778yZPIEqLgL4qSi2zUh9F",
+        "name": "Tak Selalu Memiliki - Ipar Adalah Maut Original Soundtrack",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738d4a3bdf4236f3e5d4d28dd2",
         "album": {
-          "uri": "spotify:album:5uAcLj2EJLtQtKMyDYCI0Q",
-          "name": "MARKERS AND SUCH PENS FLASHDISKS"
+          "uri": "spotify:album:2y28ojd9lBvtJjgoGgCLov",
+          "name": "Melangkah"
         },
         "artist": {
-          "uri": "spotify:artist:1NjxFrpEGZTV2Ny0OJxeWu",
-          "name": "Sal Priadi"
+          "uri": "spotify:artist:6Sv2jkzH9sWQjwghW5ArMG",
+          "name": "Lyodra"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
