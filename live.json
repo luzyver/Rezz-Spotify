@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762855819834,
+      "timestamp": 1762856419886,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0NrGEbLL9aggrUwsWJUWaT",
-        "name": "Pengganti Aku",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273390b568b7e725b7039585800",
+        "uri": "spotify:track:5dvIK269hL3eZXQMG4Vc2C",
+        "name": "Lihat Kebunku (Taman Bunga)",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273dc82bf3a920d66bd3006d308",
         "album": {
-          "uri": "spotify:album:4SVd1APxtjPLbghqMzqmBq",
-          "name": "ambiVert"
+          "uri": "spotify:album:1K1gVX9mqTJuCaLvxL7AIq",
+          "name": "Lihat Kebunku (Taman Bunga)"
         },
         "artist": {
-          "uri": "spotify:artist:5OZXWMwDhlYBRvoOfcX0sk",
-          "name": "Raisa"
+          "uri": "spotify:artist:4FZ6V3q8zMyFvSMeT2ld2f",
+          "name": "Aku Jeje"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DWWhB4HOWKFQc",
