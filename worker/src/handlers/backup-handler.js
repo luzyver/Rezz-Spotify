@@ -26,65 +26,38 @@ function extractDateTag(commitData) {
 /**
  * Handle /backup endpoint
  * Query/body:
- *  - commit: commit SHA (required)
- *  - password: same as CLEAR_HISTORY_PASSWORD (required)
+ *  - commit: commit SHA (required) - must be a clear history commit
  */
 export async function handleBackupEndpoint(request, env, corsHeaders) {
   try {
     // Validate env
     if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
     if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
-    if (!env.CLEAR_HISTORY_PASSWORD) throw new Error('CLEAR_HISTORY_PASSWORD not configured');
 
     const url = new URL(request.url);
     const accept = request.headers.get('Accept') || '';
     const contentType = request.headers.get('Content-Type') || '';
 
     const queryCommit = url.searchParams.get('commit') || url.searchParams.get('id');
-    const queryPassword = url.searchParams.get('password');
 
     let bodyCommit = undefined;
-    let bodyPassword = undefined;
     if (request.method === 'POST' && contentType.includes('application/json')) {
       try {
         const body = await request.json();
         bodyCommit = body?.commit || body?.id;
-        bodyPassword = body?.password;
       } catch (_) {
         // ignore JSON parse errors
       }
     }
 
     const commitSha = queryCommit || bodyCommit;
-    const providedPassword =
-      queryPassword ||
-      bodyPassword ||
-      request.headers.get('X-Backup-Password') ||
-      request.headers.get('X-Clear-Password') ||
-      request.headers.get('Authorization')?.replace('Bearer ', '');
 
-    // If accessed from browser and missing inputs, render HTML form
-    if ((!providedPassword || !commitSha) && request.method === 'GET' && accept.includes('text/html')) {
+    // If accessed from browser and missing commit, render HTML form
+    if (!commitSha && request.method === 'GET' && accept.includes('text/html')) {
       return new Response(getBackupHTML(), { status: 200, headers: { 'Content-Type': 'text/html', ...corsHeaders } });
     }
 
-    if (!providedPassword) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Password required' }),
-        { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
-    if (providedPassword !== env.CLEAR_HISTORY_PASSWORD) {
-      return new Response(
-        JSON.stringify({ success: false, error: 'Invalid password' }),
-        { status: 403, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
     if (!commitSha) {
-      // If HTML requested, render form instead of JSON error
-      if (accept.includes('text/html')) {
-        return new Response(getBackupHTML(), { status: 200, headers: { 'Content-Type': 'text/html', ...corsHeaders } });
-      }
       return new Response(
         JSON.stringify({ success: false, error: 'commit (sha) is required' }),
         { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
@@ -96,6 +69,22 @@ export async function handleBackupEndpoint(request, env, corsHeaders) {
 
     // 1) Get commit info
     const commitData = await github.getCommit(githubRepo, commitSha, githubToken);
+    const sourceCommitMessage = commitData?.commit?.message || '';
+
+    // Validate: must be a clear history commit
+    // Pattern: "🗑️ [ddmmyyyy] Clear history" or contains "Clear history"
+    const isClearCommit = sourceCommitMessage.includes('Clear history') || sourceCommitMessage.match(/🗑️\s*\[\d{8}\]/);
+    if (!isClearCommit) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Invalid commit: Must be a "Clear history" commit',
+          commitMessage: sourceCommitMessage
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
     const parentSha = commitData?.parents?.[0]?.sha;
     if (!parentSha) {
       throw new Error('Parent commit not found');
@@ -122,12 +111,31 @@ export async function handleBackupEndpoint(request, env, corsHeaders) {
     // 4) Write backup file to frontend/static/history/{ddmmyyyy}.json
     const backupPath = `frontend/static/history/${dateTag}.json`;
 
-    // Check if file exists to provide SHA (optional)
+    // Check if file exists and compare content
     let existingSha = null;
+    let existingContent = null;
     try {
       const existing = await github.getGitHubFile(githubRepo, backupPath, githubToken);
       existingSha = existing.sha;
-    } catch (_) { /* ignore */ }
+      existingContent = existing.content;
+    } catch (_) { /* ignore - file doesn't exist */ }
+
+    // If file exists with same content, skip commit
+    if (existingContent && JSON.stringify(existingContent) === JSON.stringify(previousHistory)) {
+      console.log(`ℹ️  Backup file ${backupPath} already exists with same content, skipping commit`);
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: 'Backup already exists (no changes)',
+          path: backupPath,
+          dateTag,
+          sourceCommit: commitSha,
+          items: previousHistory.length,
+          skipped: true,
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
 
     const commitMessage = `💾 Backup history [${dateTag}] from ${commitSha}`;
     await github.updateGitHubFile(
