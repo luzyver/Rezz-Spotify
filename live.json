@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762917775945,
+      "timestamp": 1762918257604,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0QQ3cTFiXVlBKspdNwkazh",
-        "name": "Vois Sur Ton Chemin",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737e0e4e8ea8a03a3599d10050",
+        "uri": "spotify:track:3dXSq4GiQcd3HLKe4fi6iz",
+        "name": "Bury the Light - Game Edit",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27304663a5a171696e48dca9fe4",
         "album": {
-          "uri": "spotify:album:4Q0jEtlZc65FLN7L3vGQ1t",
-          "name": "Vois Sur Ton Chemin"
+          "uri": "spotify:album:2ZAYNRbD78Zc21HvqhHq2j",
+          "name": "Devil May Cry 5 (Special Edition Vergil's Rebirth Sound Selection)"
         },
         "artist": {
-          "uri": "spotify:artist:6fL5VGL0vinKQ5HOviw6iX",
-          "name": "deprezz"
+          "uri": "spotify:artist:1hGdQOfaZ5saQ6JWVuxVDZ",
+          "name": "Casey Edwards"
         },
         "context": {
           "uri": "spotify:playlist:3bw2CCnTjM9LLNwxRFnxok",
