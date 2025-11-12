@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762909857053,
+      "timestamp": 1762910456891,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:2hJMtW3L4de5pVQkgDdSaP",
-        "name": "Yang Terlupakan",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f7aea8fbd828aaf6b0e2d305",
+        "uri": "spotify:track:4BntEwFMCsYpgTEhEuzdCj",
+        "name": "Deklamasi Cinta",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737f7137f6d6a942be2cdba44c",
         "album": {
-          "uri": "spotify:album:3O4AgDS0kMlyWCfGu6f7Ku",
-          "name": "Yang Terlupakan"
+          "uri": "spotify:album:5P4H1YJGCDX0u4Kw6THIcp",
+          "name": "Deklamasi Cinta"
         },
         "artist": {
-          "uri": "spotify:artist:4sWLkKnTn4I6mZpr7ThnD8",
-          "name": "Tami Aulia"
+          "uri": "spotify:artist:2zrMuruIsDXrQIQHuLU0sj",
+          "name": "Ronald Dewa, Aliandi"
         },
         "context": {
           "uri": "spotify:playlist:0kUx21t2ih7CXKcBSiKUUu",
