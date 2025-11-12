@@ -18,12 +18,44 @@ A real-time Spotify activity tracker that automatically monitors and displays wh
 rezzspotify/
 ├── frontend/          # Svelte-based web interface
 ├── worker/            # Cloudflare Worker for automation
+│   └── src/
+│       ├── index.js                    # Entry point & routing
+│       ├── config/
+│       │   └── constants.js            # Constants & configuration
+│       ├── services/
+│       │   ├── spotify.js              # Spotify API integration
+│       │   └── github.js               # GitHub API integration
+│       ├── handlers/
+│       │   ├── sync-handler.js         # Sync Spotify data handler
+│       │   ├── clear-handler.js        # Clear history handler
+│       │   ├── clear-history-html.js   # HTML form for clear history
+│       │   └── api-handler.js          # API endpoints handler
+│       └── utils/
+│           ├── encoding.js             # UTF-8 & Base64 encoding
+│           ├── commit-messages.js      # Commit message generator
+│           └── data-processor.js       # Data processing & transformation
 ├── fetchSpotify.js    # Main data fetcher script
 ├── getAuthUrl.js      # Generate Spotify OAuth URL
 ├── getRefreshToken.js # Exchange code for refresh token
 ├── history.json       # Recently played tracks data
 └── live.json          # Currently playing data
 ```
+
+### Worker Architecture
+
+The worker is built with a modular architecture for maintainability:
+
+- **Routing**: `index.js` handles HTTP routing and cron triggers
+- **Services**: Separate modules for Spotify and GitHub API integrations
+- **Handlers**: Dedicated handlers for sync, clear history, and API endpoints
+- **Utilities**: Shared utilities for encoding, commit messages, and data processing
+
+**Key Features**:
+- Separation of concerns for better code organization
+- Reusable functions across different handlers
+- Independent testing for each module
+- Password protection for clear history endpoint
+- CORS configuration for API endpoints
 
 ## Setup
 
@@ -170,6 +202,9 @@ SPOTIFY_REFRESH_TOKENS={
 ### Worker Endpoints
 
 - `GET /trigger` - Manually trigger data fetch
+- `GET /api/live` - Get currently playing data
+- `GET /api/history` - Get recently played tracks
+- `POST /clear-history` - Clear history (password protected)
 - Automatic: Runs every 10 minutes via cron
 
 ## Data Format
@@ -230,6 +265,43 @@ npm run build
 ```bash
 cd worker
 wrangler deploy
+```
+
+## Worker Development
+
+### Local Testing
+
+```bash
+# Development mode
+cd worker
+npm run dev
+
+# Test manual trigger
+curl http://localhost:8787/trigger
+
+# Test API endpoints
+curl http://localhost:8787/api/live
+curl http://localhost:8787/api/history
+```
+
+### Worker Flow
+
+**Scheduled Sync Flow**:
+```
+Cron Trigger → index.js → sync-handler.js → spotify.js (get data)
+                                          → data-processor.js (process)
+                                          → github.js (save to repo)
+```
+
+**Clear History Flow**:
+```
+Cron/HTTP → index.js → clear-handler.js → github.js (get history)
+                                        → github.js (clear & commit)
+```
+
+**API Request Flow**:
+```
+HTTP Request → index.js → api-handler.js → github.js (get data)
 ```
 
 ## Troubleshooting
