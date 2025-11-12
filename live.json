@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762963243452,
+      "timestamp": 1762963843024,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0oTtnnedK0C4unALxVTPhz",
-        "name": "Mystery of Love (From the Original Motion Picture “Call Me by Your Name”)",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27391a1c3c3d6fba1f63a010152",
+        "uri": "spotify:track:4nvLuqwTOZdEJI1fcHXv8h",
+        "name": "You're All I Want",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734a10d87775c6bb25c8ca068b",
         "album": {
-          "uri": "spotify:album:2uMaCzN7a35J3I3qceso0c",
-          "name": "Mystery of Love (From the Original Motion Picture “Call Me by Your Name”)"
+          "uri": "spotify:album:0C4YWH1f1zcPhIhNIB6S82",
+          "name": "You're All I Want"
         },
         "artist": {
-          "uri": "spotify:artist:4MXUO7sVCaFgFjoTI5ox5c",
-          "name": "Sufjan Stevens"
+          "uri": "spotify:artist:1QAJqy2dA3ihHBFIHRphZj",
+          "name": "Cigarettes After Sex"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
