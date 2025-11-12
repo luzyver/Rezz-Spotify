@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762911057872,
+      "timestamp": 1762911656503,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4IhQA4O98ulPLhsdW2GPPO",
-        "name": "Sadrah - Acoustic",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735908d6fdeaf4c7c2b3d6fd4b",
+        "uri": "spotify:track:1ZPVEo8RfmrEz8YAD5n6rW",
+        "name": "Lantas",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b1d3ef29ee15a18842973471",
         "album": {
-          "uri": "spotify:album:5oGmWdzAvYfy1osN4PspuR",
-          "name": "Sadrah - Acoustic"
+          "uri": "spotify:album:17vUW6koeUkV58uYfkK6G3",
+          "name": "Sentimental"
         },
         "artist": {
-          "uri": "spotify:artist:0f6TyESD8E1mD2oLJ4TGv1",
-          "name": "For Revenge, Meiska"
+          "uri": "spotify:artist:3tMTXQyRrPmMyHv5SoC0TV",
+          "name": "Juicy Luicy"
         },
         "context": {
           "uri": "spotify:playlist:0kUx21t2ih7CXKcBSiKUUu",
