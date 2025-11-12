@@ -1,26 +1,26 @@
 {
   "friends": [
     {
-      "timestamp": 1762944055806,
+      "timestamp": 1762944655505,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5CTiUNBByJLsTMamOP5se3",
-        "name": "Nagai Hikari - Cahaya Panjang",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273687241296245d61bffb0dbb3",
+        "uri": "spotify:track:6sGIMrtIzQjdzNndVxe397",
+        "name": "So Easy (To Fall In Love)",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739a336bfb6d40bbd90a507417",
         "album": {
-          "uri": "spotify:album:12jouL3ts613yYVRHMf0Ci",
-          "name": "Renai Kinshi Jourei (Aturan Anti Cinta)"
+          "uri": "spotify:album:0l8zYqoUeBYg47Gmevq9HZ",
+          "name": "The Art of Loving"
         },
         "artist": {
-          "uri": "spotify:artist:2l8I5pWUnfF7bMK1z6EJRk",
-          "name": "JKT48"
+          "uri": "spotify:artist:00x1fYSGhdqScXBRpSj3DW",
+          "name": "Olivia Dean"
         },
         "context": {
-          "uri": "spotify:playlist:7AjHAPDFeQcQQ5tfSHH40w",
+          "uri": "spotify:playlist:37i9dQZF1DWWhB4HOWKFQc",
           "name": "playlist",
           "index": 0
         }
