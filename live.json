@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762962043623,
+      "timestamp": 1762962643009,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:1paUZGIeMdtqYMnBI1LoFI",
-        "name": "2 Scorpios",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273db4075ff4beb96f0b40e6d2f",
+        "uri": "spotify:track:7D0RhFcb3CrfPuTJ0obrod",
+        "name": "Sparks",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739164bafe9aaa168d93f4816a",
         "album": {
-          "uri": "spotify:album:0efPABbFOBzUBHCj7f06zv",
-          "name": "2 Scorpios"
+          "uri": "spotify:album:6ZG5lRT77aJ3btmArcykra",
+          "name": "Parachutes"
         },
         "artist": {
-          "uri": "spotify:artist:3hTHBCmJKr6UIooe5a5o7m",
-          "name": "Ana Shine"
+          "uri": "spotify:artist:4gzpq5DPGxSnKTe4SA8HAU",
+          "name": "Coldplay"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
