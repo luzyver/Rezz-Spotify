@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "timestamp": 1762969086305,
+    "user": "Rezz",
+    "userId": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+    "track": "Ambang Pintu",
+    "artist": "Bernadya",
+    "uri": "spotify:track:4piQOnMesAkS5X0ugzHiBS",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b27327693aaf059002bba3a7655a"
+  },
+  {
+    "timestamp": 1762968881204,
+    "user": "Rezz",
+    "userId": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+    "track": "You're All I Want",
+    "artist": "Cigarettes After Sex",
+    "uri": "spotify:track:2cTvZSCqzjkTMkIypLxUFH",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b273963454e08e5e9def7e8cd204"
+  }
+]
