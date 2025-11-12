@@ -24,10 +24,12 @@ export function cleanHistory(history) {
  * @param {Array} recentTracks - Array of recent track items from Spotify
  * @param {Object} userProfile - User profile object
  * @param {Array} history - Existing history array (will be modified)
+ * @param {number} lastClearTimestamp - Timestamp of last history clear (optional)
  * @returns {number} Number of tracks added
  */
-export function processRecentTracks(recentTracks, userProfile, history) {
+export function processRecentTracks(recentTracks, userProfile, history, lastClearTimestamp = 0) {
 	let addedCount = 0;
+	let skippedOld = 0;
 
 	for (const item of recentTracks) {
 		const entry = {
@@ -39,6 +41,13 @@ export function processRecentTracks(recentTracks, userProfile, history) {
 			uri: item.track.uri,
 			imageUrl: item.track.album.images?.[0]?.url || null,
 		};
+
+		// CRITICAL: Skip tracks that are older than or equal to lastClearTimestamp
+		// This prevents old data from being re-added after history clear
+		if (lastClearTimestamp > 0 && entry.timestamp <= lastClearTimestamp) {
+			skippedOld++;
+			continue;
+		}
 
 		// Check for duplicates using URI and timestamp
 		// Also check if timestamp is within 1 second (1000ms) to handle slight timing differences
@@ -53,6 +62,10 @@ export function processRecentTracks(recentTracks, userProfile, history) {
 			history.push(entry);
 			addedCount++;
 		}
+	}
+
+	if (skippedOld > 0) {
+		console.log(`⚠️  Skipped ${skippedOld} old tracks (before/at clear timestamp)`);
 	}
 
 	return addedCount;

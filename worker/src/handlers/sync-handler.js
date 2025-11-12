@@ -51,8 +51,19 @@ export async function handleScheduled(env) {
 		console.log(`Last clear timestamp: ${lastClearTimestamp} (${new Date(lastClearTimestamp).toISOString()})`);
 
 		// Clean history from any double-encoding issues
-		const history = processor.cleanHistory(rawHistory);
+		let history = processor.cleanHistory(rawHistory);
 		console.log(`Loaded ${history.length} history entries`);
+
+		// SAFEGUARD: Filter out any entries older than lastClearTimestamp
+		// This prevents old data from being re-added after clear/revert scenarios
+		if (lastClearTimestamp > 0) {
+			const beforeFilter = history.length;
+			history = history.filter(entry => entry.timestamp > lastClearTimestamp);
+			const filtered = beforeFilter - history.length;
+			if (filtered > 0) {
+				console.log(`⚠️  Filtered out ${filtered} old entries (before clear timestamp)`);
+			}
+		}
 
 		const liveFriends = [];
 		let totalNewTracks = 0;
@@ -81,7 +92,8 @@ export async function handleScheduled(env) {
 				const addedCount = processor.processRecentTracks(
 					recentTracks,
 					userProfile,
-					history
+					history,
+					lastClearTimestamp  // Pass lastClearTimestamp for filtering
 				);
 				totalNewTracks += addedCount;
 				console.log(
