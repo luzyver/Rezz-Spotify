@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762925457194,
+      "timestamp": 1762926056878,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3G0gM3BrhJYLtuKpPtmH3W",
-        "name": "Maturity",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27348f50dcbdc3d721f8e3e58d8",
+        "uri": "spotify:track:4AMmm2wpRMO5ZSmVglrcah",
+        "name": "Aku Milikmu Malam Ini",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d0ec010f1864cf0b860eb02e",
         "album": {
-          "uri": "spotify:album:7xR64hTFy4GEMrmHMvRO5R",
-          "name": "Maturity"
+          "uri": "spotify:album:3oAwse3gg7bM3UsZ0AlSf1",
+          "name": "Aku Milikmu Malam Ini"
         },
         "artist": {
-          "uri": "spotify:artist:6TbmOh190FHhiyRTkdBDsZ",
-          "name": "BESTA BLOOM"
+          "uri": "spotify:artist:5mwjkxQflHcuSGuDpEPm66",
+          "name": "Felix Irwan, Pongki Barata"
         },
         "context": {
           "uri": "spotify:playlist:0kUx21t2ih7CXKcBSiKUUu",
