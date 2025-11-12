@@ -1,3 +1,30 @@
 {
-  "friends": []
+  "friends": [
+    {
+      "timestamp": 1762909857053,
+      "user": {
+        "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+        "name": "Rezz",
+        "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
+      },
+      "track": {
+        "uri": "spotify:track:2hJMtW3L4de5pVQkgDdSaP",
+        "name": "Yang Terlupakan",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f7aea8fbd828aaf6b0e2d305",
+        "album": {
+          "uri": "spotify:album:3O4AgDS0kMlyWCfGu6f7Ku",
+          "name": "Yang Terlupakan"
+        },
+        "artist": {
+          "uri": "spotify:artist:4sWLkKnTn4I6mZpr7ThnD8",
+          "name": "Tami Aulia"
+        },
+        "context": {
+          "uri": "spotify:playlist:0kUx21t2ih7CXKcBSiKUUu",
+          "name": "playlist",
+          "index": 0
+        }
+      }
+    }
+  ]
 }
