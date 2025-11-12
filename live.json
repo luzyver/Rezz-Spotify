@@ -1,3 +1,30 @@
 {
-  "friends": []
+  "friends": [
+    {
+      "timestamp": 1762925457194,
+      "user": {
+        "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+        "name": "Rezz",
+        "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
+      },
+      "track": {
+        "uri": "spotify:track:3G0gM3BrhJYLtuKpPtmH3W",
+        "name": "Maturity",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27348f50dcbdc3d721f8e3e58d8",
+        "album": {
+          "uri": "spotify:album:7xR64hTFy4GEMrmHMvRO5R",
+          "name": "Maturity"
+        },
+        "artist": {
+          "uri": "spotify:artist:6TbmOh190FHhiyRTkdBDsZ",
+          "name": "BESTA BLOOM"
+        },
+        "context": {
+          "uri": "spotify:playlist:0kUx21t2ih7CXKcBSiKUUu",
+          "name": "playlist",
+          "index": 0
+        }
+      }
+    }
+  ]
 }
