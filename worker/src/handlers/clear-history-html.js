@@ -9,160 +9,216 @@ export function getClearHistoryHTML() {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Clear History - Authentication Required</title>
+	<title>Clear History</title>
 	<style>
-		* { margin: 0; padding: 0; box-sizing: border-box; }
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
 		body {
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: #0a0e27;
 			min-height: 100vh;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			padding: 20px;
 		}
-		.container {
-			background: white;
-			padding: 40px;
-			border-radius: 16px;
-			box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-			max-width: 400px;
+
+		.wrapper {
+			background: #15192e;
+			border: 1px solid #1f2544;
+			border-radius: 4px;
+			max-width: 420px;
 			width: 100%;
+			padding: 48px 42px;
 		}
+
 		h1 {
-			color: #333;
-			margin-bottom: 10px;
-			font-size: 24px;
+			color: #e8eaed;
+			font-size: 22px;
+			font-weight: 400;
+			margin-bottom: 8px;
+			letter-spacing: -0.3px;
 		}
-		p {
-			color: #666;
-			margin-bottom: 30px;
+
+		.subtitle {
+			color: #9aa0a6;
 			font-size: 14px;
+			margin-bottom: 32px;
+			line-height: 1.5;
 		}
-		.form-group {
-			margin-bottom: 20px;
+
+		.field {
+			margin-bottom: 24px;
 		}
+
 		label {
 			display: block;
+			color: #bdc1c6;
+			font-size: 13px;
 			margin-bottom: 8px;
-			color: #333;
-			font-weight: 500;
-			font-size: 14px;
+			font-weight: 400;
 		}
+
 		input[type="password"] {
 			width: 100%;
-			padding: 12px 16px;
-			border: 2px solid #e0e0e0;
-			border-radius: 8px;
-			font-size: 16px;
-			transition: border-color 0.3s;
+			padding: 11px 14px;
+			background: #202435;
+			border: 1px solid #3c4043;
+			border-radius: 3px;
+			color: #e8eaed;
+			font-size: 15px;
+			font-family: inherit;
+			transition: border-color 0.2s;
 		}
+
 		input[type="password"]:focus {
 			outline: none;
-			border-color: #667eea;
+			border-color: #8ab4f8;
+			background: #1a1d31;
 		}
-		button {
+
+		input[type="password"]::placeholder {
+			color: #5f6368;
+		}
+
+		.btn {
 			width: 100%;
-			padding: 14px;
-			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-			color: white;
-			border: none;
-			border-radius: 8px;
-			font-size: 16px;
-			font-weight: 600;
-			cursor: pointer;
-			transition: transform 0.2s, box-shadow 0.2s;
-		}
-		button:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-		}
-		button:active {
-			transform: translateY(0);
-		}
-		.icon {
-			font-size: 48px;
-			text-align: center;
-			margin-bottom: 20px;
-		}
-		#message {
-			margin-top: 20px;
 			padding: 12px;
-			border-radius: 8px;
+			background: #2d6ff7;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
 			font-size: 14px;
+			font-weight: 500;
+			cursor: pointer;
+			transition: background 0.15s;
+			font-family: inherit;
+		}
+
+		.btn:hover:not(:disabled) {
+			background: #4285f4;
+		}
+
+		.btn:disabled {
+			opacity: 0.6;
+			cursor: not-allowed;
+		}
+
+		.alert {
+			margin-top: 24px;
+			padding: 14px 16px;
+			border-radius: 3px;
+			font-size: 13px;
+			line-height: 1.5;
 			display: none;
 		}
-		#message.success {
-			background: #d4edda;
-			color: #155724;
-			border: 1px solid #c3e6cb;
+
+		.alert.success {
+			background: rgba(48, 209, 88, 0.1);
+			color: #30d158;
+			border: 1px solid rgba(48, 209, 88, 0.2);
 		}
-		#message.error {
-			background: #f8d7da;
-			color: #721c24;
-			border: 1px solid #f5c6cb;
+
+		.alert.error {
+			background: rgba(255, 69, 58, 0.1);
+			color: #ff453a;
+			border: 1px solid rgba(255, 69, 58, 0.2);
 		}
-		.loading {
+
+		.spinner {
 			display: none;
+			margin-top: 16px;
 			text-align: center;
-			margin-top: 10px;
-			color: #667eea;
+			color: #9aa0a6;
+			font-size: 13px;
+		}
+
+		.spinner::before {
+			content: '';
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			margin-right: 8px;
+			border: 2px solid #3c4043;
+			border-top-color: #8ab4f8;
+			border-radius: 50%;
+			animation: spin 0.8s linear infinite;
+			vertical-align: middle;
+		}
+
+		@keyframes spin {
+			to { transform: rotate(360deg); }
 		}
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="icon">🗑️</div>
+	<div class="wrapper">
 		<h1>Clear History</h1>
-		<p>Enter password to clear listening history</p>
+		<p class="subtitle">This action will permanently delete all listening history data.</p>
 
 		<form id="clearForm">
-			<div class="form-group">
+			<div class="field">
 				<label for="password">Password</label>
-				<input type="password" id="password" name="password" required placeholder="Enter password" autocomplete="off">
+				<input
+					type="password"
+					id="password"
+					name="password"
+					required
+					autocomplete="off"
+					autofocus>
 			</div>
-			<button type="submit">Clear History</button>
+
+			<button type="submit" class="btn">Clear All History</button>
 		</form>
 
-		<div class="loading" id="loading">⏳ Processing...</div>
-		<div id="message"></div>
+		<div class="spinner" id="loading">Processing</div>
+		<div class="alert" id="message"></div>
 	</div>
 
 	<script>
-		document.getElementById('clearForm').addEventListener('submit', async (e) => {
+		const form = document.getElementById('clearForm');
+		const passwordInput = document.getElementById('password');
+		const submitBtn = form.querySelector('.btn');
+		const loading = document.getElementById('loading');
+		const message = document.getElementById('message');
+
+		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
 
-			const password = document.getElementById('password').value;
-			const button = e.target.querySelector('button');
-			const loading = document.getElementById('loading');
-			const message = document.getElementById('message');
+			const password = passwordInput.value.trim();
+			if (!password) return;
 
-			// Reset
 			message.style.display = 'none';
-			button.disabled = true;
+			message.className = 'alert';
+			submitBtn.disabled = true;
 			loading.style.display = 'block';
 
 			try {
-				const response = await fetch('/clear-history?password=' + encodeURIComponent(password), {
+				const res = await fetch('/clear-history?password=' + encodeURIComponent(password), {
 					method: 'POST'
 				});
 
-				const data = await response.json();
+				const result = await res.json();
 
-				if (data.success) {
-					message.className = 'success';
-					message.textContent = '✅ ' + data.message + (data.itemsRemoved ? ' (' + data.itemsRemoved + ' items removed)' : '');
-					document.getElementById('password').value = '';
+				if (result.success) {
+					message.classList.add('success');
+					const count = result.itemsRemoved ? ' (' + result.itemsRemoved + ' items)' : '';
+					message.textContent = result.message + count;
+					passwordInput.value = '';
 				} else {
-					message.className = 'error';
-					message.textContent = '❌ ' + data.error;
+					message.classList.add('error');
+					message.textContent = result.error || 'Failed to clear history';
 				}
-			} catch (error) {
-				message.className = 'error';
-				message.textContent = '❌ Network error: ' + error.message;
+			} catch (err) {
+				message.classList.add('error');
+				message.textContent = 'Connection error. Please try again.';
 			} finally {
 				message.style.display = 'block';
-				button.disabled = false;
+				submitBtn.disabled = false;
 				loading.style.display = 'none';
 			}
 		});
