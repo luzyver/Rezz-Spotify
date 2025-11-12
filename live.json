@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1762979443266,
+      "timestamp": 1762980043315,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:6Ijmj8Z0L31hCp5pLZnT5U",
-        "name": "Numb",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739a540602e3738c1d053b3857",
+        "uri": "spotify:track:00RLNHc2jkEjUoCUlFgPVT",
+        "name": "welcome and goodbye",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ec5c5ec0da8942e4b03254f3",
         "album": {
-          "uri": "spotify:album:1HMR6PG5Su7p0JjRws7NBb",
-          "name": "Numb"
+          "uri": "spotify:album:0hZJDoAmB6xVegy0o1eAZd",
+          "name": "welcome and goodbye"
         },
         "artist": {
-          "uri": "spotify:artist:3zmfs9cQwzJl575W1ZYXeT",
-          "name": "Men I Trust"
+          "uri": "spotify:artist:0qZyvjwZauLmrobrpJmvib",
+          "name": "Dream, Ivory"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
