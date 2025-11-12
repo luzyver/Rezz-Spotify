@@ -1,26 +1,26 @@
 {
   "friends": [
     {
-      "timestamp": 1762942855708,
+      "timestamp": 1762943456147,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:2gcMYiZzzmzoF8PPAfL3IO",
-        "name": "Untungnya, Hidup Harus Tetap Berjalan",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27327693aaf059002bba3a7655a",
+        "uri": "spotify:track:531sUqeCYJuPJYOwjWzFk5",
+        "name": "Seesaw Game Penuh Air Mata - Namida no Seesaw Game",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27334339b2f8a823dbe9507fd90",
         "album": {
-          "uri": "spotify:album:5agEAxt8vks5Xk0NfEbI5D",
-          "name": "Sialnya, Hidup Harus Tetap Berjalan"
+          "uri": "spotify:album:5HI7gt1oN1eeQUVtyCa8Ut",
+          "name": "Everyday, Kachuusha"
         },
         "artist": {
-          "uri": "spotify:artist:47z98pKd71yIbgXwe9LPVC",
-          "name": "Bernadya"
+          "uri": "spotify:artist:2l8I5pWUnfF7bMK1z6EJRk",
+          "name": "JKT48"
         },
         "context": {
-          "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
+          "uri": "spotify:playlist:7AjHAPDFeQcQQ5tfSHH40w",
           "name": "playlist",
           "index": 0
         }
