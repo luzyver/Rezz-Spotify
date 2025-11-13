@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763007124116,
+      "timestamp": 1763007624442,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:2dIBMHByUGcNPzmYBJ6OAj",
-        "name": "Evaluasi",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d623688488865906052ef96b",
+        "uri": "spotify:track:6H7lvP0NgAF39Rn3qve4Og",
+        "name": "Melawan Restu",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736f713eb92ebf7ca05a562542",
         "album": {
-          "uri": "spotify:album:1DAuVHMlBvIjzWZALSUXbn",
-          "name": "Menari Dengan Bayangan"
+          "uri": "spotify:album:1vva4fJyjXaJ2RDsGmIbCv",
+          "name": "fábula"
         },
         "artist": {
-          "uri": "spotify:artist:51kyrUsAVqUBcoDEMFkX12",
-          "name": "Hindia"
+          "uri": "spotify:artist:3wOsYKZM0zcKNasi3I7fP4",
+          "name": "Mahalini"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
