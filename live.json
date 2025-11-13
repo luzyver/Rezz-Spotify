@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763046054958,
+      "timestamp": 1763046654436,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0zAtj0BEvpulETGrk95NPQ",
-        "name": "Rayuan Perempuan Gila",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27394847679fe7b10e27d9803f5",
+        "uri": "spotify:track:1siFe5DeqsYbnev0iFfd9R",
+        "name": "Penantian Panjang",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733ae481003698c85d4b189d58",
         "album": {
-          "uri": "spotify:album:5hpq1LSLCuC7cifjXAM5bf",
-          "name": "Untuk Dunia, Cinta, dan Kotornya"
+          "uri": "spotify:album:6PmNwvDjjpY5QCOFdtaOYO",
+          "name": "Panggil Saja Hanna"
         },
         "artist": {
-          "uri": "spotify:artist:20zafXaLhm5IcXnSU93rNn",
-          "name": "Nadin Amizah"
+          "uri": "spotify:artist:0FfSzdaR7cyBeFlKDd0P0c",
+          "name": "Deborah Hanna"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
