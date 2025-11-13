@@ -1,30 +1,3 @@
 {
-  "friends": [
-    {
-      "timestamp": 1763052885803,
-      "user": {
-        "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
-        "name": "Rezz",
-        "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
-      },
-      "track": {
-        "uri": "spotify:track:1UPB5rYJ0bzn6mNSoAHrZC",
-        "name": "You'll Be in My Heart",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737cd329ea4a204a8a47caf3d5",
-        "album": {
-          "uri": "spotify:album:7GZpa8xckIRPFIbT49B4zZ",
-          "name": "You'll Be In My Heart"
-        },
-        "artist": {
-          "uri": "spotify:artist:2kxP07DLgs4xlWz8YHlvfh",
-          "name": "NIKI"
-        },
-        "context": {
-          "uri": "spotify:playlist:37i9dQZF1DWW5b4WmmOtn7",
-          "name": "playlist",
-          "index": 0
-        }
-      }
-    }
-  ]
+  "friends": []
 }
