@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763001624368,
+      "timestamp": 1763002224283,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3XHiujhh7sB8tTCwtI6YEI",
-        "name": "Ruang Baru (From \"My Annoying Brother\")",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fc5f1abb8ec397cd1a9a32fb",
+        "uri": "spotify:track:2ZzsUu74KQFwnkBIOryp0d",
+        "name": "Rahasia Hati - Remastered 2023",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739fc054f6018d3f633b8ed765",
         "album": {
-          "uri": "spotify:album:4e35vUR8z4q56iY2xgvbNA",
-          "name": "Ruang Baru (From \"My Annoying Brother\")"
+          "uri": "spotify:album:4QCGE9az4wKzhytBcgoZbm",
+          "name": "Perjalanan 1999 - 2003 (Remastered 2023)"
         },
         "artist": {
-          "uri": "spotify:artist:5vZpfzIdyiutGngkSKEb8i",
-          "name": "Barsena Bestandhi"
+          "uri": "spotify:artist:053tL050frPJyo9lPXTUFb",
+          "name": "Element"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
