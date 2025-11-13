@@ -1,5 +1,4 @@
 <script lang="ts">
-
   import Particles from '$lib/components/Particles.svelte';
   import Equalizer from '$lib/components/Equalizer.svelte';
   import NowPlayingCard from '$lib/components/NowPlayingCard.svelte';
@@ -11,7 +10,6 @@
   import type { NowPlayingBuddy, HistoryItem } from '$lib/types';
   import { ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight, Music2 } from 'lucide-svelte';
 
-  // Prefetched data from +page.ts load
   let { data } = $props();
 
   let nowPlaying = $state<NowPlayingBuddy[]>(data?.nowPlaying ?? []);
@@ -25,7 +23,6 @@
   function goToPage(page: number) {
     if (page < 1 || page > totalPages) return;
     currentPage = page;
-    // Scroll to history section
     document
       .getElementById('history-section')
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -107,7 +104,9 @@
 
           {#if history.length > 0}
             <!-- Masonry Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 mb-4 sm:mb-6">
+            <div
+              class="mb-4 grid grid-cols-1 gap-3 sm:mb-6 sm:grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4"
+            >
               {#each paginatedHistory as item, index (item.uri + ':' + item.timestamp)}
                 <HistoryCard {item} {index} {currentPage} itemsPerPage={ITEMS_PER_PAGE} />
               {/each}

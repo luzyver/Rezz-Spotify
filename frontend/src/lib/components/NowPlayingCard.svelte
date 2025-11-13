@@ -3,6 +3,7 @@
   import { getUserName, timeAgo, spotifyUrl } from '$lib/utils';
   import { Motion } from 'svelte-motion';
   import { Play, Sparkles, Music, Heart } from 'lucide-svelte';
+  import { COLOR_PALETTES } from '$lib/palettes';
 
   interface Props {
     buddy: NowPlayingBuddy;
@@ -16,9 +17,6 @@
     buddy.user?.imageUrl ||
       `https://ui-avatars.com/api/?name=${userName}&background=1db954&color=fff`
   );
-
-  import { COLOR_PALETTES } from '$lib/palettes';
-
   const palette = $derived(COLOR_PALETTES[index % COLOR_PALETTES.length]);
 </script>
 

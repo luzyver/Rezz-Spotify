@@ -10,7 +10,6 @@
 
   let { history }: Props = $props();
 
-  // Hand-picked color palette for stats
   const statColors = {
     tracks: {
       primary: '#1ed760',
@@ -34,16 +33,12 @@
     },
   };
 
-  // User stats data
   const userStatsData = $derived.by(() => {
     const stats: Record<string, { user: string; count: number }> = {};
 
     history.forEach((item) => {
       if (!stats[item.userId]) {
-        stats[item.userId] = {
-          user: item.user,
-          count: 0,
-        };
+        stats[item.userId] = { user: item.user, count: 0 };
       }
       stats[item.userId].count++;
     });
@@ -51,27 +46,8 @@
     return Object.values(stats).sort((a, b) => b.count - a.count);
   });
 
-  // Top artists
-  const topArtists = $derived.by(() => {
-    const artistCount: Record<string, number> = {};
+  const totalArtists = $derived(new Set(history.map((item) => item.artist)).size);
 
-    history.forEach((item) => {
-      artistCount[item.artist] = (artistCount[item.artist] || 0) + 1;
-    });
-
-    return Object.entries(artistCount)
-      .sort(([, a], [, b]) => b - a)
-      .slice(0, 5)
-      .map(([artist, count]) => ({ artist, count }));
-  });
-
-  // Total unique artists count
-  const totalArtists = $derived.by(() => {
-    const uniqueArtists = new Set(history.map((item) => item.artist));
-    return uniqueArtists.size;
-  });
-
-  // Most played tracks (all tracks with highest count)
   const topTracks = $derived.by(() => {
     const trackCount: Record<
       string,
@@ -95,12 +71,10 @@
     const sorted = Object.values(trackCount).sort((a, b) => b.count - a.count);
     if (sorted.length === 0) return [];
 
-    // Get all tracks with the highest count
     const maxCount = sorted[0].count;
     return sorted.filter((track) => track.count === maxCount);
   });
 
-  // Total listening time estimate (avg 3.5 min per track)
   const totalMinutes = $derived(Math.round(history.length * 3.5));
   const hours = $derived(Math.floor(totalMinutes / 60));
   const minutes = $derived(totalMinutes % 60);

@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { HistoryItem } from '$lib/types';
-  import { getUserColor, timeAgo, spotifyUrl } from '$lib/utils';
+  import { timeAgo, spotifyUrl } from '$lib/utils';
   import { Motion } from 'svelte-motion';
   import { Play, Clock, User, Sparkles } from 'lucide-svelte';
+  import { COLOR_PALETTES } from '$lib/palettes';
 
   interface Props {
     item: HistoryItem;
@@ -13,11 +14,7 @@
 
   let { item, index, currentPage, itemsPerPage }: Props = $props();
 
-  const userColor = $derived(getUserColor(item.userId));
   const globalIndex = $derived((currentPage - 1) * itemsPerPage + index + 1);
-
-  import { COLOR_PALETTES } from '$lib/palettes';
-
   const palette = $derived(COLOR_PALETTES[globalIndex % COLOR_PALETTES.length]);
 </script>
 
