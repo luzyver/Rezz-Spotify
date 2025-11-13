@@ -4,6 +4,7 @@
   import { Motion } from 'svelte-motion';
   import { Play, Sparkles, Music, Heart } from 'lucide-svelte';
   import { COLOR_PALETTES } from '$lib/palettes';
+  import { theme } from '$lib/stores/theme';
 
   interface Props {
     buddy: NowPlayingBuddy;
@@ -18,6 +19,17 @@
       `https://ui-avatars.com/api/?name=${userName}&background=1db954&color=fff`
   );
   const palette = $derived(COLOR_PALETTES[index % COLOR_PALETTES.length]);
+  const isLight = $derived($theme === 'light');
+
+  // Light mode colors
+  const textColor = $derived(isLight ? '#1f2937' : '#ffffff');
+  const secondaryTextColor = $derived(isLight ? '#6b7280' : '#9ca3af');
+  const tertiaryTextColor = $derived(isLight ? '#9ca3af' : '#6b7280');
+  const cardBg = $derived(
+    isLight
+      ? 'rgba(255, 255, 255, 0.95)'
+      : `linear-gradient(135deg, ${palette.primary}15, ${palette.secondary}15)`
+  );
 </script>
 
 <Motion
@@ -34,8 +46,10 @@
 >
   <div
     use:motion
-    class="group relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-700 ease-out hover:scale-[1.02]"
-    style="background: linear-gradient(135deg, {palette.primary}15, {palette.secondary}15)"
+    class="group relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-700 ease-out hover:scale-[1.02] {isLight
+      ? 'border border-gray-200 shadow-lg'
+      : ''}"
+    style="background: {cardBg}"
   >
     <!-- Playful Background Effects -->
     <div class="absolute inset-0 bg-gradient-to-br {palette.gradient} opacity-60"></div>
@@ -117,7 +131,9 @@
         >
           <h3
             class="mb-1 line-clamp-2 text-base font-black leading-tight transition-transform duration-500 ease-out group-hover:scale-105"
-            style="color: {palette.primary}; text-shadow: 0 0 20px {palette.primary}40"
+            style="color: {isLight ? '#16a34a' : palette.primary}; text-shadow: {isLight
+              ? 'none'
+              : `0 0 20px ${palette.primary}40`}"
           >
             {buddy.track?.name || ''}
           </h3>
@@ -127,7 +143,8 @@
           href={spotifyUrl(buddy.track?.artist?.uri)}
           target="_blank"
           rel="noopener noreferrer"
-          class="line-clamp-1 block text-sm font-semibold text-gray-300 transition-colors duration-300 ease-out hover:text-white"
+          class="line-clamp-1 block text-sm font-semibold transition-colors duration-300 ease-out"
+          style="color: {secondaryTextColor}"
         >
           {buddy.track?.artist?.name || ''}
         </a>
@@ -136,7 +153,8 @@
           href={spotifyUrl(buddy.track?.album?.uri)}
           target="_blank"
           rel="noopener noreferrer"
-          class="line-clamp-1 block text-xs italic text-gray-500 transition-colors duration-300 ease-out hover:text-gray-400"
+          class="line-clamp-1 block text-xs italic transition-colors duration-300 ease-out"
+          style="color: {tertiaryTextColor}"
         >
           {buddy.track?.album?.name || ''}
         </a>
@@ -157,8 +175,8 @@
             ></div>
           </div>
           <div class="min-w-0 flex-1">
-            <div class="truncate text-xs font-bold text-white">{userName}</div>
-            <div class="flex items-center gap-1 text-[10px] text-gray-400">
+            <div class="truncate text-xs font-bold" style="color: {textColor}">{userName}</div>
+            <div class="flex items-center gap-1 text-[10px]" style="color: {tertiaryTextColor}">
               <Heart class="h-2.5 w-2.5 fill-current" style="color: {palette.secondary}" />
               <span>{timeAgo(buddy.timestamp)}</span>
             </div>

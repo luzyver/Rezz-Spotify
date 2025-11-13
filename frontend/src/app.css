@@ -494,3 +494,317 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Light Theme */
+:root.light {
+  color-scheme: light;
+}
+
+:root.light body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #1a1a1a;
+}
+
+:root.light .glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+}
+
+:root.light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+}
+
+:root.light .glass-card-live {
+  background: rgba(29, 185, 84, 0.15);
+  border: 2px solid rgba(29, 185, 84, 0.4);
+  color: #1a1a1a;
+}
+
+:root.light .glass-card-live:hover {
+  background: rgba(29, 185, 84, 0.2);
+  border: 2px solid rgba(29, 185, 84, 0.6);
+}
+
+:root.light input,
+:root.light select,
+:root.light button {
+  color: #1a1a1a;
+}
+
+:root.light input::placeholder {
+  color: #6b7280;
+}
+
+:root.light .text-white {
+  color: #1a1a1a !important;
+}
+
+:root.light .text-gray-300 {
+  color: #4b5563 !important;
+}
+
+:root.light .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+:root.light .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+:root.light .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+/* Card text colors in light mode */
+:root.light h1,
+:root.light h2,
+:root.light h3,
+:root.light h4,
+:root.light h5,
+:root.light h6 {
+  color: #1a1a1a;
+}
+
+:root.light p,
+:root.light span,
+:root.light div {
+  color: inherit;
+}
+
+/* Specific component fixes */
+:root.light .bg-white\/5 {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+:root.light .bg-white\/10 {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+:root.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+:root.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Header in light mode */
+:root.light header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Scrollbar in light mode */
+:root.light ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+:root.light ::-webkit-scrollbar-thumb {
+  background: rgba(29, 185, 84, 0.4);
+}
+
+:root.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(29, 185, 84, 0.6);
+}
+
+/* Backdrop in light mode */
+:root.light .backdrop-blur-md {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Ensure all text is visible */
+:root.light * {
+  color: inherit;
+}
+
+:root.light .glass-card * {
+  color: #1a1a1a;
+}
+
+/* Override gradient text in light mode to be more visible */
+:root.light .gradient-text {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 50%, #16a34a 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Additional light mode text fixes */
+:root.light .text-gray-300,
+:root.light .text-gray-400,
+:root.light .text-gray-500 {
+  opacity: 1;
+}
+
+/* Make sure all card content is visible */
+:root.light .glass-card h1,
+:root.light .glass-card h2,
+:root.light .glass-card h3,
+:root.light .glass-card h4,
+:root.light .glass-card p,
+:root.light .glass-card span,
+:root.light .glass-card div:not([class*='bg-']) {
+  color: #1a1a1a;
+}
+
+/* Button text in light mode */
+:root.light button {
+  color: #1a1a1a;
+}
+
+:root.light button.bg-\[\#1db954\],
+:root.light button[class*='bg-green'],
+:root.light button[class*='bg-blue'],
+:root.light button[class*='bg-purple'] {
+  color: white !important;
+}
+
+/* Input and select in light mode */
+:root.light input,
+:root.light select,
+:root.light textarea {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a1a1a;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:root.light input:focus,
+:root.light select:focus,
+:root.light textarea:focus {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(29, 185, 84, 0.5);
+}
+
+/* Ensure badges and labels are visible */
+:root.light .badge,
+:root.light .label,
+:root.light kbd {
+  color: #1a1a1a;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for specific text colors that might be too light */
+:root.light [class*='text-gray'] {
+  filter: brightness(0.6);
+}
+
+/* But keep green text visible */
+:root.light .text-\[\#1db954\],
+:root.light [style*='color: #1db954'],
+:root.light [style*='color:#1db954'] {
+  filter: none;
+  color: #16a34a !important;
+}
+
+/* Animated background should be lighter */
+:root.light .animated-bg {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f0f9ff 25%,
+    #e0f2fe 50%,
+    #bae6fd 75%,
+    #ffffff 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+/* Particles should be darker in light mode */
+:root.light .particle {
+  background: rgba(29, 185, 84, 0.8);
+}
+
+/* Footer text */
+:root.light footer {
+  color: #6b7280;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for History Card and Now Playing Card in light mode */
+:root.light .text-gray-300 {
+  color: #374151 !important;
+}
+
+:root.light .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+:root.light .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+:root.light .text-white {
+  color: #111827 !important;
+}
+
+/* Ensure card backgrounds are visible in light mode */
+:root.light [style*='background: linear-gradient(135deg'] {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Card text should be dark in light mode */
+:root.light h3,
+:root.light h4 {
+  filter: brightness(0.4) !important;
+}
+
+/* But keep colored text (like artist names with custom colors) visible */
+:root.light [style*='color:'] h3,
+:root.light [style*='color:'] h4 {
+  filter: brightness(0.6) saturate(1.5) !important;
+}
+
+/* User names and track info */
+:root.light .text-xs,
+:root.light .text-sm,
+:root.light .text-base {
+  color: #1f2937;
+}
+
+/* Links should be visible */
+:root.light a {
+  color: inherit;
+}
+
+:root.light a:hover {
+  color: #16a34a;
+}
+
+/* Gradient overlays should be lighter in light mode */
+:root.light [class*='from-black'] {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent) !important;
+}
+
+/* Badge text should be white on colored backgrounds */
+:root.light [style*='background: linear-gradient'] span,
+:root.light [style*='background: linear-gradient'] div {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Time ago and meta info */
+:root.light .text-\[10px\],
+:root.light [class*='text-[10px]'] {
+  color: #6b7280 !important;
+}
+
+/* Album names in italic */
+:root.light .italic {
+  color: #9ca3af !important;
+}
+
+/* Border colors in light mode */
+:root.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ring colors for avatars */
+:root.light [class*='ring-'] {
+  --tw-ring-opacity: 0.5;
+}
