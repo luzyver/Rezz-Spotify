@@ -1,18 +1,8 @@
-/**
- * Sync Handler
- * Handles Spotify data synchronization
- */
-
 import * as spotify from '../services/spotify.js';
 import * as github from '../services/github.js';
 import * as processor from '../utils/data-processor.js';
 import { getRandomCommitMessage } from '../utils/commit-messages.js';
 
-/**
- * Handle scheduled sync of Spotify data
- * @param {Object} env - Environment variables
- * @returns {Promise<Response>} Response object
- */
 export async function handleScheduled(env) {
 	console.log('🎵 Fetching Spotify data...');
 
@@ -54,8 +44,6 @@ export async function handleScheduled(env) {
 		let history = processor.cleanHistory(rawHistory);
 		console.log(`Loaded ${history.length} history entries`);
 
-		// SAFEGUARD: Filter out any entries older than lastClearTimestamp
-		// This prevents old data from being re-added after clear/revert scenarios
 		if (lastClearTimestamp > 0) {
 			const beforeFilter = history.length;
 			history = history.filter(entry => entry.timestamp > lastClearTimestamp);
@@ -93,7 +81,7 @@ export async function handleScheduled(env) {
 					recentTracks,
 					userProfile,
 					history,
-					lastClearTimestamp  // Pass lastClearTimestamp for filtering
+					lastClearTimestamp
 				);
 				totalNewTracks += addedCount;
 				console.log(
@@ -134,7 +122,7 @@ export async function handleScheduled(env) {
 
 		// Only commit if there are changes
 		if (historyChanged || liveChanged) {
-			const commitMsg = getRandomCommitMessage(totalNewTracks, liveFriends.length);
+			const commitMsg = await getRandomCommitMessage(totalNewTracks, liveFriends.length, githubRepo, githubToken);
 			await github.updateMultipleGitHubFiles(
 				githubRepo,
 				[

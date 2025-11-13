@@ -1,16 +1,6 @@
-/**
- * Clear History Handler
- * Handles clearing history data
- */
-
 import * as github from '../services/github.js';
 import { getClearHistoryHTML } from './clear-history-html.js';
 
-/**
- * Handle clearing history (scheduled or manual)
- * @param {Object} env - Environment variables
- * @returns {Promise<Response>} Response object
- */
 export async function handleClearHistory(env) {
 	console.log('🗑️  Clearing history (scheduled)...');
 
@@ -22,24 +12,20 @@ export async function handleClearHistory(env) {
 		const githubToken = env.GITHUB_TOKEN;
 		const githubRepo = env.GITHUB_REPO;
 
-		// Check current history
 		const { content: currentHistory } = await github.getGitHubFile(
 			githubRepo,
 			'history.json',
 			githubToken
 		);
 
-		// If history is already empty, skip commit
 		if (!currentHistory || currentHistory.length === 0) {
 			console.log(`ℹ️  History is already empty, skipping commit`);
 			return new Response('Success: History already empty', { status: 200 });
 		}
 
-		// Clear history by setting it to empty array
 		const emptyHistory = [];
 		const clearTimestamp = Date.now();
 		const lastClearData = { lastClearTimestamp: clearTimestamp };
-		// Format date as ddmmyyyy (UTC)
 		const now = new Date(clearTimestamp);
 		const dd = String(now.getUTCDate()).padStart(2, '0');
 		const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
@@ -65,13 +51,6 @@ export async function handleClearHistory(env) {
 	}
 }
 
-/**
- * Handle clear history endpoint with authentication
- * @param {Request} request - Request object
- * @param {Object} env - Environment variables
- * @param {Headers} corsHeaders - CORS headers
- * @returns {Promise<Response>} Response object
- */
 export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 	try {
 		console.log('🗑️  Clearing history request received...');
@@ -83,7 +62,6 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 
 		const url = new URL(request.url);
 
-		// Check password authentication
 		const providedPassword = url.searchParams.get('password') ||
 			request.headers.get('X-Clear-Password') ||
 			request.headers.get('Authorization')?.replace('Bearer ', '');
@@ -91,7 +69,6 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 		if (!providedPassword) {
 			console.log('❌ No password provided');
 
-			// If accessed from browser (GET without password), show HTML form
 			if (request.method === 'GET' && request.headers.get('Accept')?.includes('text/html')) {
 				return new Response(getClearHistoryHTML(), {
 					status: 200,
@@ -102,7 +79,6 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 				});
 			}
 
-			// API request without password
 			return new Response(JSON.stringify({
 				success: false,
 				error: 'Password required. Use ?password=YOUR_PASSWORD or X-Clear-Password header'
@@ -134,14 +110,12 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 		const githubToken = env.GITHUB_TOKEN;
 		const githubRepo = env.GITHUB_REPO;
 
-		// Check current history
 		const { content: currentHistory } = await github.getGitHubFile(
 			githubRepo,
 			'history.json',
 			githubToken
 		);
 
-		// If history is already empty, skip commit
 		if (!currentHistory || currentHistory.length === 0) {
 			console.log(`ℹ️  History is already empty, skipping commit`);
 			return new Response(JSON.stringify({
@@ -158,11 +132,9 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 			});
 		}
 
-		// Clear history by setting it to empty array
 		const emptyHistory = [];
 		const clearTimestamp = Date.now();
 		const lastClearData = { lastClearTimestamp: clearTimestamp };
-		// Format date as ddmmyyyy (UTC)
 		const now = new Date(clearTimestamp);
 		const dd = String(now.getUTCDate()).padStart(2, '0');
 		const mm = String(now.getUTCMonth() + 1).padStart(2, '0');

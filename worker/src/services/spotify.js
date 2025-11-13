@@ -1,15 +1,3 @@
-/**
- * Spotify API Service
- * Handles all Spotify API interactions
- */
-
-/**
- * Refresh Spotify access token using refresh token
- * @param {string} refreshToken - The refresh token
- * @param {string} clientId - Spotify client ID
- * @param {string} clientSecret - Spotify client secret
- * @returns {Promise<string>} Access token
- */
 export async function refreshAccessToken(refreshToken, clientId, clientSecret) {
 	const response = await fetch('https://accounts.spotify.com/api/token', {
 		method: 'POST',
@@ -31,11 +19,6 @@ export async function refreshAccessToken(refreshToken, clientId, clientSecret) {
 	return data.access_token;
 }
 
-/**
- * Get user profile from Spotify
- * @param {string} accessToken - Spotify access token
- * @returns {Promise<Object|null>} User profile object or null if failed
- */
 export async function getUserProfile(accessToken) {
 	const response = await fetch('https://api.spotify.com/v1/me', {
 		headers: {
@@ -55,17 +38,9 @@ export async function getUserProfile(accessToken) {
 	};
 }
 
-/**
- * Get recently played tracks from Spotify
- * @param {string} accessToken - Spotify access token
- * @param {number|null} afterTimestamp - Optional unix timestamp (in milliseconds) to get tracks after this time
- * @returns {Promise<Array>} Array of recently played track items
- */
 export async function getRecentlyPlayed(accessToken, afterTimestamp = null) {
-	// Build URL with optional after parameter
 	let url = 'https://api.spotify.com/v1/me/player/recently-played?limit=50';
 
-	// Convert milliseconds to seconds for Spotify API (uses unix timestamp in seconds)
 	if (afterTimestamp && afterTimestamp > 0) {
 		const afterSeconds = Math.floor(afterTimestamp / 1000);
 		url += `&after=${afterSeconds}`;
@@ -85,11 +60,6 @@ export async function getRecentlyPlayed(accessToken, afterTimestamp = null) {
 	return data.items || [];
 }
 
-/**
- * Get currently playing track from Spotify
- * @param {string} accessToken - Spotify access token
- * @returns {Promise<Object|null>} Currently playing track or null
- */
 export async function getCurrentlyPlaying(accessToken) {
 	const response = await fetch(
 		'https://api.spotify.com/v1/me/player/currently-playing',

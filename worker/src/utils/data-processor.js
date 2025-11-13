@@ -1,15 +1,5 @@
-/**
- * Data Processor
- * Processes and transforms Spotify data
- */
-
 import { fixDoubleEncoding } from './encoding.js';
 
-/**
- * Clean existing history from double-encoding issues
- * @param {Array} history - Array of history entries
- * @returns {Array} Cleaned history
- */
 export function cleanHistory(history) {
 	return history.map(entry => ({
 		...entry,
@@ -19,14 +9,6 @@ export function cleanHistory(history) {
 	}));
 }
 
-/**
- * Process recently played tracks and add to history
- * @param {Array} recentTracks - Array of recent track items from Spotify
- * @param {Object} userProfile - User profile object
- * @param {Array} history - Existing history array (will be modified)
- * @param {number} lastClearTimestamp - Timestamp of last history clear (optional)
- * @returns {number} Number of tracks added
- */
 export function processRecentTracks(recentTracks, userProfile, history, lastClearTimestamp = 0) {
 	let addedCount = 0;
 	let skippedOld = 0;
@@ -42,15 +24,11 @@ export function processRecentTracks(recentTracks, userProfile, history, lastClea
 			imageUrl: item.track.album.images?.[0]?.url || null,
 		};
 
-		// CRITICAL: Skip tracks that are older than or equal to lastClearTimestamp
-		// This prevents old data from being re-added after history clear
 		if (lastClearTimestamp > 0 && entry.timestamp <= lastClearTimestamp) {
 			skippedOld++;
 			continue;
 		}
 
-		// Check for duplicates using URI and timestamp
-		// Also check if timestamp is within 1 second (1000ms) to handle slight timing differences
 		const exists = history.some(
 			h =>
 				h.userId === entry.userId &&
@@ -71,12 +49,6 @@ export function processRecentTracks(recentTracks, userProfile, history, lastClea
 	return addedCount;
 }
 
-/**
- * Process currently playing track
- * @param {Object|null} nowPlaying - Currently playing track data from Spotify
- * @param {Object} userProfile - User profile object
- * @returns {Object|null} Formatted live entry or null
- */
 export function processCurrentlyPlaying(nowPlaying, userProfile) {
 	if (!nowPlaying) return null;
 
@@ -108,11 +80,6 @@ export function processCurrentlyPlaying(nowPlaying, userProfile) {
 	};
 }
 
-/**
- * Remove duplicate entries from history
- * @param {Array} history - History array
- * @returns {Array} De-duplicated history
- */
 export function removeDuplicates(history) {
 	const uniqueHistory = [];
 	const seen = new Set();
@@ -128,11 +95,6 @@ export function removeDuplicates(history) {
 	return uniqueHistory;
 }
 
-/**
- * Sort history by timestamp (newest first)
- * @param {Array} history - History array
- * @returns {Array} Sorted history
- */
 export function sortHistory(history) {
 	return history.sort((a, b) => b.timestamp - a.timestamp);
 }

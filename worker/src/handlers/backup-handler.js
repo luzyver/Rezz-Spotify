@@ -1,16 +1,6 @@
-/**
- * Backup Handler
- * Creates a backup of history.json (pre-clear version) into frontend/static/history/{ddmmyyyy}.json
- */
-
 import * as github from '../services/github.js';
 import { getBackupHTML } from './backup-html.js';
 
-/**
- * Extract [ddmmyyyy] from commit message. Fallback to author date if not found.
- * @param {Object} commitData - GitHub commit data
- * @returns {string} ddmmyyyy
- */
 function extractDateTag(commitData) {
   const message = commitData?.commit?.message || '';
   const match = message.match(/\[(\d{8})\]/);
@@ -23,11 +13,6 @@ function extractDateTag(commitData) {
   return `${dd}${mm}${yyyy}`;
 }
 
-/**
- * Handle /backup endpoint
- * Query/body:
- *  - commit: commit SHA (required) - must be a clear history commit
- */
 export async function handleBackupEndpoint(request, env, corsHeaders) {
   try {
     // Validate env

@@ -1,17 +1,5 @@
-/**
- * Commit Message Generator
- * Generates varied and creative commit messages
- */
-
-/**
- * Generate a random commit message based on activity
- * @param {number} newTracks - Number of new tracks added
- * @param {number} liveCount - Number of users currently listening
- * @returns {string} Commit message with [skip ci] flag
- */
-export function getRandomCommitMessage(newTracks, liveCount) {
+export async function getRandomCommitMessage(newTracks, liveCount, githubRepo, githubToken) {
 	const messages = [
-		// Standard sync messages
 		`🎵 Update Spotify data [skip ci]`,
 		`🎧 Sync music activity [skip ci]`,
 		`✨ Fresh Spotify update [skip ci]`,
@@ -22,16 +10,16 @@ export function getRandomCommitMessage(newTracks, liveCount) {
 		`📻 Update play history and status [skip ci]`,
 		`🎼 Sync Spotify activity [skip ci]`,
 		`💫 Latest music update [skip ci]`,
-
-		// Musical themed
 		`🎸 Rocking the playlist updates [skip ci]`,
 		`🎹 Harmonizing the data sync [skip ci]`,
 		`🥁 Drumroll... music updated! [skip ci]`,
 		`🎺 Trumpeting new listening data [skip ci]`,
 		`🎻 Fine-tuning the track history [skip ci]`,
 		`🎤 Dropping fresh beats data [skip ci]`,
-
-		// Creative/Fun messages
+		`🎷 Jazzing up the music log [skip ci]`,
+		`🪕 Strumming through updates [skip ci]`,
+		`🪘 Beating the sync drum [skip ci]`,
+		`🎼 Composing new data entries [skip ci]`,
 		`🌟 Vibing with latest tracks [skip ci]`,
 		`🚀 Launching music updates [skip ci]`,
 		`⚡ Lightning-fast sync complete [skip ci]`,
@@ -42,21 +30,39 @@ export function getRandomCommitMessage(newTracks, liveCount) {
 		`☀️ Sunshine music update [skip ci]`,
 		`🎯 Bulls-eye track sync [skip ci]`,
 		`🎨 Painting with sound data [skip ci]`,
-
-		// Time-based messages
+		`⭐ Stellar music sync [skip ci]`,
+		`💥 Boom! Data updated [skip ci]`,
+		`🌊 Riding the music wave [skip ci]`,
+		`🍀 Lucky sync complete [skip ci]`,
+		`🎭 Encore! Data refreshed [skip ci]`,
+		`🌺 Blooming with new tracks [skip ci]`,
+		`🦋 Transforming music data [skip ci]`,
+		`🌸 Spring cleaning the playlist [skip ci]`,
+		`🍂 Autumn leaves, fresh beats [skip ci]`,
+		`❄️ Cool tracks incoming [skip ci]`,
+		`🌻 Sunflower sync success [skip ci]`,
+		`🎐 Wind chimes of data [skip ci]`,
+		`🪐 Cosmic music alignment [skip ci]`,
+		`🌠 Shooting star sync [skip ci]`,
+		`🎆 Fireworks of fresh data [skip ci]`,
 		`⏰ Timely music refresh [skip ci]`,
 		`🕐 Hourly beats update [skip ci]`,
 		`📅 Daily rhythm sync [skip ci]`,
 		`⏳ Time flies, tracks sync [skip ci]`,
-
-		// Tech-themed
+		`⌚ Clockwork music update [skip ci]`,
+		`🕰️ Vintage sync complete [skip ci]`,
+		`⏱️ Stopwatch: sync done [skip ci]`,
 		`🤖 Bot updating musical database [skip ci]`,
 		`💻 Compiling fresh playlists [skip ci]`,
 		`🔧 Maintaining the groove [skip ci]`,
 		`⚙️ Automated music pipeline [skip ci]`,
 		`📡 Broadcasting latest jams [skip ci]`,
-
-		// Playful messages
+		`🖥️ Digital music refresh [skip ci]`,
+		`💾 Saving musical memories [skip ci]`,
+		`🔌 Plugged into new beats [skip ci]`,
+		`📱 Mobile sync complete [skip ci]`,
+		`⌨️ Typing up new tracks [skip ci]`,
+		`🖱️ Clicking through updates [skip ci]`,
 		`🎪 The music show goes on [skip ci]`,
 		`🎢 Rollercoaster of tunes updated [skip ci]`,
 		`🎭 Drama-free data sync [skip ci]`,
@@ -64,10 +70,113 @@ export function getRandomCommitMessage(newTracks, liveCount) {
 		`🎮 Level up: tracks synced [skip ci]`,
 		`🏆 Trophy unlocked: sync complete [skip ci]`,
 		`🎉 Celebrating new beats [skip ci]`,
-		`🎊 Party time: data updated [skip ci]`
+		`🎊 Party time: data updated [skip ci]`,
+		`🎈 Floating with new music [skip ci]`,
+		`🎁 Gift of fresh tracks [skip ci]`,
+		`🎀 Wrapped up nicely [skip ci]`,
+		`🎂 Sweet music updates [skip ci]`,
+		`🍕 Slice of fresh data [skip ci]`,
+		`🍔 Burger of beats served [skip ci]`,
+		`🍿 Popcorn-worthy sync [skip ci]`,
+		`☕ Coffee break sync [skip ci]`,
+		`🍵 Tea time music update [skip ci]`,
+		`🥤 Refreshing data drink [skip ci]`,
+		`🌮 Taco Tuesday tracks [skip ci]`,
+		`🍜 Noodle through updates [skip ci]`,
+		`🍰 Cake walk sync [skip ci]`,
+		`🚗 Cruising through updates [skip ci]`,
+		`✈️ Flying high with new tracks [skip ci]`,
+		`🚂 All aboard the music train [skip ci]`,
+		`🚁 Helicopter view of data [skip ci]`,
+		`🛸 UFO spotted: new tracks [skip ci]`,
+		`🏃 Running sync complete [skip ci]`,
+		`🚴 Cycling through updates [skip ci]`,
+		`🏊 Swimming in new music [skip ci]`,
+		`⛷️ Skiing down the playlist [skip ci]`,
+		`🏄 Surfing the sound waves [skip ci]`,
+		`🧘 Zen mode: sync complete [skip ci]`,
+		`💪 Flexing with fresh data [skip ci]`,
+		`🎯 Target acquired: synced [skip ci]`,
+		`🎲 Rolling the music dice [skip ci]`,
+		`🃏 Wild card: new tracks [skip ci]`,
+		`🎰 Jackpot! Data updated [skip ci]`,
+		`🏀 Slam dunk sync [skip ci]`,
+		`⚽ Goal! Music updated [skip ci]`,
+		`🎾 Ace! Sync complete [skip ci]`,
+		`🏐 Spike the data [skip ci]`,
+		`🏈 Touchdown! Tracks synced [skip ci]`,
+		`⚾ Home run update [skip ci]`,
+		`🥊 Knockout sync [skip ci]`,
+		`🎣 Caught fresh tracks [skip ci]`,
+		`🌍 Global music update [skip ci]`,
+		`🗺️ Mapping new sounds [skip ci]`,
+		`🧭 Navigating through beats [skip ci]`,
+		`🏔️ Peak performance sync [skip ci]`,
+		`🏖️ Beach vibes updated [skip ci]`,
+		`🏝️ Island of new tracks [skip ci]`,
+		`🌋 Erupting with music [skip ci]`,
+		`🏜️ Desert oasis sync [skip ci]`,
+		`🌲 Forest of fresh beats [skip ci]`,
+		`🌴 Palm tree paradise update [skip ci]`,
+		`🦁 Roaring with new music [skip ci]`,
+		`🐯 Tiger sync complete [skip ci]`,
+		`🐻 Bear hug for data [skip ci]`,
+		`🦊 Foxy fresh tracks [skip ci]`,
+		`🐺 Wolf pack sync [skip ci]`,
+		`🦅 Eagle eye update [skip ci]`,
+		`🦉 Wise owl sync [skip ci]`,
+		`🐬 Dolphin dive into music [skip ci]`,
+		`🦈 Shark attack: new tracks [skip ci]`,
+		`🐙 Octopus arms of data [skip ci]`,
+		`🦑 Squid ink sync [skip ci]`,
+		`🐳 Whale of a sync [skip ci]`,
+		`🦋 Butterfly effect update [skip ci]`,
+		`🐝 Buzzing with new beats [skip ci]`,
+		`🐞 Ladybug luck sync [skip ci]`,
+		`🦗 Cricket chirp update [skip ci]`,
+		`🕷️ Spider web of tracks [skip ci]`,
+		`🦂 Scorpion sting sync [skip ci]`,
+		`🌹 Rose-tinted music [skip ci]`,
+		`🌷 Tulip fresh data [skip ci]`,
+		`🌼 Daisy chain sync [skip ci]`,
+		`🌻 Sunflower power update [skip ci]`,
+		`🌺 Hibiscus harmony [skip ci]`,
+		`🌸 Cherry blossom sync [skip ci]`,
+		`🏵️ Rosette of tracks [skip ci]`,
+		`💐 Bouquet of beats [skip ci]`,
+		`🍀 Four-leaf clover luck [skip ci]`,
+		`🍁 Maple leaf music [skip ci]`,
+		`🍂 Falling for new tracks [skip ci]`,
+		`🍃 Leaf through updates [skip ci]`,
+		`🌿 Herb garden sync [skip ci]`,
+		`☘️ Shamrock shuffle [skip ci]`,
+		`🎋 Bamboo beats [skip ci]`,
+		`🎍 Pine fresh sync [skip ci]`,
+		`🌾 Wheat field waves [skip ci]`,
+		`🌱 Seedling of sound [skip ci]`,
+		`🌳 Tree of music [skip ci]`,
+		`🌲 Evergreen sync [skip ci]`,
+		`🌵 Cactus cool update [skip ci]`,
+		`🎃 Pumpkin spice sync [skip ci]`,
+		`🍇 Grape expectations [skip ci]`,
+		`🍉 Watermelon fresh [skip ci]`,
+		`🍊 Orange you glad [skip ci]`,
+		`🍋 Lemon zest sync [skip ci]`,
+		`🍌 Banana split update [skip ci]`,
+		`🍍 Pineapple paradise [skip ci]`,
+		`🥭 Mango tango sync [skip ci]`,
+		`🍎 Apple of my eye [skip ci]`,
+		`🍏 Green apple fresh [skip ci]`,
+		`🍐 Pear-fect sync [skip ci]`,
+		`🍑 Peachy keen update [skip ci]`,
+		`🍒 Cherry on top [skip ci]`,
+		`🍓 Strawberry fields [skip ci]`,
+		`🥝 Kiwi cool sync [skip ci]`,
+		`🍅 Tomato time [skip ci]`,
+		`🥥 Coconut vibes [skip ci]`,
+		`🥑 Avocado toast sync [skip ci]`
 	];
 
-	// Add dynamic messages based on activity
 	if (newTracks > 0) {
 		messages.push(
 			`🎵 Add ${newTracks} new track${newTracks !== 1 ? 's' : ''} [skip ci]`,
@@ -92,6 +201,46 @@ export function getRandomCommitMessage(newTracks, liveCount) {
 		);
 	}
 
-	const randomIndex = Math.floor(Math.random() * messages.length);
-	return messages[randomIndex];
+	let lastCommits = [];
+	try {
+		const github = await import('../services/github.js');
+		const { content } = await github.getGitHubFile(githubRepo, 'last-commits.json', githubToken);
+		if (content && Array.isArray(content)) {
+			lastCommits = content;
+		}
+	} catch (error) {
+		console.log('No last-commits.json found, starting fresh');
+	}
+
+	let selectedMessage;
+	let attempts = 0;
+	const maxAttempts = 50;
+
+	do {
+		const randomIndex = Math.floor(Math.random() * messages.length);
+		selectedMessage = messages[randomIndex];
+		attempts++;
+	} while (lastCommits.includes(selectedMessage) && attempts < maxAttempts);
+
+	lastCommits.unshift(selectedMessage);
+	if (lastCommits.length > 50) {
+		lastCommits = lastCommits.slice(0, 50);
+	}
+
+	try {
+		const github = await import('../services/github.js');
+		const { sha } = await github.getGitHubFile(githubRepo, 'last-commits.json', githubToken);
+		await github.updateGitHubFile(
+			githubRepo,
+			'last-commits.json',
+			lastCommits,
+			'Update last commits cache [skip ci]',
+			sha,
+			githubToken
+		);
+	} catch (error) {
+		console.log('Failed to update last-commits.json:', error.message);
+	}
+
+	return selectedMessage;
 }

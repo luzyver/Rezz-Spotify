@@ -1,20 +1,8 @@
-/**
- * GitHub API Service
- * Handles all GitHub API interactions for file storage
- */
-
 import { base64ToUtf8, utf8ToBase64 } from '../utils/encoding.js';
 
 const GITHUB_API_BASE = 'https://api.github.com';
 const USER_AGENT = 'Rezz-Spotify-Worker/1.0';
 
-/**
- * Get file content from GitHub repository
- * @param {string} repo - Repository in format "owner/repo"
- * @param {string} path - File path in repository
- * @param {string} token - GitHub access token
- * @returns {Promise<{content: Object|null, sha: string|null}>} File content and SHA
- */
 export async function getGitHubFile(repo, path, token) {
 	const url = `${GITHUB_API_BASE}/repos/${repo}/contents/${path}`;
 	console.log(`Fetching: ${url}`);
@@ -46,13 +34,6 @@ export async function getGitHubFile(repo, path, token) {
 	return { content, sha: data.sha };
 }
 
-/**
- * Get commit information by SHA
- * @param {string} repo - Repository in format "owner/repo"
- * @param {string} sha - Commit SHA
- * @param {string} token - GitHub access token
- * @returns {Promise<Object>} Commit data
- */
 export async function getCommit(repo, sha, token) {
 	const url = `${GITHUB_API_BASE}/repos/${repo}/commits/${sha}`;
 	const response = await fetch(url, {
@@ -69,14 +50,6 @@ export async function getCommit(repo, sha, token) {
 	return await response.json();
 }
 
-/**
- * Get file content from GitHub repository at a specific ref (branch, tag, or commit SHA)
- * @param {string} repo - Repository in format "owner/repo"
- * @param {string} path - File path in repository
- * @param {string} ref - A valid Git reference (branch, tag, or commit SHA)
- * @param {string} token - GitHub access token
- * @returns {Promise<{content: Object|null, sha: string|null}>} File content and SHA
- */
 export async function getGitHubFileAtRef(repo, path, ref, token) {
 	const url = `${GITHUB_API_BASE}/repos/${repo}/contents/${path}?ref=${encodeURIComponent(ref)}`;
 	const response = await fetch(url, {
@@ -100,16 +73,6 @@ export async function getGitHubFileAtRef(repo, path, ref, token) {
 }
 
 
-/**
- * Update a single file in GitHub repository
- * @param {string} repo - Repository in format "owner/repo"
- * @param {string} path - File path in repository
- * @param {Object} content - Content to write (will be JSON.stringify'd)
- * @param {string} message - Commit message
- * @param {string|null} sha - Current file SHA (null for new files)
- * @param {string} token - GitHub access token
- * @returns {Promise<Object>} GitHub API response
- */
 export async function updateGitHubFile(repo, path, content, message, sha, token) {
 	const response = await fetch(
 		`${GITHUB_API_BASE}/repos/${repo}/contents/${path}`,
@@ -136,16 +99,7 @@ export async function updateGitHubFile(repo, path, content, message, sha, token)
 	return await response.json();
 }
 
-/**
- * Update multiple files in a single commit using GitHub Git API
- * @param {string} repo - Repository in format "owner/repo"
- * @param {Array<{path: string, content: Object}>} files - Files to update
- * @param {string} message - Commit message
- * @param {string} token - GitHub access token
- * @returns {Promise<Object>} GitHub API response
- */
 export async function updateMultipleGitHubFiles(repo, files, message, token) {
-	// Get the latest commit SHA
 	const branchResponse = await fetch(
 		`${GITHUB_API_BASE}/repos/${repo}/git/refs/heads/main`,
 		{

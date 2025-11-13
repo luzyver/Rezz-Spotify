@@ -1,16 +1,5 @@
-/**
- * API Handler
- * Handles API endpoints for fetching data
- */
-
 import * as github from '../services/github.js';
 
-/**
- * Handle /api/live endpoint
- * @param {Object} env - Environment variables
- * @param {Headers} corsHeaders - CORS headers
- * @returns {Promise<Response>} Response object
- */
 export async function handleLiveAPI(env, corsHeaders) {
 	try {
 		const { content } = await github.getGitHubFile(
@@ -39,12 +28,6 @@ export async function handleLiveAPI(env, corsHeaders) {
 	}
 }
 
-/**
- * Handle /api/history endpoint
- * @param {Object} env - Environment variables
- * @param {Headers} corsHeaders - CORS headers
- * @returns {Promise<Response>} Response object
- */
 export async function handleHistoryAPI(env, corsHeaders) {
 	try {
 		const { content } = await github.getGitHubFile(
