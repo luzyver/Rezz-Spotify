@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763007024170,
+      "timestamp": 1763007124116,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5Egm9N7FnzsThl1CFXB2mm",
-        "name": "Kita usahakan rumah itu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273686acaaa87bfc6ebb42b3bd2",
+        "uri": "spotify:track:2dIBMHByUGcNPzmYBJ6OAj",
+        "name": "Evaluasi",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d623688488865906052ef96b",
         "album": {
-          "uri": "spotify:album:5uAcLj2EJLtQtKMyDYCI0Q",
-          "name": "MARKERS AND SUCH PENS FLASHDISKS"
+          "uri": "spotify:album:1DAuVHMlBvIjzWZALSUXbn",
+          "name": "Menari Dengan Bayangan"
         },
         "artist": {
-          "uri": "spotify:artist:1NjxFrpEGZTV2Ny0OJxeWu",
-          "name": "Sal Priadi"
+          "uri": "spotify:artist:51kyrUsAVqUBcoDEMFkX12",
+          "name": "Hindia"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
