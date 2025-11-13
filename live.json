@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763044254254,
+      "timestamp": 1763044854361,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4CD3TJYkPcbtsMX3hNqiFE",
-        "name": "Mengapa",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27357124131195ac118b99d2042",
+        "uri": "spotify:track:4D41thx2lQiCY2r0QsfVYc",
+        "name": "Aku Yang Salah",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731ad2b7f5d6820faee48605a8",
         "album": {
-          "uri": "spotify:album:46Vu60ForvCqH8L7l9X6BP",
-          "name": "Rahasia Pertama"
+          "uri": "spotify:album:7swcI60yTRtgNUncVzGyRx",
+          "name": "Aku Yang Salah"
         },
         "artist": {
-          "uri": "spotify:artist:13y29W8mEcA2gKqUr1SPLJ",
-          "name": "Rony Parulian"
+          "uri": "spotify:artist:3wOsYKZM0zcKNasi3I7fP4",
+          "name": "Mahalini, Nuca"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
