@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763029222336,
+      "timestamp": 1763029823798,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4s8W4gutSQnFIDNThqUPSI",
-        "name": "Semua lagu cinta",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273686acaaa87bfc6ebb42b3bd2",
+        "uri": "spotify:track:4Pa4h41IgFmhbxsnVZO9pl",
+        "name": "Saat Bahagia",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27376db3518dda8015865411eb4",
         "album": {
-          "uri": "spotify:album:5uAcLj2EJLtQtKMyDYCI0Q",
-          "name": "MARKERS AND SUCH PENS FLASHDISKS"
+          "uri": "spotify:album:7tkjVBLIMZdTsvmviNBOGp",
+          "name": "1000 Kisah Satu Hati"
         },
         "artist": {
-          "uri": "spotify:artist:1NjxFrpEGZTV2Ny0OJxeWu",
-          "name": "Sal Priadi"
+          "uri": "spotify:artist:4HHdjvdn30koo54zQ6QeF5",
+          "name": "Ungu, Andien"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1E4k5a14eoBPkb",
