@@ -1,4 +1,6 @@
 import * as github from '../services/github.js';
+import { base64ToUtf8, utf8ToBase64 } from '../utils/encoding.js';
+
 
 /**
  * Generate README content with history data summary per date
@@ -8,35 +10,35 @@ function generateReadmeContent(historyFiles, allHistoryData) {
 	const totalTracks = allHistoryData.length;
 	const uniqueTracks = new Set(allHistoryData.map(t => t.uri)).size;
 	const uniqueArtists = new Set(allHistoryData.map(t => t.artist)).size;
-	
+
 	// Count tracks per artist (overall)
 	const artistCounts = {};
 	allHistoryData.forEach(track => {
 		artistCounts[track.artist] = (artistCounts[track.artist] || 0) + 1;
 	});
-	
+
 	// Top 10 artists (overall)
 	const topArtists = Object.entries(artistCounts)
 		.sort((a, b) => b[1] - a[1])
 		.slice(0, 10);
-	
+
 	// Count tracks per song (overall)
 	const trackCounts = {};
 	allHistoryData.forEach(track => {
 		const key = `${track.track} - ${track.artist}`;
 		trackCounts[key] = (trackCounts[key] || 0) + 1;
 	});
-	
+
 	// Top 10 most played tracks (overall)
 	const topTracks = Object.entries(trackCounts)
 		.sort((a, b) => b[1] - a[1])
 		.slice(0, 10);
-	
+
 	// Date range (GMT+7)
 	const timestamps = allHistoryData.map(t => t.timestamp).sort((a, b) => a - b);
 	const firstDate = timestamps.length > 0 ? new Date(timestamps[0]).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' }) : 'N/A';
 	const lastDate = timestamps.length > 0 ? new Date(timestamps[timestamps.length - 1]).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' }) : 'N/A';
-	
+
 	let readme = `# 🎵 Rezz Spotify Listening History
 
 > Automated Spotify activity tracker with historical data archive
@@ -79,39 +81,39 @@ function generateReadmeContent(historyFiles, allHistoryData) {
 
 	if (historyFiles && historyFiles.length > 0) {
 		const sortedFiles = [...historyFiles].sort((a, b) => a.date.localeCompare(b.date));
-		
+
 		sortedFiles.forEach(file => {
 			const dateObj = new Date(
 				parseInt(file.date.substring(4, 8)), // year
 				parseInt(file.date.substring(2, 4)) - 1, // month (0-indexed)
 				parseInt(file.date.substring(0, 2)) // day
 			);
-			const formattedDate = dateObj.toLocaleDateString('en-US', { 
-				year: 'numeric', 
-				month: 'short', 
+			const formattedDate = dateObj.toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'short',
 				day: 'numeric',
 				timeZone: 'Asia/Jakarta'
 			});
-			
+
 			// Calculate stats for this specific date
 			const dailyArtistCounts = {};
 			const dailyTrackCounts = {};
-			
+
 			file.data.forEach(track => {
 				dailyArtistCounts[track.artist] = (dailyArtistCounts[track.artist] || 0) + 1;
 				const trackKey = `${track.track} - ${track.artist}`;
 				dailyTrackCounts[trackKey] = (dailyTrackCounts[trackKey] || 0) + 1;
 			});
-			
+
 			const topDailyArtist = Object.entries(dailyArtistCounts)
 				.sort((a, b) => b[1] - a[1])[0];
-			
+
 			const topDailyTrack = Object.entries(dailyTrackCounts)
 				.sort((a, b) => b[1] - a[1])[0];
-			
+
 			const artistText = topDailyArtist ? `${topDailyArtist[0]} (${topDailyArtist[1]})` : '-';
 			const trackText = topDailyTrack ? `${topDailyTrack[0]} (${topDailyTrack[1]})` : '-';
-			
+
 			readme += `| ${formattedDate} | ${file.count} | ${artistText} | ${trackText} |\n`;
 		});
 	}
@@ -129,7 +131,7 @@ function generateReadmeContent(historyFiles, allHistoryData) {
  */
 async function getHistoryFiles(repo, token) {
 	const historyPath = 'frontend/static/history';
-	
+
 	try {
 		const url = `https://api.github.com/repos/${repo}/contents/${historyPath}`;
 		const response = await fetch(url, {
@@ -155,7 +157,7 @@ async function getHistoryFiles(repo, token) {
 				try {
 					const { content } = await github.getGitHubFile(repo, file.path, token);
 					const trackCount = Array.isArray(content) ? content.length : 0;
-					
+
 					// Extract date from filename (ddmmyyyy.json)
 					const dateMatch = file.name.match(/^(\d{8})\.json$/);
 					if (dateMatch) {
@@ -166,7 +168,7 @@ async function getHistoryFiles(repo, token) {
 							path: file.path,
 							data: content || [] // Store the actual data for per-day stats
 						});
-						
+
 						// Add all tracks to combined data
 						if (Array.isArray(content)) {
 							allHistoryData.push(...content);
@@ -225,7 +227,7 @@ export async function handleUpdateReadme(env, corsHeaders) {
 				const data = await response.json();
 				existingSha = data.sha;
 				// Decode existing content
-				existingContent = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+				existingContent = base64ToUtf8(data.content);
 			}
 		} catch (error) {
 			console.log('README not found, will create new');
@@ -241,16 +243,16 @@ export async function handleUpdateReadme(env, corsHeaders) {
 					historyFiles: historyFiles.length,
 					skipped: true,
 				}),
-				{ 
-					status: 200, 
-					headers: { 'Content-Type': 'application/json', ...corsHeaders } 
+				{
+					status: 200,
+					headers: { 'Content-Type': 'application/json', ...corsHeaders }
 				}
 			);
 		}
 
 		// Update README
 		const commitMessage = `📝 Update README with history archive (${historyFiles.length} files) [skip ci]`;
-		
+
 		const response = await fetch(
 			`https://api.github.com/repos/${githubRepo}/contents/${readmePath}`,
 			{
@@ -263,7 +265,7 @@ export async function handleUpdateReadme(env, corsHeaders) {
 				},
 				body: JSON.stringify({
 					message: commitMessage,
-					content: btoa(unescape(encodeURIComponent(newReadmeContent))),
+					content: utf8ToBase64(newReadmeContent),
 					sha: existingSha,
 				}),
 			}
@@ -285,21 +287,21 @@ export async function handleUpdateReadme(env, corsHeaders) {
 				historyFiles: historyFiles.length,
 				commit: result.commit.sha,
 			}),
-			{ 
-				status: 200, 
-				headers: { 'Content-Type': 'application/json', ...corsHeaders } 
+			{
+				status: 200,
+				headers: { 'Content-Type': 'application/json', ...corsHeaders }
 			}
 		);
 	} catch (error) {
 		console.error('❌ Error updating README:', error);
 		return new Response(
-			JSON.stringify({ 
-				success: false, 
-				error: error.message 
+			JSON.stringify({
+				success: false,
+				error: error.message
 			}),
-			{ 
-				status: 500, 
-				headers: { 'Content-Type': 'application/json', ...corsHeaders } 
+			{
+				status: 500,
+				headers: { 'Content-Type': 'application/json', ...corsHeaders }
 			}
 		);
 	}

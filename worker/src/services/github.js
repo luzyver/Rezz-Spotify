@@ -118,6 +118,14 @@ export async function updateMultipleGitHubFiles(repo, files, message, token) {
 	const branchData = await branchResponse.json();
 	const latestCommitSha = branchData.object.sha;
 
+	// Resolve the base tree from the latest commit so we can create a new tree
+	const latestCommit = await getCommit(repo, latestCommitSha, token);
+	const baseTreeSha = latestCommit?.tree?.sha;
+
+	if (!baseTreeSha) {
+		throw new Error('Failed to resolve base tree for latest commit');
+	}
+
 	// Create blobs for each file
 	const blobs = await Promise.all(
 		files.map(async (file) => {
@@ -152,7 +160,7 @@ export async function updateMultipleGitHubFiles(repo, files, message, token) {
 		})
 	);
 
-	// Create a tree
+	// Create a tree based on the latest commit's tree
 	const treeResponse = await fetch(
 		`${GITHUB_API_BASE}/repos/${repo}/git/trees`,
 		{
@@ -164,7 +172,7 @@ export async function updateMultipleGitHubFiles(repo, files, message, token) {
 				'User-Agent': USER_AGENT,
 			},
 			body: JSON.stringify({
-				base_tree: latestCommitSha,
+				base_tree: baseTreeSha,
 				tree: blobs,
 			}),
 		}

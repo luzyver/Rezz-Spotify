@@ -1,49 +1,60 @@
 import * as github from '../services/github.js';
 import { getClearHistoryHTML } from './clear-history-html.js';
 
+async function clearHistoryData(env) {
+	// Validate environment variables
+	if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
+	if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
+
+	const githubToken = env.GITHUB_TOKEN;
+	const githubRepo = env.GITHUB_REPO;
+
+	const { content: currentHistory } = await github.getGitHubFile(
+		githubRepo,
+		'history.json',
+		githubToken
+	);
+
+	if (!currentHistory || currentHistory.length === 0) {
+		console.log(`ℹ️  History is already empty, skipping commit`);
+		return { skipped: true, itemsRemoved: 0 };
+	}
+
+	const emptyHistory = [];
+	const clearTimestamp = Date.now();
+	const lastClearData = { lastClearTimestamp: clearTimestamp };
+	const now = new Date(clearTimestamp);
+	const dd = String(now.getUTCDate()).padStart(2, '0');
+	const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
+	const yyyy = now.getUTCFullYear();
+	const dateTag = `${dd}${mm}${yyyy}`;
+	const commitMsg = `🗑️ [${dateTag}] Clear history (daily reset) [skip ci]`;
+
+	await github.updateMultipleGitHubFiles(
+		githubRepo,
+		[
+			{ path: 'history.json', content: emptyHistory },
+			{ path: 'last-clear.json', content: lastClearData }
+		],
+		commitMsg,
+		githubToken
+	);
+
+	console.log(`✅ History cleared successfully! (${currentHistory.length} items removed)`);
+	return { skipped: false, itemsRemoved: currentHistory.length };
+}
+
+
 export async function handleClearHistory(env) {
 	console.log('🗑️  Clearing history (scheduled)...');
 
 	try {
-		// Validate environment variables
-		if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
-		if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
+		const result = await clearHistoryData(env);
 
-		const githubToken = env.GITHUB_TOKEN;
-		const githubRepo = env.GITHUB_REPO;
-
-		const { content: currentHistory } = await github.getGitHubFile(
-			githubRepo,
-			'history.json',
-			githubToken
-		);
-
-		if (!currentHistory || currentHistory.length === 0) {
-			console.log(`ℹ️  History is already empty, skipping commit`);
+		if (result.skipped) {
 			return new Response('Success: History already empty', { status: 200 });
 		}
 
-		const emptyHistory = [];
-		const clearTimestamp = Date.now();
-		const lastClearData = { lastClearTimestamp: clearTimestamp };
-		const now = new Date(clearTimestamp);
-		const dd = String(now.getUTCDate()).padStart(2, '0');
-		const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
-		const yyyy = now.getUTCFullYear();
-		const dateTag = `${dd}${mm}${yyyy}`;
-		const commitMsg = `🗑️ [${dateTag}] Clear history (daily reset) [skip ci]`;
-
-		await github.updateMultipleGitHubFiles(
-			githubRepo,
-			[
-				{ path: 'history.json', content: emptyHistory },
-				{ path: 'last-clear.json', content: lastClearData }
-			],
-			commitMsg,
-			githubToken
-		);
-
-		console.log(`✅ History cleared successfully! (${currentHistory.length} items removed)`);
 		return new Response('Success: History cleared', { status: 200 });
 	} catch (error) {
 		console.error('❌ Error clearing history:', error);
@@ -107,17 +118,9 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 
 		console.log('✅ Password authenticated, clearing history...');
 
-		const githubToken = env.GITHUB_TOKEN;
-		const githubRepo = env.GITHUB_REPO;
+		const result = await clearHistoryData(env);
 
-		const { content: currentHistory } = await github.getGitHubFile(
-			githubRepo,
-			'history.json',
-			githubToken
-		);
-
-		if (!currentHistory || currentHistory.length === 0) {
-			console.log(`ℹ️  History is already empty, skipping commit`);
+		if (result.skipped) {
 			return new Response(JSON.stringify({
 				success: true,
 				message: 'History is already empty',
@@ -132,31 +135,10 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 			});
 		}
 
-		const emptyHistory = [];
-		const clearTimestamp = Date.now();
-		const lastClearData = { lastClearTimestamp: clearTimestamp };
-		const now = new Date(clearTimestamp);
-		const dd = String(now.getUTCDate()).padStart(2, '0');
-		const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
-		const yyyy = now.getUTCFullYear();
-		const dateTag = `${dd}${mm}${yyyy}`;
-		const commitMsg = `🗑️ [${dateTag}] Clear history (daily reset) [skip ci]`;
-
-		await github.updateMultipleGitHubFiles(
-			githubRepo,
-			[
-				{ path: 'history.json', content: emptyHistory },
-				{ path: 'last-clear.json', content: lastClearData }
-			],
-			commitMsg,
-			githubToken
-		);
-
-		console.log(`✅ History cleared successfully! (${currentHistory.length} items removed)`);
 		return new Response(JSON.stringify({
 			success: true,
 			message: 'History cleared successfully',
-			itemsRemoved: currentHistory.length,
+			itemsRemoved: result.itemsRemoved,
 			timestamp: new Date().toISOString()
 		}), {
 			status: 200,

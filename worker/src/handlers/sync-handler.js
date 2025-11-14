@@ -22,7 +22,6 @@ export async function handleScheduled(env) {
 		const githubRepo = env.GITHUB_REPO;
 
 		console.log(`GitHub Repo: ${githubRepo}`);
-		console.log(`GitHub Token: ${githubToken.substring(0, 10)}...`);
 
 		// Load existing data from GitHub
 		const { content: rawHistory = [] } = await github.getGitHubFile(
