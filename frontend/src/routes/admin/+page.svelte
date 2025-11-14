@@ -87,7 +87,7 @@
       const res = await fetch(API_ENDPOINTS.BACKUP, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sha: backupCommitHash.trim() })
+        body: JSON.stringify({ commit: backupCommitHash.trim() })
       });
       
       const contentType = res.headers.get('content-type');
