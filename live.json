@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763107941810,
+      "timestamp": 1763108413735,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:1NzyVlr2fOWOfigbwDabme",
-        "name": "Mesra-mesraannya kecil-kecilan dulu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273686acaaa87bfc6ebb42b3bd2",
+        "uri": "spotify:track:4rcuS31IcZynp91dqvmhmA",
+        "name": "Semua Aku Dirayakan",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27394847679fe7b10e27d9803f5",
         "album": {
-          "uri": "spotify:album:5uAcLj2EJLtQtKMyDYCI0Q",
-          "name": "MARKERS AND SUCH PENS FLASHDISKS"
+          "uri": "spotify:album:5hpq1LSLCuC7cifjXAM5bf",
+          "name": "Untuk Dunia, Cinta, dan Kotornya"
         },
         "artist": {
-          "uri": "spotify:artist:1NjxFrpEGZTV2Ny0OJxeWu",
-          "name": "Sal Priadi"
+          "uri": "spotify:artist:20zafXaLhm5IcXnSU93rNn",
+          "name": "Nadin Amizah"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
