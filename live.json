@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763107813477,
+      "timestamp": 1763107941810,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:22Psd9lrrgVbTERHCGo7i1",
-        "name": "Terlintas",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cb1e5f7d0942bf9196c1e711",
+        "uri": "spotify:track:1NzyVlr2fOWOfigbwDabme",
+        "name": "Mesra-mesraannya kecil-kecilan dulu",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273686acaaa87bfc6ebb42b3bd2",
         "album": {
-          "uri": "spotify:album:5K8xqV7MCe3UIfedVAlZSe",
-          "name": "Terlintas"
+          "uri": "spotify:album:5uAcLj2EJLtQtKMyDYCI0Q",
+          "name": "MARKERS AND SUCH PENS FLASHDISKS"
         },
         "artist": {
-          "uri": "spotify:artist:47z98pKd71yIbgXwe9LPVC",
-          "name": "Bernadya"
+          "uri": "spotify:artist:1NjxFrpEGZTV2Ny0OJxeWu",
+          "name": "Sal Priadi"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
