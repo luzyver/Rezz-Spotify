@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763132449034,
+      "timestamp": 1763133046830,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3EpdvBbPB94mrFKeYgTYKB",
-        "name": "Mengejar Restu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a52991dd10a2a3e7d494324d",
+        "uri": "spotify:track:4h5HFfqHYTtZRIIecbFqj6",
+        "name": "Harus Terpisah",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27359253a0f01981dc1afcd3be2",
         "album": {
-          "uri": "spotify:album:0ICYOvGIjUyTBqeR0PQJdI",
-          "name": "Mengejar Restu"
+          "uri": "spotify:album:3nst6mJgipzEfL2bx5VjtI",
+          "name": "Harus Terpisah"
         },
         "artist": {
-          "uri": "spotify:artist:1zJG0BbOnVVijQXfYYibvD",
-          "name": "Panji Sakti"
+          "uri": "spotify:artist:2P2UGpXHlefVMXpiA5LcBZ",
+          "name": "Eltasya"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DX7sD2LU79ZzQ",
