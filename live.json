@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763134247122,
+      "timestamp": 1763134847361,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:39B12Su7R0fIDcQPykPwkc",
-        "name": "Ego",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735c016f9c8fa4ad84100e112c",
+        "uri": "spotify:track:5k8r824ONOtPpsCG9o9jE2",
+        "name": "Bertemu 5000 Detik",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273161877cc5e6aeb74054cf1cb",
         "album": {
-          "uri": "spotify:album:1R9tlrCSbbO1rUmQZ1a8r6",
-          "name": "Ego"
+          "uri": "spotify:album:4GyXj4a6jegDiK7oyeWBZQ",
+          "name": "Bertemu 5000 Detik"
         },
         "artist": {
-          "uri": "spotify:artist:6PL8FkAt5nOZwYpPIhuAJg",
-          "name": "Padi"
+          "uri": "spotify:artist:2XHFhl3jenckLAT8SWVegS",
+          "name": "Titi DJ, Thomas Djorghi"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DX7sD2LU79ZzQ",
