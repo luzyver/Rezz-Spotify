@@ -1,10 +1,12 @@
 # dependency directory
-node_modules/
+script/node_modules/
 frontend/node_modules/
+worker/node_modules/
 
 # lock files
-package-lock.json
+script/package-lock.json
 frontend/package-lock.json
+worker/package-lock.json
 
 # env file
 .env

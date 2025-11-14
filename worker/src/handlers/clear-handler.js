@@ -1,7 +1,6 @@
 import * as github from '../services/github.js';
 
 async function clearHistoryData(env) {
-	// Validate environment variables
 	if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
 	if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
 
@@ -65,20 +64,30 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 	try {
 		console.log('🗑️  Clearing history request received...');
 
-		// Validate environment variables
 		if (!env.GITHUB_TOKEN) throw new Error('GITHUB_TOKEN not set');
 		if (!env.GITHUB_REPO) throw new Error('GITHUB_REPO not set');
 		if (!env.CLEAR_HISTORY_PASSWORD) throw new Error('CLEAR_HISTORY_PASSWORD not configured');
 
 		const url = new URL(request.url);
 
-		const providedPassword = url.searchParams.get('password') ||
+		let bodyPassword = null;
+		if (request.method === 'POST') {
+			const contentType = request.headers.get('Content-Type') || '';
+			if (contentType.includes('application/json')) {
+				try {
+					const body = await request.json();
+					bodyPassword = body?.password;
+				} catch (_) {}
+			}
+		}
+
+		const providedPassword = bodyPassword ||
+			url.searchParams.get('password') ||
 			request.headers.get('X-Clear-Password') ||
 			request.headers.get('Authorization')?.replace('Bearer ', '');
 
 		if (!providedPassword) {
 			console.log('❌ No password provided');
-
 			return new Response(JSON.stringify({
 				success: false,
 				error: 'Password required. Use ?password=YOUR_PASSWORD or X-Clear-Password header'
