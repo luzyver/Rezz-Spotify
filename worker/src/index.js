@@ -3,7 +3,6 @@ import { handleClearHistory, handleClearHistoryEndpoint } from './handlers/clear
 import { handleLiveAPI, handleHistoryAPI } from './handlers/api-handler.js';
 import { handleBackupEndpoint } from './handlers/backup-handler.js';
 import { handleUpdateReadme } from './handlers/update-readme-handler.js';
-import { getHomeHTML } from './handlers/home-html.js';
 import { CORS_HEADERS, CRON_SCHEDULES } from './config/constants.js';
 
 async function handleScheduledEvent(event, env, ctx) {
@@ -30,7 +29,16 @@ async function handleFetch(request, env, ctx) {
 	}
 
 	if (request.method === 'GET' && pathname === '/trigger') {
-		return handleScheduled(env);
+		// Allow triggering sync from external UIs (frontend) with CORS-safe response
+		const res = await handleScheduled(env);
+		const body = await res.text();
+		return new Response(body, {
+			status: res.status,
+			headers: {
+				'Content-Type': 'text/plain',
+				...CORS_HEADERS,
+			},
+		});
 	}
 
 	if ((request.method === 'GET' || request.method === 'POST') && pathname === '/clear-history') {
@@ -53,11 +61,16 @@ async function handleFetch(request, env, ctx) {
 		return handleHistoryAPI(env, CORS_HEADERS);
 	}
 
-	// Home page with UI
+	// Home/status endpoint (UI is served by the frontend app)
 	if (request.method === 'GET' && pathname === '/') {
-		return new Response(getHomeHTML(), {
-			headers: { 'Content-Type': 'text/html' },
-		});
+		return new Response(
+			JSON.stringify({ status: 'ok', service: 'Rezz Spotify Worker' }),
+			{
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		);
 	}
 
 	// 404 for unknown paths

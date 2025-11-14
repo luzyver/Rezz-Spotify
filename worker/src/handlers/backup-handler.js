@@ -1,5 +1,4 @@
 import * as github from '../services/github.js';
-import { getBackupHTML } from './backup-html.js';
 
 function extractDateTag(commitData) {
   const message = commitData?.commit?.message || '';
@@ -36,11 +35,6 @@ export async function handleBackupEndpoint(request, env, corsHeaders) {
     }
 
     const commitSha = queryCommit || bodyCommit;
-
-    // If accessed from browser and missing commit, render HTML form
-    if (!commitSha && request.method === 'GET' && accept.includes('text/html')) {
-      return new Response(getBackupHTML(), { status: 200, headers: { 'Content-Type': 'text/html', ...corsHeaders } });
-    }
 
     if (!commitSha) {
       return new Response(

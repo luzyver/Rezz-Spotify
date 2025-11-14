@@ -6,7 +6,13 @@ export const TRACKED_USERS: Record<string, { name: string }> = {
 
 export const ITEMS_PER_PAGE = 12;
 
+export const WORKER_BASE = 'https://worker-spotify.luzyver.dev';
+
 export const API_ENDPOINTS = {
-  LIVE: 'https://worker-spotify.luzyver.dev/api/live',
-  HISTORY: 'https://worker-spotify.luzyver.dev/api/history',
+  LIVE: `${WORKER_BASE}/api/live`,
+  HISTORY: `${WORKER_BASE}/api/history`,
+  CLEAR_HISTORY: `${WORKER_BASE}/clear-history`,
+  BACKUP: `${WORKER_BASE}/backup`,
+  TRIGGER: `${WORKER_BASE}/trigger`,
+  UPDATE: `${WORKER_BASE}/update`,
 };

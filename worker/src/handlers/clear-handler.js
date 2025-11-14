@@ -1,5 +1,4 @@
 import * as github from '../services/github.js';
-import { getClearHistoryHTML } from './clear-history-html.js';
 
 async function clearHistoryData(env) {
 	// Validate environment variables
@@ -79,16 +78,6 @@ export async function handleClearHistoryEndpoint(request, env, corsHeaders) {
 
 		if (!providedPassword) {
 			console.log('❌ No password provided');
-
-			if (request.method === 'GET' && request.headers.get('Accept')?.includes('text/html')) {
-				return new Response(getClearHistoryHTML(), {
-					status: 200,
-					headers: {
-						'Content-Type': 'text/html',
-						...corsHeaders
-					}
-				});
-			}
 
 			return new Response(JSON.stringify({
 				success: false,
