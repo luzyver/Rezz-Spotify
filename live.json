@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763131847131,
+      "timestamp": 1763132449034,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5CtyREB80zdg676XLxgqEb",
-        "name": "Makin Aku Cinta",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27349755fb0655f0949f4f39efc",
+        "uri": "spotify:track:3EpdvBbPB94mrFKeYgTYKB",
+        "name": "Mengejar Restu",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273a52991dd10a2a3e7d494324d",
         "album": {
-          "uri": "spotify:album:38JgbBDqJCfyUkuzBmzreB",
-          "name": "GLENN"
+          "uri": "spotify:album:0ICYOvGIjUyTBqeR0PQJdI",
+          "name": "Mengejar Restu"
         },
         "artist": {
-          "uri": "spotify:artist:26ez0LOxJMgy1GkkXhZiCV",
-          "name": "Glenn Samuel, Brisia Jodie, Andi Rianto"
+          "uri": "spotify:artist:1zJG0BbOnVVijQXfYYibvD",
+          "name": "Panji Sakti"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DX7sD2LU79ZzQ",
