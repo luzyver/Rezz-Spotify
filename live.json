@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763089838420,
+      "timestamp": 1763090438470,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3CBxVM0zGj41BQtE6m7gwb",
-        "name": "Membasuh",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d623688488865906052ef96b",
+        "uri": "spotify:track:0mOLyv1GL4sIuzVR1I92Fb",
+        "name": "Adu Rayu",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27325471ac7ba19d98754e94567",
         "album": {
-          "uri": "spotify:album:1DAuVHMlBvIjzWZALSUXbn",
-          "name": "Menari Dengan Bayangan"
+          "uri": "spotify:album:7MQvEjN92cqRdNUCMOKCPA",
+          "name": "Adu Rayu"
         },
         "artist": {
-          "uri": "spotify:artist:51kyrUsAVqUBcoDEMFkX12",
-          "name": "Hindia, Rara Sekar"
+          "uri": "spotify:artist:7Ln5yumFjHCkeZ8bAzHUcp",
+          "name": "Yovie Widianto, Tulus, Glenn Fredly"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
