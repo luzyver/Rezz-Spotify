@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763133046830,
+      "timestamp": 1763133646795,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4h5HFfqHYTtZRIIecbFqj6",
-        "name": "Harus Terpisah",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27359253a0f01981dc1afcd3be2",
+        "uri": "spotify:track:2bGWVOJph2fsQMcuL04PrU",
+        "name": "Ramu",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e20ffb152867d865e52acd10",
         "album": {
-          "uri": "spotify:album:3nst6mJgipzEfL2bx5VjtI",
-          "name": "Harus Terpisah"
+          "uri": "spotify:album:6Um3awxwOSoxLVVBn85UjA",
+          "name": "Ramu"
         },
         "artist": {
-          "uri": "spotify:artist:2P2UGpXHlefVMXpiA5LcBZ",
-          "name": "Eltasya"
+          "uri": "spotify:artist:2Pc5nBssh59fUoQGWOb0KS",
+          "name": "Rizki Jonathan"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DX7sD2LU79ZzQ",
