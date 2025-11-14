@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763088638617,
+      "timestamp": 1763089238128,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:26aNjbOgTVrFZEx7was69A",
-        "name": "Mencintaimu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273489cd3228dbaa5552e5ed8c9",
+        "uri": "spotify:track:4CvYHgcpBFbefsz6Q55ID1",
+        "name": "Kali Kedua",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273f018e2376d8060e0ba1112ab",
         "album": {
-          "uri": "spotify:album:6sGKwCYtM7MlRkVYFWbNQY",
-          "name": "Mencintaimu"
+          "uri": "spotify:album:59KvITHzZaIAfs7lpHSbrY",
+          "name": "Handmade"
         },
         "artist": {
-          "uri": "spotify:artist:1NjxFrpEGZTV2Ny0OJxeWu",
-          "name": "Sal Priadi"
+          "uri": "spotify:artist:5OZXWMwDhlYBRvoOfcX0sk",
+          "name": "Raisa"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
