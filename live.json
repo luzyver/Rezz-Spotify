@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763134847361,
+      "timestamp": 1763135447134,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5k8r824ONOtPpsCG9o9jE2",
-        "name": "Bertemu 5000 Detik",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273161877cc5e6aeb74054cf1cb",
+        "uri": "spotify:track:2Nz5EIX1fmQ9d3CzNx2qHT",
+        "name": "Malah Mendua",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739dfa118da1073107e507fdbd",
         "album": {
-          "uri": "spotify:album:4GyXj4a6jegDiK7oyeWBZQ",
-          "name": "Bertemu 5000 Detik"
+          "uri": "spotify:album:2QZ3EiWpqyXyq8s3DGwjz7",
+          "name": "Malah Mendua"
         },
         "artist": {
-          "uri": "spotify:artist:2XHFhl3jenckLAT8SWVegS",
-          "name": "Titi DJ, Thomas Djorghi"
+          "uri": "spotify:artist:5J4yLOPnPFVaA39zyawZIo",
+          "name": "Lilo Lilo"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DX7sD2LU79ZzQ",
