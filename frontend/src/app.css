@@ -469,3 +469,16 @@ html {
 :root.light [style*='background-color: #ffffff'] {
   background-color: #ffffff !important;
 }
+
+/* Bottom Navigation */
+:root.light nav.bg-\[#121212\] {
+  background: #ffffff !important;
+  border-top-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mobile padding adjustment */
+@media (max-width: 1023px) {
+  .pb-16 {
+    padding-bottom: 4rem;
+  }
+}

@@ -85,8 +85,8 @@
   }
 </script>
 
-<div class="flex h-screen overflow-hidden">
-  <!-- Sidebar -->
+<div class="flex h-screen overflow-hidden pb-16 lg:pb-0">
+  <!-- Sidebar - Desktop Only -->
   <aside class="hidden w-64 flex-col gap-2 bg-black p-2 lg:flex">
     <!-- Main Navigation -->
     <div class="rounded-lg bg-[#121212] p-4">
@@ -443,4 +443,86 @@
     {/if}
   </div>
   </div>
+
+  <!-- Bottom Navigation - Mobile Only -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-[#121212] lg:hidden">
+    <div class="flex items-center justify-around px-2 py-2">
+      <button
+        onclick={() => (activeTab = 'home')}
+        class="flex flex-col items-center gap-1 px-3 py-2 transition-colors {activeTab === 'home'
+          ? 'text-white'
+          : 'text-gray-400'}"
+      >
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+          />
+        </svg>
+        <span class="text-[10px] font-medium">Home</span>
+      </button>
+
+      <button
+        onclick={() => (activeTab = 'recent')}
+        class="flex flex-col items-center gap-1 px-3 py-2 transition-colors {activeTab === 'recent'
+          ? 'text-white'
+          : 'text-gray-400'}"
+      >
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <span class="text-[10px] font-medium">Recent</span>
+      </button>
+
+      <button
+        onclick={() => (activeTab = 'history')}
+        class="flex flex-col items-center gap-1 px-3 py-2 transition-colors {activeTab === 'history'
+          ? 'text-white'
+          : 'text-gray-400'}"
+      >
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fill-rule="evenodd"
+            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <span class="text-[10px] font-medium">History</span>
+      </button>
+
+      <button
+        onclick={() => (activeTab = 'insights')}
+        class="flex flex-col items-center gap-1 px-3 py-2 transition-colors {activeTab === 'insights'
+          ? 'text-white'
+          : 'text-gray-400'}"
+      >
+        <TrendingUp class="h-6 w-6" />
+        <span class="text-[10px] font-medium">Insights</span>
+      </button>
+
+      <button
+        onclick={() => (activeTab = 'achievements')}
+        class="flex flex-col items-center gap-1 px-3 py-2 transition-colors {activeTab ===
+        'achievements'
+          ? 'text-white'
+          : 'text-gray-400'}"
+      >
+        <Award class="h-6 w-6" />
+        <span class="text-[10px] font-medium">Awards</span>
+      </button>
+
+      <button
+        onclick={() => (activeTab = 'calendar')}
+        class="flex flex-col items-center gap-1 px-3 py-2 transition-colors {activeTab === 'calendar'
+          ? 'text-white'
+          : 'text-gray-400'}"
+      >
+        <Calendar class="h-6 w-6" />
+        <span class="text-[10px] font-medium">Calendar</span>
+      </button>
+    </div>
+  </nav>
 </div>
