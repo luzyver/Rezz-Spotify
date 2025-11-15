@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { HistoryItem } from '$lib/types';
-  import { Motion } from 'svelte-motion';
   import { Users, TrendingUp, Music } from 'lucide-svelte';
 
   let { history }: { history: HistoryItem[] } = $props();
@@ -38,58 +37,51 @@
 
   <div class="space-y-4">
     {#each userStats() as user, i}
-      <Motion
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: i * 0.1 }}
-        let:motion
-      >
-        <div use:motion class="space-y-3">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div
-                class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#1db954] to-[#1ed760] font-bold"
-              >
-                {user.user.charAt(0).toUpperCase()}
-              </div>
-              <div>
-                <h4 class="font-bold">{user.user}</h4>
-                <p class="text-xs text-gray-400">{user.plays} total plays</p>
-              </div>
-            </div>
-            <div class="text-right">
-              <div class="text-sm text-gray-400">
-                {user.uniqueTracks} tracks • {user.uniqueArtists} artists
-              </div>
-            </div>
-          </div>
-
-          <div class="h-2 overflow-hidden rounded-full bg-white/10">
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
             <div
-              class="h-full rounded-full bg-gradient-to-r from-[#1db954] to-[#1ed760] transition-all duration-700"
-              style="width: {(user.plays / maxPlays) * 100}%"
-            ></div>
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#1db954] to-[#1ed760] font-bold"
+            >
+              {user.user.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <h4 class="font-bold">{user.user}</h4>
+              <p class="text-xs text-gray-400">{user.plays} total plays</p>
+            </div>
           </div>
-
-          <div class="grid grid-cols-3 gap-2">
-            <div class="rounded-lg bg-white/5 p-2 text-center">
-              <Music class="mx-auto mb-1 h-4 w-4 text-[#1db954]" />
-              <div class="text-xs font-bold">{user.plays}</div>
-              <div class="text-[10px] text-gray-500">Plays</div>
-            </div>
-            <div class="rounded-lg bg-white/5 p-2 text-center">
-              <TrendingUp class="mx-auto mb-1 h-4 w-4 text-blue-400" />
-              <div class="text-xs font-bold">{user.uniqueTracks}</div>
-              <div class="text-[10px] text-gray-500">Tracks</div>
-            </div>
-            <div class="rounded-lg bg-white/5 p-2 text-center">
-              <Users class="mx-auto mb-1 h-4 w-4 text-purple-400" />
-              <div class="text-xs font-bold">{user.uniqueArtists}</div>
-              <div class="text-[10px] text-gray-500">Artists</div>
+          <div class="text-right">
+            <div class="text-sm text-gray-400">
+              {user.uniqueTracks} tracks • {user.uniqueArtists} artists
             </div>
           </div>
         </div>
-      </Motion>
+
+        <div class="h-2 overflow-hidden rounded-full bg-white/10">
+          <div
+            class="h-full rounded-full bg-gradient-to-r from-[#1db954] to-[#1ed760] transition-all duration-700"
+            style="width: {(user.plays / maxPlays) * 100}%"
+          ></div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2">
+          <div class="rounded-lg bg-white/5 p-2 text-center">
+            <Music class="mx-auto mb-1 h-4 w-4 text-[#1db954]" />
+            <div class="text-xs font-bold">{user.plays}</div>
+            <div class="text-[10px] text-gray-500">Plays</div>
+          </div>
+          <div class="rounded-lg bg-white/5 p-2 text-center">
+            <TrendingUp class="mx-auto mb-1 h-4 w-4 text-blue-400" />
+            <div class="text-xs font-bold">{user.uniqueTracks}</div>
+            <div class="text-[10px] text-gray-500">Tracks</div>
+          </div>
+          <div class="rounded-lg bg-white/5 p-2 text-center">
+            <Users class="mx-auto mb-1 h-4 w-4 text-purple-400" />
+            <div class="text-xs font-bold">{user.uniqueArtists}</div>
+            <div class="text-[10px] text-gray-500">Artists</div>
+          </div>
+        </div>
+      </div>
     {/each}
   </div>
 </div>

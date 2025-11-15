@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { HistoryItem } from '$lib/types';
-  import { Motion } from 'svelte-motion';
   import { Smile, Meh, Frown, Zap, Heart } from 'lucide-svelte';
 
   let { history }: { history: HistoryItem[] } = $props();
@@ -44,30 +43,23 @@
 
   <div class="space-y-3">
     {#each moodData() as mood, i}
-      <Motion
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: i * 0.1 }}
-        let:motion
-      >
-        <div use:motion class="space-y-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              {#each [mood.icon] as Icon}
-                <Icon class="h-4 w-4" style="color: {mood.color}" />
-              {/each}
-              <span class="text-sm font-medium">{mood.name}</span>
-            </div>
-            <span class="text-sm text-gray-400">{mood.percentage}%</span>
+      <div class="space-y-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            {#each [mood.icon] as Icon}
+              <Icon class="h-4 w-4" style="color: {mood.color}" />
+            {/each}
+            <span class="text-sm font-medium">{mood.name}</span>
           </div>
-          <div class="h-2 overflow-hidden rounded-full bg-white/10">
-            <div
-              class="h-full rounded-full transition-all duration-700"
-              style="width: {mood.percentage}%; background: {mood.color}"
-            ></div>
-          </div>
+          <span class="text-sm text-gray-400">{mood.percentage}%</span>
         </div>
-      </Motion>
+        <div class="h-2 overflow-hidden rounded-full bg-white/10">
+          <div
+            class="h-full rounded-full transition-all duration-700"
+            style="width: {mood.percentage}%; background: {mood.color}"
+          ></div>
+        </div>
+      </div>
     {/each}
   </div>
 </div>

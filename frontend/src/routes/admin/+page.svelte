@@ -87,12 +87,12 @@
       const res = await fetch(API_ENDPOINTS.BACKUP, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ commit: backupCommitHash.trim() })
+        body: JSON.stringify({ commit: backupCommitHash.trim() }),
       });
-      
+
       const contentType = res.headers.get('content-type');
       let data: any = {};
-      
+
       if (contentType?.includes('application/json')) {
         data = await res.json();
       } else {
@@ -132,7 +132,7 @@
       const res = await fetch(API_ENDPOINTS.CLEAR_HISTORY, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: clearPassword })
+        body: JSON.stringify({ password: clearPassword }),
       });
       const data = await res.json().catch(() => ({}));
 
@@ -157,7 +157,6 @@
 
 <div class="page">
   <div class="container">
-    
     <header class="header">
       <div>
         <h1 class="title">Spotify Worker Dashboard</h1>
@@ -176,7 +175,6 @@
     {/if}
 
     <div class="grid">
-      
       <section class="card">
         <h2 class="card-title">Quick Actions</h2>
         <div class="actions">
@@ -189,7 +187,12 @@
           <a class="btn btn-secondary" href={API_ENDPOINTS.LIVE} target="_blank" rel="noreferrer">
             View Live Data
           </a>
-          <a class="btn btn-secondary" href={API_ENDPOINTS.HISTORY} target="_blank" rel="noreferrer">
+          <a
+            class="btn btn-secondary"
+            href={API_ENDPOINTS.HISTORY}
+            target="_blank"
+            rel="noreferrer"
+          >
             View History
           </a>
         </div>
@@ -206,9 +209,9 @@
             bind:value={backupCommitHash}
             disabled={loadingBackup}
           />
-          <button 
-            class="btn btn-success" 
-            on:click={backupHistory} 
+          <button
+            class="btn btn-success"
+            on:click={backupHistory}
             disabled={loadingBackup || !backupCommitHash.trim()}
           >
             {loadingBackup ? 'Processing...' : 'Restore'}
@@ -227,9 +230,9 @@
             bind:value={clearPassword}
             disabled={loadingClear}
           />
-          <button 
-            class="btn btn-danger" 
-            on:click={clearHistory} 
+          <button
+            class="btn btn-danger"
+            on:click={clearHistory}
             disabled={loadingClear || !clearPassword.trim()}
           >
             {loadingClear ? 'Clearing...' : 'Clear'}
@@ -249,13 +252,9 @@
           {/each}
         </div>
       </section>
-
     </div>
 
-    <footer class="footer">
-      Automated sync runs every 10 minutes via cron
-    </footer>
-
+    <footer class="footer">Automated sync runs every 10 minutes via cron</footer>
   </div>
 </div>
 
@@ -320,8 +319,13 @@
   }
 
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
   }
 
   .toast {

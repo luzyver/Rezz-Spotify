@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { HistoryItem } from '$lib/types';
-  import { Motion } from 'svelte-motion';
   import { Sunrise, Sun, Sunset, Moon } from 'lucide-svelte';
 
   let { history }: { history: HistoryItem[] } = $props();
@@ -61,30 +60,22 @@
 
   <div class="grid grid-cols-2 gap-4">
     {#each timeOfDayData() as period, i}
-      <Motion
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: i * 0.1 }}
-        let:motion
+      <div
+        class="rounded-lg border border-white/10 p-4 transition-all hover:scale-105"
+        style="background: {period.color}10"
       >
-        <div
-          use:motion
-          class="rounded-lg border border-white/10 p-4 transition-all hover:scale-105"
-          style="background: {period.color}10"
-        >
-          <div class="mb-3 flex items-center justify-between">
-            {#each [period.icon] as Icon}
-              <Icon class="h-5 w-5" style="color: {period.color}" />
-            {/each}
-            <span class="text-sm font-bold" style="color: {period.color}">
-              {period.percentage.toFixed(0)}%
-            </span>
-          </div>
-          <div class="mb-1 text-sm font-bold">{period.name}</div>
-          <div class="mb-2 text-xs text-gray-400">{period.hours}</div>
-          <div class="text-xs text-gray-500">{period.count} plays</div>
+        <div class="mb-3 flex items-center justify-between">
+          {#each [period.icon] as Icon}
+            <Icon class="h-5 w-5" style="color: {period.color}" />
+          {/each}
+          <span class="text-sm font-bold" style="color: {period.color}">
+            {period.percentage.toFixed(0)}%
+          </span>
         </div>
-      </Motion>
+        <div class="mb-1 text-sm font-bold">{period.name}</div>
+        <div class="mb-2 text-xs text-gray-400">{period.hours}</div>
+        <div class="text-xs text-gray-500">{period.count} plays</div>
+      </div>
     {/each}
   </div>
 </div>

@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { ListeningInsights } from '$lib/utils/analytics';
   import { TrendingUp, Music, Users, Clock, Flame, Target } from 'lucide-svelte';
-  import { Motion } from 'svelte-motion';
 
   let { insights }: { insights: ListeningInsights } = $props();
 
@@ -64,23 +63,15 @@
 
   <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
     {#each stats as stat, i}
-      <Motion
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: i * 0.1 }}
-        let:motion
+      <div
+        class="group rounded-lg border border-white/10 {stat.bg} p-4 transition-all hover:scale-105 hover:border-white/20"
       >
-        <div
-          use:motion
-          class="group rounded-lg border border-white/10 {stat.bg} p-4 transition-all hover:scale-105 hover:border-white/20"
-        >
-          {#each [stat.icon] as Icon}
-            <Icon class="mb-2 h-5 w-5 {stat.color} transition-transform group-hover:scale-110" />
-          {/each}
-          <div class="text-lg font-bold">{stat.value}</div>
-          <div class="text-xs text-gray-400">{stat.label}</div>
-        </div>
-      </Motion>
+        {#each [stat.icon] as Icon}
+          <Icon class="mb-2 h-5 w-5 {stat.color} transition-transform group-hover:scale-110" />
+        {/each}
+        <div class="text-lg font-bold">{stat.value}</div>
+        <div class="text-xs text-gray-400">{stat.label}</div>
+      </div>
     {/each}
   </div>
 

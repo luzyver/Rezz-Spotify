@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { getMonthCalendarData, loadAllHistoryStatic } from '$lib/utils/historyLoaderStatic';
+  import { getMonthCalendarData } from '$lib/utils/historyLoaderStatic';
   import type { HistoryItem } from '$lib/types';
-  import { Motion } from 'svelte-motion';
   import { theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
 
@@ -86,10 +85,6 @@
     if (ratio < 0.5) return isLight ? 'bg-green-400' : 'bg-[#1db954]/40';
     if (ratio < 0.75) return isLight ? 'bg-green-600' : 'bg-[#1db954]/60';
     return isLight ? 'bg-green-700' : 'bg-[#1db954]/80';
-  }
-
-  function getDayOfWeek(dateStr: string): number {
-    return new Date(dateStr).getDay();
   }
 
   // Generate calendar grid for the month
@@ -255,83 +250,72 @@
           <div class="grid grid-cols-7 gap-1">
             {#each week as cell, dayIndex}
               {@const globalIndex = weekIndex * 7 + dayIndex}
-              <Motion
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: globalIndex * 0.01 }}
-                let:motion
-              >
-                {#if cell === null}
-                  <!-- Empty cell -->
-                  <div use:motion class="aspect-square"></div>
-                {:else}
-                  <div
-                    use:motion
-                    class="group relative flex aspect-square cursor-pointer flex-col items-center justify-center rounded border p-1 transition-all hover:z-10 hover:scale-105 {getIntensity(
-                      cell.plays
-                    )}"
-                    class:border-green-500={cell.plays > 0 && isLight}
-                    class:border-[#1db954]={cell.plays > 0 && !isLight}
-                    style="border-color: {cell.plays === 0
-                      ? isLight
-                        ? 'rgba(0,0,0,0.1)'
-                        : 'rgba(255,255,255,0.1)'
-                      : ''}"
-                    title="{monthNames[
-                      selectedMonth
-                    ]} {cell.date}, {selectedYear}: {cell.plays} plays"
-                  >
-                    <!-- Date number -->
-                    <div
-                      class="text-xs font-medium"
-                      style="color: {isLight ? '#1f2937' : '#ffffff'}"
-                    >
-                      {cell.date}
-                    </div>
-
-                    <!-- Play count -->
-                    {#if cell.plays > 0}
-                      <div class="mt-0.5 text-[8px] font-bold text-[#1db954]">
-                        {cell.plays}
-                      </div>
-                    {/if}
-
-                    <!-- Tooltip -->
-                    {#if cell.plays > 0}
-                      <div
-                        class="pointer-events-none absolute -top-28 left-1/2 z-20 w-48 -translate-x-1/2 rounded-lg border p-3 opacity-0 shadow-xl transition-opacity group-hover:opacity-100"
-                        style="background: {isLight ? 'white' : '#1f2937'}; border-color: {isLight
-                          ? 'rgba(0,0,0,0.1)'
-                          : 'rgba(255,255,255,0.2)'}"
-                      >
-                        <div class="mb-1 text-sm font-bold">
-                          {monthNames[selectedMonth]}
-                          {cell.date}, {selectedYear}
-                        </div>
-                        <div class="text-lg font-bold text-[#1db954]">{cell.plays} plays</div>
-                        {#if cell.tracks.length > 0}
-                          <div
-                            class="mt-2 border-t pt-2"
-                            style="border-color: {isLight
-                              ? 'rgba(0,0,0,0.1)'
-                              : 'rgba(255,255,255,0.1)'}"
-                          >
-                            <div class="text-xs" style="color: {isLight ? '#9ca3af' : '#6b7280'}">
-                              Top track:
-                            </div>
-                            <div class="line-clamp-1 text-xs font-medium">
-                              {cell.tracks[0].track}
-                            </div>
-                            <div class="text-xs" style="color: {isLight ? '#9ca3af' : '#6b7280'}">
-                              {cell.tracks[0].artist}
-                            </div>
-                          </div>
-                        {/if}
-                      </div>
-                    {/if}
+              {#if cell === null}
+                <!-- Empty cell -->
+                <div class="aspect-square"></div>
+              {:else}
+                <div
+                  class="group relative flex aspect-square cursor-pointer flex-col items-center justify-center rounded border p-1 transition-all hover:z-10 hover:scale-105 {getIntensity(
+                    cell.plays
+                  )}"
+                  class:border-green-500={cell.plays > 0 && isLight}
+                  class:border-[#1db954]={cell.plays > 0 && !isLight}
+                  style="border-color: {cell.plays === 0
+                    ? isLight
+                      ? 'rgba(0,0,0,0.1)'
+                      : 'rgba(255,255,255,0.1)'
+                    : ''}"
+                  title="{monthNames[
+                    selectedMonth
+                  ]} {cell.date}, {selectedYear}: {cell.plays} plays"
+                >
+                  <!-- Date number -->
+                  <div class="text-xs font-medium" style="color: {isLight ? '#1f2937' : '#ffffff'}">
+                    {cell.date}
                   </div>
-                {/if}
-              </Motion>
+
+                  <!-- Play count -->
+                  {#if cell.plays > 0}
+                    <div class="mt-0.5 text-[8px] font-bold text-[#1db954]">
+                      {cell.plays}
+                    </div>
+                  {/if}
+
+                  <!-- Tooltip -->
+                  {#if cell.plays > 0}
+                    <div
+                      class="pointer-events-none absolute -top-28 left-1/2 z-20 w-48 -translate-x-1/2 rounded-lg border p-3 opacity-0 shadow-xl transition-opacity group-hover:opacity-100"
+                      style="background: {isLight ? 'white' : '#1f2937'}; border-color: {isLight
+                        ? 'rgba(0,0,0,0.1)'
+                        : 'rgba(255,255,255,0.2)'}"
+                    >
+                      <div class="mb-1 text-sm font-bold">
+                        {monthNames[selectedMonth]}
+                        {cell.date}, {selectedYear}
+                      </div>
+                      <div class="text-lg font-bold text-[#1db954]">{cell.plays} plays</div>
+                      {#if cell.tracks.length > 0}
+                        <div
+                          class="mt-2 border-t pt-2"
+                          style="border-color: {isLight
+                            ? 'rgba(0,0,0,0.1)'
+                            : 'rgba(255,255,255,0.1)'}"
+                        >
+                          <div class="text-xs" style="color: {isLight ? '#9ca3af' : '#6b7280'}">
+                            Top track:
+                          </div>
+                          <div class="line-clamp-1 text-xs font-medium">
+                            {cell.tracks[0].track}
+                          </div>
+                          <div class="text-xs" style="color: {isLight ? '#9ca3af' : '#6b7280'}">
+                            {cell.tracks[0].artist}
+                          </div>
+                        </div>
+                      {/if}
+                    </div>
+                  {/if}
+                </div>
+              {/if}
             {/each}
           </div>
         {/each}

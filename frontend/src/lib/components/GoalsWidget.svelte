@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { HistoryItem } from '$lib/types';
-  import { Motion } from 'svelte-motion';
   import { Target, TrendingUp, Award } from 'lucide-svelte';
 
   let { history }: { history: HistoryItem[] } = $props();
@@ -54,56 +53,49 @@
 
   <div class="space-y-4">
     {#each goals as goal, i}
-      <Motion
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: i * 0.1 }}
-        let:motion
-      >
-        <div use:motion class="space-y-2">
-          <div class="flex items-start justify-between">
-            <div class="flex items-center gap-3">
-              <div
-                class="flex h-10 w-10 items-center justify-center rounded-full"
-                style="background: {goal.color}20"
-              >
-                {#each [goal.icon] as Icon}
-                  <Icon class="h-5 w-5" style="color: {goal.color}" />
-                {/each}
-              </div>
-              <div>
-                <h4 class="font-bold">{goal.title}</h4>
-                <p class="text-xs text-gray-400">{goal.description}</p>
-              </div>
-            </div>
-            <div class="text-right">
-              <div class="text-lg font-bold" style="color: {goal.color}">
-                {goal.current}/{goal.target}
-              </div>
-              <div class="text-xs text-gray-400">
-                {Math.round((goal.current / goal.target) * 100)}%
-              </div>
-            </div>
-          </div>
-
-          <div class="h-2 overflow-hidden rounded-full bg-white/10">
+      <div class="space-y-2">
+        <div class="flex items-start justify-between">
+          <div class="flex items-center gap-3">
             <div
-              class="h-full rounded-full transition-all duration-700"
-              style="width: {Math.min(
-                (goal.current / goal.target) * 100,
-                100
-              )}%; background: {goal.color}"
-            ></div>
-          </div>
-
-          {#if goal.current >= goal.target}
-            <div class="flex items-center gap-2 text-sm" style="color: {goal.color}">
-              <Award class="h-4 w-4" />
-              <span class="font-medium">Goal completed! 🎉</span>
+              class="flex h-10 w-10 items-center justify-center rounded-full"
+              style="background: {goal.color}20"
+            >
+              {#each [goal.icon] as Icon}
+                <Icon class="h-5 w-5" style="color: {goal.color}" />
+              {/each}
             </div>
-          {/if}
+            <div>
+              <h4 class="font-bold">{goal.title}</h4>
+              <p class="text-xs text-gray-400">{goal.description}</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="text-lg font-bold" style="color: {goal.color}">
+              {goal.current}/{goal.target}
+            </div>
+            <div class="text-xs text-gray-400">
+              {Math.round((goal.current / goal.target) * 100)}%
+            </div>
+          </div>
         </div>
-      </Motion>
+
+        <div class="h-2 overflow-hidden rounded-full bg-white/10">
+          <div
+            class="h-full rounded-full transition-all duration-700"
+            style="width: {Math.min(
+              (goal.current / goal.target) * 100,
+              100
+            )}%; background: {goal.color}"
+          ></div>
+        </div>
+
+        {#if goal.current >= goal.target}
+          <div class="flex items-center gap-2 text-sm" style="color: {goal.color}">
+            <Award class="h-4 w-4" />
+            <span class="font-medium">Goal completed! 🎉</span>
+          </div>
+        {/if}
+      </div>
     {/each}
   </div>
 </div>

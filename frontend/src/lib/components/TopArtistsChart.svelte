@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { HistoryItem } from '$lib/types';
-  import { Motion } from 'svelte-motion';
   import { Crown } from 'lucide-svelte';
 
   let { history }: { history: HistoryItem[] } = $props();
@@ -44,37 +43,29 @@
 
   <div class="space-y-3">
     {#each topArtists() as artist, i}
-      <Motion
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: i * 0.05 }}
-        let:motion
-      >
-        <div use:motion class="group">
-          <div class="mb-1 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span
-                class="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold {i <
-                3
-                  ? 'bg-gradient-to-br ' + colors[i] + ' text-white'
-                  : 'bg-white/10 text-gray-400'}"
-              >
-                {i + 1}
-              </span>
-              <span class="font-medium">{artist.name}</span>
-            </div>
-            <span class="text-sm text-gray-400">{artist.plays} plays</span>
+      <div class="group">
+        <div class="mb-1 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span
+              class="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold {i < 3
+                ? 'bg-gradient-to-br ' + colors[i] + ' text-white'
+                : 'bg-white/10 text-gray-400'}"
+            >
+              {i + 1}
+            </span>
+            <span class="font-medium">{artist.name}</span>
           </div>
-          <div class="h-2 overflow-hidden rounded-full bg-white/10">
-            <div
-              class="h-full rounded-full bg-gradient-to-r {colors[
-                i
-              ]} transition-all duration-700 group-hover:shadow-lg"
-              style="width: {(artist.plays / maxPlays) * 100}%"
-            ></div>
-          </div>
+          <span class="text-sm text-gray-400">{artist.plays} plays</span>
         </div>
-      </Motion>
+        <div class="h-2 overflow-hidden rounded-full bg-white/10">
+          <div
+            class="h-full rounded-full bg-gradient-to-r {colors[
+              i
+            ]} transition-all duration-700 group-hover:shadow-lg"
+            style="width: {(artist.plays / maxPlays) * 100}%"
+          ></div>
+        </div>
+      </div>
     {/each}
   </div>
 </div>
