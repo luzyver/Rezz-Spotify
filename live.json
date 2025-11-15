@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763243444293,
+      "timestamp": 1763244012119,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:6zxacya3lkUHMT7wmbIioe",
-        "name": "Rasa Cinta Ini",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2735212e338a604d8fff1176165",
+        "uri": "spotify:track:7tPwtI9qBY7yoZtz35UYsN",
+        "name": "Berharap Kau Kembali",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6f0e5e732cddb2c817b37ce",
         "album": {
-          "uri": "spotify:album:7G0jQf7djccY6OsKIPu3Df",
-          "name": "Rasa Cinta Ini"
+          "uri": "spotify:album:4RQqQiwO3kTfzQI7YQfDMg",
+          "name": "Everlast"
         },
         "artist": {
-          "uri": "spotify:artist:3qL7BzwJOXq3EzAio36aLX",
-          "name": "Ghea Indrawari"
+          "uri": "spotify:artist:6FTLayBxjkQeanFdUusk1I",
+          "name": "Fabio Asher"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
