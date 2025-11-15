@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763169645989,
+      "timestamp": 1763170246078,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3KcfLN50nMGR4uH1T0QVxL",
-        "name": "Berakhir di Aku - Original Soundtrack From \"Home Sweet Loan\"",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734ae1c2813cfa6d10c73f4661",
+        "uri": "spotify:track:0pX5IztL39thiVjIlb2ksW",
+        "name": "Cinta Sendiri",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737f1ff8e8be3727f0c362ba06",
         "album": {
-          "uri": "spotify:album:3idg3o6wvAgPRwg0atEsbd",
-          "name": "Berakhir di Aku (Original Soundtrack From \"Home Sweet Loan\")"
+          "uri": "spotify:album:12UUzKlYnWUZtmlX41geSZ",
+          "name": "Soulmate"
         },
         "artist": {
-          "uri": "spotify:artist:7pFWMC2E7h8eL3SZyHRsRq",
-          "name": "Idgitaf"
+          "uri": "spotify:artist:2WhoMc7XqIzVXWbQqSoqe7",
+          "name": "Kahitna"
         },
         "context": {
           "uri": null,
