@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763174445622,
+      "timestamp": 1763175045946,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4dzRG1dWHna5Klwp8AByH7",
-        "name": "menangis di jalan pulang",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273144855c41fcb68b2e5519f6d",
+        "uri": "spotify:track:0EQBfsLlv47ie3p0fE1QEs",
+        "name": "Kalibata, 2012",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b75822516f485d6fc90b60e",
         "album": {
-          "uri": "spotify:album:2H7YgnGyrAi2AZsskG6Ows",
-          "name": "kalah bertaruh"
+          "uri": "spotify:album:2ZI3XeIrCM1PsOtK3rlMth",
+          "name": "Memorandum"
         },
         "artist": {
-          "uri": "spotify:artist:20zafXaLhm5IcXnSU93rNn",
-          "name": "Nadin Amizah"
+          "uri": "spotify:artist:0NbKRRBuiIUwS9irPvi7wD",
+          "name": "Perunggu"
         },
         "context": {
           "uri": null,
