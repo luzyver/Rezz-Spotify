@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763175045946,
+      "timestamp": 1763175647927,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0EQBfsLlv47ie3p0fE1QEs",
-        "name": "Kalibata, 2012",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737b75822516f485d6fc90b60e",
+        "uri": "spotify:track:4K0YdYv8a6UC9fWi9hV5MH",
+        "name": "Berawal Dari Tatap",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731e4e95c4e26e1f04580e374d",
         "album": {
-          "uri": "spotify:album:2ZI3XeIrCM1PsOtK3rlMth",
-          "name": "Memorandum"
+          "uri": "spotify:album:6xzJINIJok2KZur8OzQQT8",
+          "name": "YURA"
         },
         "artist": {
-          "uri": "spotify:artist:0NbKRRBuiIUwS9irPvi7wD",
-          "name": "Perunggu"
+          "uri": "spotify:artist:02Tq76MwpeoRu3BHIAiaio",
+          "name": "Yura Yunita"
         },
         "context": {
           "uri": null,
