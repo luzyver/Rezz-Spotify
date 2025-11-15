@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763244611749,
+      "timestamp": 1763245211840,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:7tPwtI9qBY7yoZtz35UYsN",
-        "name": "Berharap Kau Kembali",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6f0e5e732cddb2c817b37ce",
+        "uri": "spotify:track:3diRmt2Z6xSEaT0mqBr681",
+        "name": "Lagu Pernikahan Kita",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733b742ad14080732f6120bd79",
         "album": {
-          "uri": "spotify:album:4RQqQiwO3kTfzQI7YQfDMg",
-          "name": "Everlast"
+          "uri": "spotify:album:5eY3dzN1EvreoSLr1vWVMu",
+          "name": "Lagu Pernikahan Kita"
         },
         "artist": {
-          "uri": "spotify:artist:6FTLayBxjkQeanFdUusk1I",
-          "name": "Fabio Asher"
+          "uri": "spotify:artist:0kPb52ySN2k9P6wEZPTUzm",
+          "name": "Tiara Andini, Arsy Widianto"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
