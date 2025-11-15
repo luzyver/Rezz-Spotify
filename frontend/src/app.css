@@ -1,480 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Circular+Std:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 body {
   overflow-x: hidden;
+  background: #000000;
+  color: #ffffff;
+}
+
+html {
+  background: #000000;
 }
 
 @layer utilities {
-  /* Animated Background */
-  .animated-bg {
-    background: linear-gradient(
-      135deg,
-      #0a0a0a 0%,
-      #1a1a2e 25%,
-      #16213e 50%,
-      #0f3460 75%,
-      #0a0a0a 100%
-    );
-    background-size: 400% 400%;
-    animation: gradientFlow 15s ease infinite;
+  /* Spotify-like Background */
+  .spotify-bg {
+    background: #000000;
+  }
+
+  .spotify-bg-gradient {
+    background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
   }
 
   /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, #1db954 0%, #1ed760 50%, #1db954 100%);
-    background-size: 200% 200%;
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientShift 3s ease infinite;
   }
 
-  /* Glass Morphism */
-  .glass-card {
-    background: rgba(20, 20, 30, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Spotify Card Style */
+  .spotify-card {
+    background: #181818;
+    border-radius: 8px;
+    transition: all 0.3s ease;
   }
 
-  .glass-card:hover {
-    background: rgba(30, 30, 40, 0.8);
-    border: 1px solid rgba(29, 185, 84, 0.4);
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 12px 48px rgba(29, 185, 84, 0.2);
+  .spotify-card:hover {
+    background: #282828;
+    transform: translateY(-4px);
   }
 
-  .glass-card-live {
-    background: rgba(29, 185, 84, 0.05);
-    backdrop-filter: blur(30px);
-    border: 2px solid rgba(29, 185, 84, 0.3);
-    box-shadow: 0 12px 48px rgba(29, 185, 84, 0.15);
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Light mode card */
+  :root.light .spotify-card {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  .glass-card-live:hover {
-    background: rgba(29, 185, 84, 0.1);
-    border: 2px solid rgba(29, 185, 84, 0.5);
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 16px 64px rgba(29, 185, 84, 0.25);
+  :root.light .spotify-card:hover {
+    background: #f6f6f6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
-  /* Vinyl Animation */
-  .spin-slow {
-    animation: spin-slow 20s linear infinite;
+  .spotify-card-playing {
+    background: #181818;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
   }
 
-  .pulse-glow {
-    animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .float-animation {
-    animation: float 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .scale-in {
-    animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-
-  .fade-in-up {
+  .spotify-card-playing::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(135deg, #1db954, #1ed760);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transition: opacity 0.3s ease;
   }
-}
 
-/* Animations */
-@keyframes gradientFlow {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow:
-      0 0 30px rgba(29, 185, 84, 0.4),
-      0 0 60px rgba(29, 185, 84, 0.2),
-      0 0 90px rgba(29, 185, 84, 0.1);
-  }
-  50% {
-    box-shadow:
-      0 0 40px rgba(29, 185, 84, 0.6),
-      0 0 80px rgba(29, 185, 84, 0.3),
-      0 0 120px rgba(29, 185, 84, 0.2);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes scaleIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
+  .spotify-card-playing:hover::before {
     opacity: 1;
   }
+
+  .spotify-card-playing:hover {
+    background: #282828;
+  }
+
+  /* Scrollbar Styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Minimal Animations */
 @keyframes pulse {
   0%,
   100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes logoGlow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 20px rgba(29, 185, 84, 0.6));
-  }
-  50% {
-    filter: drop-shadow(0 0 30px rgba(29, 185, 84, 0.9));
-  }
-}
-
-@keyframes equalize {
-  0%,
-  100% {
-    height: 5px;
-  }
-  50% {
-    height: 20px;
-  }
-}
-
-@keyframes float-up {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  10% {
     opacity: 1;
   }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) scale(1.5);
-    opacity: 0;
+  50% {
+    opacity: 0.5;
   }
 }
 
-/* Floating particles */
-.particle {
-  position: fixed;
-  width: 3px;
-  height: 3px;
-  background: rgba(29, 185, 84, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: float-up 8s ease-in infinite;
-}
-
-/* Equalizer Animation */
-.equalizer {
-  display: flex;
-  align-items: flex-end;
-  height: 20px;
-  gap: 3px;
-}
-
-.equalizer span {
-  width: 4px;
-  background: linear-gradient(to top, #1db954, #1ed760);
-  border-radius: 4px;
-  animation: equalize 0.8s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
-}
-
-.equalizer span:nth-child(1) {
-  animation-delay: 0s;
-}
-.equalizer span:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.equalizer span:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.equalizer span:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.equalizer span:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-/* Badge Styles */
-.badge-live {
-  background: linear-gradient(135deg, #1db954, #1ed760);
-  padding: 6px 14px;
-  border-radius: 25px;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
-  animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Custom Scrollbar */
+/* Custom Scrollbar - Spotify Style */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 10, 10, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(29, 185, 84, 0.3);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(29, 185, 84, 0.5);
-}
-
-/* Thin Scrollbar for Sidebar */
-.scrollbar-thin::-webkit-scrollbar {
-  width: 4px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(29, 185, 84, 0.2);
-  border-radius: 10px;
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgba(29, 185, 84, 0.4);
-}
-
-/* Stats Badge */
-.stat-badge {
-  background: rgba(29, 185, 84, 0.1);
-  border: 1px solid rgba(29, 185, 84, 0.3);
-  padding: 8px 16px;
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
-  backdrop-filter: blur(10px);
+  border: 3px solid transparent;
+  background-clip: content-box;
 }
 
-/* Modern Stats Badge */
-.stat-badge-modern {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 6px 12px;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: inline-flex;
-  align-items: center;
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-.stat-badge-modern:hover {
-  background: rgba(29, 185, 84, 0.1);
-  border: 1px solid rgba(29, 185, 84, 0.3);
-  transform: translateY(-2px);
-}
 
-/* Smooth Horizontal Scroll */
-.snap-x {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Hide scrollbar for mobile horizontal scroll */
-.snap-x::-webkit-scrollbar {
-  display: none;
-}
-
-.snap-x {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Mobile responsiveness improvements */
-@media (max-width: 640px) {
-  .equalizer {
-    height: 16px;
-    gap: 2px;
-  }
-
-  .equalizer span {
-    width: 3px;
-  }
-
-  @keyframes equalize {
-    0%,
-    100% {
-      height: 4px;
-    }
-    50% {
-      height: 16px;
-    }
-  }
-
-  /* Reduce animations on mobile for performance */
-  .glass-card:hover,
-  .glass-card-live:hover {
-    transform: translateY(-3px) scale(1.01);
-  }
-
-  /* Better spacing for mobile */
-  body {
-    -webkit-tap-highlight-color: rgba(29, 185, 84, 0.2);
-  }
-}
-
-/* Masonry Grid Layout */
-.masonry-grid {
-  column-count: 1;
-  column-gap: 1rem;
-}
-
-@media (min-width: 640px) {
-  .masonry-grid {
-    column-count: 2;
-    column-gap: 1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .masonry-grid {
-    column-count: 2;
-    column-gap: 1.25rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .masonry-grid {
-    column-count: 3;
-    column-gap: 1.25rem;
-  }
-}
-
-.masonry-grid > * {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-}
-
-/* Gradient Backgrounds */
-.gradient-bg-1 {
-  background: linear-gradient(135deg, rgba(29, 185, 84, 0.1) 0%, rgba(30, 215, 96, 0.05) 100%);
-}
-
-.gradient-bg-2 {
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(75, 0, 130, 0.05) 100%);
-}
-
-.gradient-bg-3 {
-  background: linear-gradient(135deg, rgba(255, 20, 147, 0.1) 0%, rgba(255, 105, 180, 0.05) 100%);
-}
-
-.gradient-bg-4 {
-  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 191, 255, 0.05) 100%);
-}
-
-.gradient-bg-5 {
-  background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
-}
-
-/* Enhanced Blur Effects */
-.blur-card {
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  background: rgba(17, 25, 40, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-}
-
-/* Hover Glow Effect */
-.hover-glow {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.hover-glow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(29, 185, 84, 0.2), transparent);
-  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-glow:hover::before {
-  left: 100%;
-}
-
-/* Tablet optimizations */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
 
 /* Global line clamp utilities (shared by components) */
 .line-clamp-1 {
@@ -495,331 +166,306 @@ body {
   overflow: hidden;
 }
 
-/* Light Theme */
+/* Light Theme - Spotify Style */
 :root.light {
   color-scheme: light;
 }
 
+:root.light,
 :root.light body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  color: #1a1a1a;
+  background: #f0f0f0 !important;
+  color: #000000 !important;
 }
 
-:root.light .glass-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  color: #1a1a1a;
+:root.light * {
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
-:root.light .glass-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(29, 185, 84, 0.3);
+:root.light .bg-black {
+  background: #f0f0f0 !important;
 }
 
-:root.light .glass-card-live {
-  background: rgba(29, 185, 84, 0.15);
-  border: 2px solid rgba(29, 185, 84, 0.4);
-  color: #1a1a1a;
+:root.light .bg-\[#121212\],
+:root.light [class*='bg-[#121212]'] {
+  background: #f0f0f0 !important;
 }
 
-:root.light .glass-card-live:hover {
-  background: rgba(29, 185, 84, 0.2);
-  border: 2px solid rgba(29, 185, 84, 0.6);
+:root.light .bg-\[#181818\],
+:root.light [class*='bg-[#181818]'] {
+  background: #e0e0e0 !important;
 }
 
-:root.light input,
-:root.light select,
-:root.light button {
-  color: #1a1a1a;
+:root.light .overflow-hidden,
+:root.light .h-screen {
+  background: #f0f0f0 !important;
 }
 
-:root.light input::placeholder {
-  color: #6b7280;
+:root.light .spotify-card {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:root.light .spotify-card:hover {
+  background: #fafafa;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 :root.light .text-white {
-  color: #1a1a1a !important;
+  color: #000000 !important;
 }
 
 :root.light .text-gray-300 {
-  color: #4b5563 !important;
+  color: #5a5a5a !important;
 }
 
 :root.light .text-gray-400 {
-  color: #6b7280 !important;
+  color: #6a6a6a !important;
 }
 
 :root.light .text-gray-500 {
-  color: #9ca3af !important;
+  color: #8a8a8a !important;
 }
 
 :root.light .text-gray-600 {
-  color: #4b5563 !important;
+  color: #5a5a5a !important;
 }
 
-/* Card text colors in light mode */
-:root.light h1,
-:root.light h2,
-:root.light h3,
-:root.light h4,
-:root.light h5,
-:root.light h6 {
-  color: #1a1a1a;
+/* Sidebar specific text colors */
+:root.light aside .text-gray-400 {
+  color: #5a5a5a !important;
 }
 
-:root.light p,
-:root.light span,
-:root.light div {
-  color: inherit;
+:root.light .from-\[#1f1f1f\] {
+  --tw-gradient-from: #f0f0f0 var(--tw-gradient-from-position) !important;
 }
 
-/* Specific component fixes */
-:root.light .bg-white\/5 {
-  background: rgba(0, 0, 0, 0.05) !important;
-}
-
-:root.light .bg-white\/10 {
-  background: rgba(0, 0, 0, 0.1) !important;
+:root.light .to-\[#121212\] {
+  --tw-gradient-to: #f6f6f6 var(--tw-gradient-to-position) !important;
 }
 
 :root.light .border-white\/10 {
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-:root.light .border-white\/20 {
-  border-color: rgba(0, 0, 0, 0.15) !important;
+:root.light .bg-white\/5 {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+:root.light .bg-white\/10 {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+:root.light .bg-white\/20 {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+:root.light .bg-black\/40 {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+:root.light .bg-black\/60 {
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
+:root.light .text-white\/70 {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Buttons in light mode */
+:root.light button {
+  color: inherit;
+}
+
+:root.light button.bg-white {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+:root.light button.text-black {
+  color: #ffffff !important;
+}
+
+/* Hover states in light mode */
+:root.light .hover\:bg-white\/20:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+:root.light .hover\:text-white:hover {
+  color: #000000 !important;
+}
+
+/* Input and form elements in light mode */
+:root.light input,
+:root.light select,
+:root.light textarea {
+  background: #f6f6f6;
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:root.light input::placeholder {
+  color: #6a6a6a;
+}
+
+:root.light input.bg-white {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Scrollbar in light mode */
+:root.light ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+:root.light ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* SVG icons in light mode */
+:root.light svg {
+  color: inherit;
+}
+
+/* Specific component overrides */
+:root.light .rounded-full.bg-\[#1db954\] {
+  background: #1db954 !important;
+  color: #000000 !important;
+}
+
+/* Card overlays in light mode */
+:root.light .bg-black\/40 {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+:root.light .bg-black\/60 {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Sidebar in light mode */
+:root.light aside {
+  background: #ffffff !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+:root.light aside .rounded-lg {
+  background: #f5f5f5 !important;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:root.light aside button,
+:root.light aside a {
+  color: #5a5a5a !important;
+  font-weight: 500;
+}
+
+:root.light aside button.text-white,
+:root.light aside a.text-white,
+:root.light aside .text-white {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+:root.light aside button:hover,
+:root.light aside a:hover {
+  color: #000000 !important;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+:root.light aside button.text-white:hover,
+:root.light aside a.text-white:hover {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 /* Header in light mode */
 :root.light header {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+  background: linear-gradient(180deg, #fafafa 0%, #f0f0f0 100%) !important;
 }
 
-/* Scrollbar in light mode */
-:root.light ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
+/* Main content area in light mode */
+:root.light main,
+:root.light .flex-1 {
+  background: #f0f0f0 !important;
 }
 
-:root.light ::-webkit-scrollbar-thumb {
-  background: rgba(29, 185, 84, 0.4);
+:root.light .overflow-y-auto {
+  background: #f0f0f0 !important;
 }
 
-:root.light ::-webkit-scrollbar-thumb:hover {
-  background: rgba(29, 185, 84, 0.6);
+/* Empty state in light mode */
+:root.light .bg-white\/5 {
+  background: rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Backdrop in light mode */
-:root.light .backdrop-blur-md {
-  background: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Ensure all text is visible */
-:root.light * {
-  color: inherit;
-}
-
-:root.light .glass-card * {
-  color: #1a1a1a;
-}
-
-/* Override gradient text in light mode to be more visible */
-:root.light .gradient-text {
-  background: linear-gradient(135deg, #16a34a 0%, #15803d 50%, #16a34a 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Additional light mode text fixes */
-:root.light .text-gray-300,
-:root.light .text-gray-400,
-:root.light .text-gray-500 {
-  opacity: 1;
-}
-
-/* Make sure all card content is visible */
-:root.light .glass-card h1,
-:root.light .glass-card h2,
-:root.light .glass-card h3,
-:root.light .glass-card h4,
-:root.light .glass-card p,
-:root.light .glass-card span,
-:root.light .glass-card div:not([class*='bg-']) {
-  color: #1a1a1a;
-}
-
-/* Button text in light mode */
-:root.light button {
-  color: #1a1a1a;
-}
-
-:root.light button.bg-\[\#1db954\],
-:root.light button[class*='bg-green'],
-:root.light button[class*='bg-blue'],
-:root.light button[class*='bg-purple'] {
-  color: white !important;
-}
-
-/* Select and option styling for dark mode */
-select {
-  color: white;
-}
-
-select option {
-  background: #1a1a1a;
-  color: white;
-}
-
-/* Input and select in light mode */
-:root.light input,
-:root.light select,
-:root.light textarea {
-  background: rgba(0, 0, 0, 0.05);
-  color: #1a1a1a;
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-:root.light select option {
-  background: white;
-  color: #1a1a1a;
-}
-
-:root.light input:focus,
-:root.light select:focus,
-:root.light textarea:focus {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(29, 185, 84, 0.5);
-}
-
-/* Ensure badges and labels are visible */
-:root.light .badge,
-:root.light .label,
-:root.light kbd {
-  color: #1a1a1a;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-/* Fix for specific text colors that might be too light */
-:root.light [class*='text-gray'] {
-  filter: brightness(0.6);
-}
-
-/* But keep green text visible */
-:root.light .text-\[\#1db954\],
-:root.light [style*='color: #1db954'],
-:root.light [style*='color:#1db954'] {
-  filter: none;
-  color: #16a34a !important;
-}
-
-/* Animated background should be lighter */
-:root.light .animated-bg {
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #f0f9ff 25%,
-    #e0f2fe 50%,
-    #bae6fd 75%,
-    #ffffff 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientFlow 15s ease infinite;
-}
-
-/* Particles should be darker in light mode */
-:root.light .particle {
-  background: rgba(29, 185, 84, 0.8);
-}
-
-/* Footer text */
-:root.light footer {
-  color: #6b7280;
-  border-top-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Fix for History Card and Now Playing Card in light mode */
-:root.light .text-gray-300 {
-  color: #374151 !important;
-}
-
-:root.light .text-gray-400 {
-  color: #6b7280 !important;
-}
-
-:root.light .text-gray-500 {
-  color: #9ca3af !important;
-}
-
-:root.light .text-white {
-  color: #111827 !important;
-}
-
-/* Ensure card backgrounds are visible in light mode */
-:root.light [style*='background: linear-gradient(135deg'] {
-  background: rgba(255, 255, 255, 0.95) !important;
+/* Better contrast for light mode cards */
+:root.light .rounded-lg.bg-white\/5 {
+  background: #ffffff !important;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Card text should be dark in light mode */
-:root.light h3,
-:root.light h4 {
-  filter: brightness(0.4) !important;
+/* Play button in light mode */
+:root.light .bg-\[#1db954\] {
+  background: #1db954 !important;
 }
 
-/* But keep colored text (like artist names with custom colors) visible */
-:root.light [style*='color:'] h3,
-:root.light [style*='color:'] h4 {
-  filter: brightness(0.6) saturate(1.5) !important;
+:root.light .fill-black {
+  fill: #000000 !important;
 }
 
-/* User names and track info */
-:root.light .text-xs,
-:root.light .text-sm,
-:root.light .text-base {
-  color: #1f2937;
+:root.light .text-black {
+  color: #000000 !important;
 }
 
-/* Links should be visible */
-:root.light a {
-  color: inherit;
+/* Ensure proper contrast for badges */
+:root.light .rounded-full.bg-\[#1db954\] {
+  background: #1db954 !important;
+  color: #ffffff !important;
 }
 
-:root.light a:hover {
-  color: #16a34a;
+:root.light .rounded-full.bg-\[#1db954\] span {
+  color: #ffffff !important;
 }
 
-/* Gradient overlays should be lighter in light mode */
-:root.light [class*='from-black'] {
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent) !important;
+/* Force all backgrounds to be light */
+:root.light div[class*='bg-[#'] {
+  background: #f0f0f0 !important;
 }
 
-/* Badge text should be white on colored backgrounds */
-:root.light [style*='background: linear-gradient'] span,
-:root.light [style*='background: linear-gradient'] div {
-  color: white !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+:root.light .flex.h-screen {
+  background: #f0f0f0 !important;
 }
 
-/* Time ago and meta info */
-:root.light .text-\[10px\],
-:root.light [class*='text-[10px]'] {
-  color: #6b7280 !important;
+:root.light .flex-col {
+  background: transparent !important;
 }
 
-/* Album names in italic */
-:root.light .italic {
-  color: #9ca3af !important;
+/* Specific overrides for dark backgrounds */
+:root.light [style*='background']:not([style*='#1db954']):not([style*='#ffffff']) {
+  background: #f0f0f0 !important;
 }
 
-/* Border colors in light mode */
-:root.light .border-white\/10 {
-  border-color: rgba(0, 0, 0, 0.15) !important;
+/* Tab buttons in light mode */
+:root.light .rounded-full.bg-white {
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
-/* Ring colors for avatars */
-:root.light [class*='ring-'] {
-  --tw-ring-opacity: 0.5;
+:root.light .rounded-full.text-black {
+  color: #ffffff !important;
+}
+
+/* Live Badge - Force colors in all modes */
+:root.light [style*='background-color: #1db954'] {
+  background-color: #1db954 !important;
+}
+
+:root.light [style*='color: #ffffff'] {
+  color: #ffffff !important;
+}
+
+:root.light [style*='background-color: #ffffff'] {
+  background-color: #ffffff !important;
 }
