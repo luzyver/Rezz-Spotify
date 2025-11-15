@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763242243632,
+      "timestamp": 1763242843994,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3d6BjQ0QOLTzuKoOQbeGgG",
-        "name": "Satu-Satu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b549a8ecdc8adc1a6b30ca85",
+        "uri": "spotify:track:7BhRGeqNpBw1QilknM0svo",
+        "name": "Pilihan Yang Terbaik",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27370d9c1e403774dd0120fe730",
         "album": {
-          "uri": "spotify:album:40Yp12B9KULY4j2xbhE1YY",
-          "name": "Mengudara"
+          "uri": "spotify:album:3yUBpUAsQeuAu9R86wiukG",
+          "name": "Magnolya"
         },
         "artist": {
-          "uri": "spotify:artist:7pFWMC2E7h8eL3SZyHRsRq",
-          "name": "Idgitaf"
+          "uri": "spotify:artist:2wZWkw5jo8P4NVonVanxYd",
+          "name": "Ziva Magnolya"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
