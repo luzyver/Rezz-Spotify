@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763175647927,
+      "timestamp": 1763176246815,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:4K0YdYv8a6UC9fWi9hV5MH",
-        "name": "Berawal Dari Tatap",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731e4e95c4e26e1f04580e374d",
+        "uri": "spotify:track:1TcNl9Dty9qOcq4bjIMINw",
+        "name": "Tanya",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273719b3f4d2a462303a7b58907",
         "album": {
-          "uri": "spotify:album:6xzJINIJok2KZur8OzQQT8",
-          "name": "YURA"
+          "uri": "spotify:album:0C24r2d6TZhGGGqSwFjQcc",
+          "name": "Rubik"
         },
         "artist": {
-          "uri": "spotify:artist:02Tq76MwpeoRu3BHIAiaio",
-          "name": "Yura Yunita"
+          "uri": "spotify:artist:3IvlMYb5AvKRfNt7vR8PNP",
+          "name": "Dere"
         },
         "context": {
           "uri": null,
