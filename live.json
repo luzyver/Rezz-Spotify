@@ -1,7 +1,7 @@
 {
   "friends": [
     {
-      "timestamp": 1763166045865,
+      "timestamp": 1763166647021,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
@@ -20,8 +20,8 @@
           "name": "Bernadya"
         },
         "context": {
-          "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
-          "name": "playlist",
+          "uri": null,
+          "name": null,
           "index": 0
         }
       }
