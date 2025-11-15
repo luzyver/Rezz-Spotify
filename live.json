@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763209224743,
+      "timestamp": 1763209823586,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3GdN5n6p34yFMd12WKq8jL",
-        "name": "Penyangkalan",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730b2982815e3f47c2fb7b74c4",
+        "uri": "spotify:track:5rhwXZP0luMucnEPnYJpbI",
+        "name": "Kasih Aba Aba",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738afa25403ff8a518ee7a9f94",
         "album": {
-          "uri": "spotify:album:5DYiigOQPVOXd99jUnRTdP",
-          "name": "Penyangkalan"
+          "uri": "spotify:album:7epsFufhjXWBTRp8i4IkmM",
+          "name": "Kasih Aba Aba"
         },
         "artist": {
-          "uri": "spotify:artist:0f6TyESD8E1mD2oLJ4TGv1",
-          "name": "For Revenge"
+          "uri": "spotify:artist:79omf4LgzaVAnXIRWPkJUq",
+          "name": "Naykilla, Tenxi, Jemsii"
         },
         "context": {
           "uri": "spotify:playlist:37i9dQZF1DXa2EiKmMLhFD",
