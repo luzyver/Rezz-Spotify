@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763276440578,
+      "timestamp": 1763277040526,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3Ysf0Y3iu23mrDsVh1mdu0",
-        "name": "Merasa Indah",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273937d621f0025409ee44285d1",
+        "uri": "spotify:track:4rcuS31IcZynp91dqvmhmA",
+        "name": "Semua Aku Dirayakan",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27394847679fe7b10e27d9803f5",
         "album": {
-          "uri": "spotify:album:0jxUY7K5FdwJNl3SmnOZOl",
-          "name": "Tiara Andini"
+          "uri": "spotify:album:5hpq1LSLCuC7cifjXAM5bf",
+          "name": "Untuk Dunia, Cinta, dan Kotornya"
         },
         "artist": {
-          "uri": "spotify:artist:0kPb52ySN2k9P6wEZPTUzm",
-          "name": "Tiara Andini"
+          "uri": "spotify:artist:20zafXaLhm5IcXnSU93rNn",
+          "name": "Nadin Amizah"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
