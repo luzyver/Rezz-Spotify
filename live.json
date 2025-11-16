@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763310643402,
+      "timestamp": 1763311243138,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3CBxVM0zGj41BQtE6m7gwb",
-        "name": "Membasuh",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d623688488865906052ef96b",
+        "uri": "spotify:track:5gRDE98aV8p7lbeSPp5F6T",
+        "name": "Cukup Dewasa",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273696ff33f4f0e7eedcf0f404b",
         "album": {
-          "uri": "spotify:album:1DAuVHMlBvIjzWZALSUXbn",
-          "name": "Menari Dengan Bayangan"
+          "uri": "spotify:album:2qZcpDYlJa0rwb7OVlIb1w",
+          "name": "Cukup Dewasa"
         },
         "artist": {
-          "uri": "spotify:artist:51kyrUsAVqUBcoDEMFkX12",
-          "name": "Hindia, Rara Sekar"
+          "uri": "spotify:artist:1ZaYY3Ad5D5KYahXT594BX",
+          "name": "Wijaya 80"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
