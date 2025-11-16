@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763275240609,
+      "timestamp": 1763275840525,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:2hHeGD57S0BcopfVcmehdl",
-        "name": "Hati-Hati di Jalan",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d34a0632f6861e8875d6899b",
+        "uri": "spotify:track:778yZPIEqLgL4qSi2zUh9F",
+        "name": "Tak Selalu Memiliki - Ipar Adalah Maut Original Soundtrack",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738d4a3bdf4236f3e5d4d28dd2",
         "album": {
-          "uri": "spotify:album:3R4IAF9ApqYeUQrv1ddyoR",
-          "name": "Manusia"
+          "uri": "spotify:album:2y28ojd9lBvtJjgoGgCLov",
+          "name": "Melangkah"
         },
         "artist": {
-          "uri": "spotify:artist:2iDVt6mFbtbDEZG5ax0dTi",
-          "name": "Tulus"
+          "uri": "spotify:artist:6Sv2jkzH9sWQjwghW5ArMG",
+          "name": "Lyodra"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
