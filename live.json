@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763319042500,
+      "timestamp": 1763319645338,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:75IQVo8hqI1iwVZyvkN2VT",
-        "name": "Show Me How",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273deeb617204bc14f4ee87b057",
+        "uri": "spotify:track:3sslYZcFKtUvIEWN9lADgr",
+        "name": "First Love/Late Spring",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e90db8983ebd43b776694179",
         "album": {
-          "uri": "spotify:album:7mUYDBqNiddmKxuKrnBEKQ",
-          "name": "Show Me How"
+          "uri": "spotify:album:3I2KkX13lHXuYqfBjSOopo",
+          "name": "Bury Me At Makeout Creek"
         },
         "artist": {
-          "uri": "spotify:artist:3zmfs9cQwzJl575W1ZYXeT",
-          "name": "Men I Trust"
+          "uri": "spotify:artist:2uYWxilOVlUdk4oV9DvwqK",
+          "name": "Mitski"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
