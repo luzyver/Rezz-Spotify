@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763309442675,
+      "timestamp": 1763310042829,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5GgRntbjr23OK9MMST02di",
-        "name": "Usik",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273b43accd449468d819918efea",
+        "uri": "spotify:track:3CBxVM0zGj41BQtE6m7gwb",
+        "name": "Membasuh",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d623688488865906052ef96b",
         "album": {
-          "uri": "spotify:album:0t4RNN2t8lhd9yI9YxFHk5",
-          "name": "Riuh"
+          "uri": "spotify:album:1DAuVHMlBvIjzWZALSUXbn",
+          "name": "Menari Dengan Bayangan"
         },
         "artist": {
-          "uri": "spotify:artist:66NmU5epI0ONGmdCRbLpmW",
-          "name": "Feby Putri"
+          "uri": "spotify:artist:51kyrUsAVqUBcoDEMFkX12",
+          "name": "Hindia, Rara Sekar"
         },
         "context": {
           "uri": "spotify:playlist:1inVPhYK6TDVlKqZbApdcl",
