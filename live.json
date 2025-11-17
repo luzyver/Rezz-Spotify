@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763368211864,
+      "timestamp": 1763368811354,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0flo3KqhjkcuoB1G6Mhq7s",
-        "name": "Fly Me to the Moon",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273831f99bf6eb5be7b8eac0b48",
+        "uri": "spotify:track:2aTKrdenCq5qBOoJPFdn4P",
+        "name": "Here's Your Perfect",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730f77b506b28aa892702cc101",
         "album": {
-          "uri": "spotify:album:46IRvicHZhTd1qrdwaLJxC",
-          "name": "Fly Me to the Moon"
+          "uri": "spotify:album:6yNuKzr4GNs1c7Kpdf7c5w",
+          "name": "Here's Your Perfect"
         },
         "artist": {
-          "uri": "spotify:artist:61VZakASLH5PweMQzF7R8r",
-          "name": "The Macarons Project"
+          "uri": "spotify:artist:2LkkwxA19J8C52wPQl5bG6",
+          "name": "Jamie Miller"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
