@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763400610955,
+      "timestamp": 1763401210601,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:6RAxgUG90f39dVSGUr4qOd",
-        "name": "Kisah Tanpa Dirimu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d7105ffabf2ff9ddd265eab1",
+        "uri": "spotify:track:5vzRjB22yfvxZua0mknCo6",
+        "name": "April",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273d1f62c1b2133e298c08cb49a",
         "album": {
-          "uri": "spotify:album:6WyxwTMDu7MdmWKZ2m4lCe",
-          "name": "Devaki"
+          "uri": "spotify:album:2Vu9vlqebIXTxVSZiuxpyj",
+          "name": "Tempat Aku Pulang"
         },
         "artist": {
-          "uri": "spotify:artist:7lXTU6VtJQWfiN2vuZyzqf",
-          "name": "Anggis Devaki"
+          "uri": "spotify:artist:06QVnTCdjs4jPKO0487EGV",
+          "name": "Fiersa Besari"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
