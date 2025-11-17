@@ -1,26 +1,26 @@
 {
   "friends": [
     {
-      "timestamp": 1763373011394,
+      "timestamp": 1763373613460,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:7JIuqL4ZqkpfGKQhYlrirs",
-        "name": "The Only Exception",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e01d7d558032457b0e4883f6",
+        "uri": "spotify:track:00WLowvlN5cjkYpQV6pjo4",
+        "name": "Die For You",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273cdd1a8a427b3f81f4f4f4f7d",
         "album": {
-          "uri": "spotify:album:27UqZoE1kV6sIV6uQcI28A",
-          "name": "Brand New Eyes"
+          "uri": "spotify:album:39VuC5rYQHAnR6xQwm1WDk",
+          "name": "SMITHEREENS"
         },
         "artist": {
-          "uri": "spotify:artist:74XFHRwlV6OrjEM0A2NCMF",
-          "name": "Paramore"
+          "uri": "spotify:artist:3MZsBdqDrRTJihTHQrO6Dq",
+          "name": "Joji"
         },
         "context": {
-          "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
+          "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
           "name": "playlist",
           "index": 0
         }
