@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763401810689,
+      "timestamp": 1763402410892,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:5hPv6XDaQzixDaYN0yRCFi",
-        "name": "Mahir Memberi Luka",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273c6f0e5e732cddb2c817b37ce",
+        "uri": "spotify:track:7s8c4Ap7Gdzdvb3gGuVGhy",
+        "name": "Melangitkanmu",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27336b6a823583611445c30bca1",
         "album": {
-          "uri": "spotify:album:4RQqQiwO3kTfzQI7YQfDMg",
-          "name": "Everlast"
+          "uri": "spotify:album:39dqeYCRARABzKQEazIV8Z",
+          "name": "Melangitkanmu"
         },
         "artist": {
-          "uri": "spotify:artist:6FTLayBxjkQeanFdUusk1I",
-          "name": "Fabio Asher"
+          "uri": "spotify:artist:3qL7BzwJOXq3EzAio36aLX",
+          "name": "Ghea Indrawari"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
