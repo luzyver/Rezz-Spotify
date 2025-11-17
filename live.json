@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763375412422,
+      "timestamp": 1763376011390,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:6mSnSuOhgHHohqeBw76jRV",
-        "name": "i was all over her",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2734a82bda3507d50ac3e039bb0",
+        "uri": "spotify:track:7H0ya83CMmgFcOhw0UB6ow",
+        "name": "Space Song",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739b7190e673e46271b2754aab",
         "album": {
-          "uri": "spotify:album:10WzRaNWnFUQNrW2FpqQSQ",
-          "name": "melanchole"
+          "uri": "spotify:album:194CqC2Zi0kUFEPWedb3qr",
+          "name": "Depression Cherry"
         },
         "artist": {
-          "uri": "spotify:artist:0pg0Zm8FsGAYy5kdHuBnSo",
-          "name": "salvia palth"
+          "uri": "spotify:artist:56ZTgzPBDge0OvCGgMO3OY",
+          "name": "Beach House"
         },
         "context": {
           "uri": "spotify:playlist:68JXTKfqFZEWO1DQRdVndh",
