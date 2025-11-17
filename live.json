@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763371812704,
+      "timestamp": 1763372411605,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:0MAIxtXWimwhAAQOST9jp7",
-        "name": "Sesuatu Di Jogja",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273fa632a0ac2c0f23909bd3ad6",
+        "uri": "spotify:track:77SiKnkNEnRw0uoPE4wuEp",
+        "name": "cigarettes of ours",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ce2225084d3f198ae561dff4",
         "album": {
-          "uri": "spotify:album:32SLZ72En7DvxafTDhdk28",
-          "name": "8 Tahun"
+          "uri": "spotify:album:48SUVfdwm8K3U67cS5QC2h",
+          "name": "a letter to my 17 year old"
         },
         "artist": {
-          "uri": "spotify:artist:3UlOKNAlGyi7POSE9kyhfR",
-          "name": "Adhitia Sofyan"
+          "uri": "spotify:artist:3TkSKriI4EZmTxSFyzs0fd",
+          "name": "Ardhito Pramono"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
