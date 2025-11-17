@@ -12,6 +12,12 @@
   import CompareView from '$lib/components/CompareView.svelte';
   import TimeOfDayChart from '$lib/components/TimeOfDayChart.svelte';
   import MoodAnalysis from '$lib/components/MoodAnalysis.svelte';
+  import ListeningTrends from '$lib/components/ListeningTrends.svelte';
+  import WeeklySummary from '$lib/components/WeeklySummary.svelte';
+  import ListeningHeatmap from '$lib/components/ListeningHeatmap.svelte';
+  import DiversityScore from '$lib/components/DiversityScore.svelte';
+  import PeriodComparison from '$lib/components/PeriodComparison.svelte';
+  import QuickStats from '$lib/components/QuickStats.svelte';
 
   import { ITEMS_PER_PAGE } from '$lib/config';
   import type { NowPlayingBuddy, HistoryItem } from '$lib/types';
@@ -408,16 +414,43 @@
               </div>
             </div>
           {:else}
-            <InsightsCard {insights} />
-            <div class="grid gap-6 lg:grid-cols-2">
+            <div class="space-y-8">
+              <!-- Quick Stats -->
+              <QuickStats history={combinedHistory} />
+
+              <!-- Main Insights Card -->
+              <InsightsCard {insights} />
+
+              <!-- Weekly Summary & Diversity Score -->
+              <div class="grid gap-8 lg:grid-cols-2">
+                <WeeklySummary history={combinedHistory} />
+                <DiversityScore {insights} />
+              </div>
+
+              <!-- Period Comparison & Listening Trends -->
+              <div class="grid gap-8 lg:grid-cols-2">
+                <PeriodComparison history={combinedHistory} />
+                <ListeningTrends history={combinedHistory} />
+              </div>
+
+              <!-- Hourly Chart -->
               <HourlyChart history={combinedHistory} />
+
+              <!-- Top Artists Chart -->
               <TopArtistsChart history={combinedHistory} />
-            </div>
-            <div class="grid gap-6 lg:grid-cols-2">
+
+              <!-- Activity Heatmap -->
+              <ListeningHeatmap history={combinedHistory} />
+
+              <!-- Time of Day Chart -->
               <TimeOfDayChart history={combinedHistory} />
+
+              <!-- Mood Analysis -->
               <MoodAnalysis history={combinedHistory} />
+
+              <!-- Compare View -->
+              <CompareView history={combinedHistory} />
             </div>
-            <CompareView history={combinedHistory} />
           {/if}
         </div>
       {:else if activeTab === 'achievements'}

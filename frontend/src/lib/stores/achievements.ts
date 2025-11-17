@@ -88,18 +88,16 @@ export function checkAchievements(history: HistoryItem[]) {
       if (firstPlay) firstPlay.unlocked = true;
     }
 
-    // Night owl & Early bird (GMT+7 / WIB)
+    // Night owl & Early bird (local timezone)
     const nightOwl = history.some((item) => {
       const date = new Date(item.timestamp);
-      const utcHour = date.getUTCHours();
-      const wibHour = (utcHour + 7) % 24; // GMT+7
-      return wibHour >= 0 && wibHour < 4;
+      const localHour = date.getHours(); // Use local timezone
+      return localHour >= 0 && localHour < 4;
     });
     const earlyBird = history.some((item) => {
       const date = new Date(item.timestamp);
-      const utcHour = date.getUTCHours();
-      const wibHour = (utcHour + 7) % 24; // GMT+7
-      return wibHour >= 5 && wibHour < 7;
+      const localHour = date.getHours(); // Use local timezone
+      return localHour >= 5 && localHour < 7;
     });
 
     const nightOwlAch = updated.find((a) => a.id === 'night-owl');

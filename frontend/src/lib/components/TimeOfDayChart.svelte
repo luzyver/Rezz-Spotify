@@ -13,14 +13,12 @@
     };
 
     history.forEach((item) => {
-      // Convert to GMT+7 (WIB)
       const date = new Date(item.timestamp);
-      const utcHour = date.getUTCHours();
-      const wibHour = (utcHour + 7) % 24; // GMT+7
+      const localHour = date.getHours(); // Use local timezone
 
-      if (wibHour >= 5 && wibHour < 12) periods.morning.count++;
-      else if (wibHour >= 12 && wibHour < 18) periods.afternoon.count++;
-      else if (wibHour >= 18 && wibHour < 22) periods.evening.count++;
+      if (localHour >= 5 && localHour < 12) periods.morning.count++;
+      else if (localHour >= 12 && localHour < 18) periods.afternoon.count++;
+      else if (localHour >= 18 && localHour < 22) periods.evening.count++;
       else periods.night.count++;
     });
 

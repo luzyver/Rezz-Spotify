@@ -12,6 +12,8 @@ export interface ListeningInsights {
   musicPersonality: string;
   avgPlaysPerDay: number;
   topGenre?: string;
+  artistDiversity?: number;
+  repeatRate?: number;
 }
 
 export function calculateInsights(history: HistoryItem[]): ListeningInsights {
@@ -79,14 +81,12 @@ export function calculateInsights(history: HistoryItem[]): ListeningInsights {
   const [trackName, artistName] = topTrackEntry[0].split('|||');
   const topTrack = { name: trackName, artist: artistName, plays: topTrackEntry[1] };
 
-  // Favorite time (GMT+7 / WIB)
+  // Favorite time (local timezone)
   const hourCounts = history.reduce(
     (acc, item) => {
-      // Convert to GMT+7 (WIB)
       const date = new Date(item.timestamp);
-      const utcHour = date.getUTCHours();
-      const wibHour = (utcHour + 7) % 24; // GMT+7
-      acc[wibHour] = (acc[wibHour] || 0) + 1;
+      const localHour = date.getHours(); // Use local timezone
+      acc[localHour] = (acc[localHour] || 0) + 1;
       return acc;
     },
     {} as Record<number, number>
@@ -127,6 +127,12 @@ export function calculateInsights(history: HistoryItem[]): ListeningInsights {
   const daySpan = dates.length || 1;
   const avgPlaysPerDay = Math.round(totalPlays / daySpan);
 
+  // Artist diversity (how evenly distributed plays are across artists)
+  const artistDiversity = Math.round((uniqueArtists / totalPlays) * 100);
+
+  // Repeat rate (how often tracks are repeated)
+  const repeatRate = Math.round(((totalPlays - uniqueTracks) / totalPlays) * 100);
+
   return {
     totalPlays,
     uniqueTracks,
@@ -138,17 +144,17 @@ export function calculateInsights(history: HistoryItem[]): ListeningInsights {
     discoveryScore,
     musicPersonality,
     avgPlaysPerDay,
+    artistDiversity,
+    repeatRate,
   };
 }
 
 export function getHourlyDistribution(history: HistoryItem[]): { hour: number; plays: number }[] {
   const hourCounts = history.reduce(
     (acc, item) => {
-      // Convert to GMT+7 (WIB)
       const date = new Date(item.timestamp);
-      const utcHour = date.getUTCHours();
-      const wibHour = (utcHour + 7) % 24; // GMT+7
-      acc[wibHour] = (acc[wibHour] || 0) + 1;
+      const localHour = date.getHours(); // Use local timezone
+      acc[localHour] = (acc[localHour] || 0) + 1;
       return acc;
     },
     {} as Record<number, number>
