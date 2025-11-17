@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763370611463,
+      "timestamp": 1763371211493,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:3u1S1OmAUhx5DRlLrXqyp3",
-        "name": "Rise",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ffe7d26c10ff0a32aeea2dc3",
+        "uri": "spotify:track:5AkV53fo1u01mi8r22JNeF",
+        "name": "I Just Couldn't Save You Tonight - Story of Kale - Original Motion Picture Soundtrack",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27379541996457d9d06cf9806e3",
         "album": {
-          "uri": "spotify:album:3KjCdhPbjbLptyJzviKu4P",
-          "name": "Rise"
+          "uri": "spotify:album:1AgPsLxdjTamc8dapjpdom",
+          "name": "I Just Couldn't Save You Tonight (Story of Kale - Original Motion Picture Soundtrack)"
         },
         "artist": {
-          "uri": "spotify:artist:1HBjj22wzbscIZ9sEb5dyf",
-          "name": "Jonas Blue, Jack & Jack"
+          "uri": "spotify:artist:3TkSKriI4EZmTxSFyzs0fd",
+          "name": "Ardhito Pramono, Aurélie"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
