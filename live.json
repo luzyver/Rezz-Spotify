@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763403010707,
+      "timestamp": 1763403610687,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:6qolkjGnFjsui0h0bosp9p",
-        "name": "Kisah Sempurna",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736f713eb92ebf7ca05a562542",
+        "uri": "spotify:track:3nHxZEe1dT7zs73DG6pNll",
+        "name": "Usai",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2733ea0e9844c8ce8016a0c5478",
         "album": {
-          "uri": "spotify:album:1vva4fJyjXaJ2RDsGmIbCv",
-          "name": "fábula"
+          "uri": "spotify:album:1lN55vIsNORo3W6QlWbGR8",
+          "name": "Usai"
         },
         "artist": {
-          "uri": "spotify:artist:3wOsYKZM0zcKNasi3I7fP4",
-          "name": "Mahalini"
+          "uri": "spotify:artist:0kPb52ySN2k9P6wEZPTUzm",
+          "name": "Tiara Andini"
         },
         "context": {
           "uri": "spotify:album:1RKSbvPUDUEeKPIhGdnzSD",
