@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763446204159,
+      "timestamp": 1763446803946,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:6Fldcb48M743FktYimcWPI",
-        "name": "Rindu",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b27335ace29c117d8ec6dcea5e9c",
+        "uri": "spotify:track:6wqmvAct0xhX6plr6wv5Jp",
+        "name": "Tersenyum, Untuk Siapa?",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e23b66f0e9b868f275412e14",
         "album": {
-          "uri": "spotify:album:5ddSME8Fyd22vfbYafOYWr",
-          "name": "Rindu"
+          "uri": "spotify:album:3GXsFGyViN6r1JYvuHYYSG",
+          "name": "CERITERA"
         },
         "artist": {
-          "uri": "spotify:artist:0FYCcpBLjjMMnse9jIRbu3",
-          "name": "Dengarkan Dia"
+          "uri": "spotify:artist:4ubEZ6sMsrrbQChueyouCC",
+          "name": "Hivi!"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
