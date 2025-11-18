@@ -1,3 +1,30 @@
 {
-  "friends": []
+  "friends": [
+    {
+      "timestamp": 1763445604280,
+      "user": {
+        "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
+        "name": "Rezz",
+        "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
+      },
+      "track": {
+        "uri": "spotify:track:2YBKZDLTHfoqe7IUEe2z6n",
+        "name": "Teman Tapi Menikah",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2730ee4ddce02192452aef9c585",
+        "album": {
+          "uri": "spotify:album:61pxeWGW8w4LHpLorcVzL7",
+          "name": "Teman Tapi Menikah"
+        },
+        "artist": {
+          "uri": "spotify:artist:0FYCcpBLjjMMnse9jIRbu3",
+          "name": "Dengarkan Dia"
+        },
+        "context": {
+          "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
+          "name": "playlist",
+          "index": 0
+        }
+      }
+    }
+  ]
 }
