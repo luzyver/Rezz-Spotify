@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763449203978,
+      "timestamp": 1763449803859,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:630DpnzdfjdVqv2yLfPbAX",
-        "name": "Bertaut",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736d57a5c60decaa8fb39d5afb",
+        "uri": "spotify:track:5O0vv59rTNu0zJ2s9xI2GW",
+        "name": "Can't Take My Eyes Off You",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2739189d7443d5358197218135d",
         "album": {
-          "uri": "spotify:album:75KyCmWatZRvlMcMRed9BG",
-          "name": "Selamat Ulang Tahun"
+          "uri": "spotify:album:4xm3Dv0xEhYxTSchQjdNVo",
+          "name": "Can't Take My Eyes Off You"
         },
         "artist": {
-          "uri": "spotify:artist:20zafXaLhm5IcXnSU93rNn",
-          "name": "Nadin Amizah"
+          "uri": "spotify:artist:40JlNF1w2OiSOyj1nC4y0I",
+          "name": "Joseph Vincent"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
