@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763452203905,
+      "timestamp": 1763452804371,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:63j2yG9FZChKIpReIHRv1s",
-        "name": "Just the Two of Us",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731e08b5dd3bae872d66feea92",
+        "uri": "spotify:track:3u1S1OmAUhx5DRlLrXqyp3",
+        "name": "Rise",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b273ffe7d26c10ff0a32aeea2dc3",
         "album": {
-          "uri": "spotify:album:7Ke0Rs8Fymkc2GOKEyxfa6",
-          "name": "Just the Two of Us"
+          "uri": "spotify:album:3KjCdhPbjbLptyJzviKu4P",
+          "name": "Rise"
         },
         "artist": {
-          "uri": "spotify:artist:61VZakASLH5PweMQzF7R8r",
-          "name": "The Macarons Project"
+          "uri": "spotify:artist:1HBjj22wzbscIZ9sEb5dyf",
+          "name": "Jonas Blue, Jack & Jack"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
