@@ -1,23 +1,23 @@
 {
   "friends": [
     {
-      "timestamp": 1763448603939,
+      "timestamp": 1763449203978,
       "user": {
         "uri": "spotify:user:31ilktz5fqv575vybtkzthcniyqu",
         "name": "Rezz",
         "imageUrl": "https://i.scdn.co/image/ab6775700000ee85dde166d5c9c10ad2277bd9c5"
       },
       "track": {
-        "uri": "spotify:track:1xdp8tXLTGbPeUSEODP9N7",
-        "name": "Kukira Kau Rumah",
-        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2731f0212804c2a4c11810ac568",
+        "uri": "spotify:track:630DpnzdfjdVqv2yLfPbAX",
+        "name": "Bertaut",
+        "imageUrl": "https://i.scdn.co/image/ab67616d0000b2736d57a5c60decaa8fb39d5afb",
         "album": {
-          "uri": "spotify:album:23eyS24eT0cGfKVt0UTFtT",
-          "name": "Kukira Kau Rumah"
+          "uri": "spotify:album:75KyCmWatZRvlMcMRed9BG",
+          "name": "Selamat Ulang Tahun"
         },
         "artist": {
-          "uri": "spotify:artist:40wi3VPurw0e4t3Yggo2Fk",
-          "name": "Amigdala"
+          "uri": "spotify:artist:20zafXaLhm5IcXnSU93rNn",
+          "name": "Nadin Amizah"
         },
         "context": {
           "uri": "spotify:playlist:0gthDMkyfnv9KSD5D5sFC0",
